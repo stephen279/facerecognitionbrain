@@ -11,13 +11,16 @@ return (
 
          {'Please upload your image'}
          
-         <div className = 'center'>
-	<div className = 'form center pa4 br3 shadow-5'>
+			<div className='center'>
+				
+				<div className = 'form center pa4 br3 shadow-5'>
                {/*<input className='f4 pa2 w-390 center' type = 'file' />*/}
 
                
-                <input type="file" onChange={fileSelectedHandler} />
-               <button onClick={fileUploadHandler} >Check Image</button>
+                <input  className='f4 pa2 w-70 center' type="file" onChange={fileSelectedHandler} />
+					<button
+						   className='w-30 grow f4 link ph3 pv2 dib white bg-light-purple'
+						onClick={fileUploadHandler} >Check Image</button>
 
                {/*<button className='w-6 grow f4 link ph3 pv2 dib white bg-light-purple' >Test Image</button>*/}
 				
