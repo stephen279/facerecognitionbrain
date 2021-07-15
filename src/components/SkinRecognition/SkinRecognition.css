@@ -1,6 +1,16 @@
 #result{
 
-font-size: 120px;
+font-size: 20px;
+font-weight: 30;
+color: rgb(255, 115, 0);
+
+}
+
+#mycard{
+
+font-size: 40px;
 font-weight: 300;
+color:  white;
+background-color: rgb(136, 65, 150);
 
 }
