@@ -135,9 +135,13 @@ class App extends Component {
 		const formData = new FormData();
 		formData.append('data', this.state.selectedFile, this.state.selectedFile.name);
 		axios.post('https://www.nyckel.com/v0.9/functions/edx2ml1gbri4n34d/invoke', formData).then((res) => {
+			console.log(res.data.confidence);
 			console.log(res.data.name);
+
+			let confidence_new = (Math.round(res.data.confidence * 100) / 100).toFixed(2)*100 + "%";
 			// alert(res);
 			document.getElementById('result').innerHTML = res.data.name;
+				document.getElementById('confidence').innerHTML = confidence_new;
 		});
 	};
 

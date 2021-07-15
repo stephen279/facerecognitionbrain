@@ -9,11 +9,14 @@ return (
 	<div>
 	<p className = 'f3'>
 
-         {'Please upload your image'}
+			
+			  <h1 class="f3 lh-copy">{'Please upload your image'}</h1>
+        
          
 			<div className='center'>
 				
-				<div className = 'form center pa4 br3 shadow-5'>
+				<div className='form_transparent center pa4 br3 shadow-2'>
+					
                {/*<input className='f4 pa2 w-390 center' type = 'file' />*/}
 
                
