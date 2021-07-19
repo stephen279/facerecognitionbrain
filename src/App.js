@@ -54,6 +54,9 @@ class App extends Component {
 		this.state = {
 			input: '',
 			imageUrl: '',
+			symptoms: '',
+			age: '',
+			gender:'',
 			box: {},
 			user: {
         id: '',
@@ -106,16 +109,59 @@ class App extends Component {
 	};
 
 	onInputChange = (event) => {
-		this.setState({ input: event.target.value });
-		//console.log(event.target.value);
+
+		if (event.target.id == 'symptoms') {
+				
+			this.setState({ symptoms: event.target.value });
+			
+			
+		} else if (event.target.id == 'age') {
+			this.setState({ age: event.target.value });
+			console.log("age" + this.state.age);
+		} else if (event.target.id == 'gender') {
+			this.setState({ gender: event.target.value });
+			console.log("gender"+this.state.gender);
+		}
+		//this.setState({ symptoms: event.target.id });
+		//this.setState({ age: event.target.id });
+
+
+	
+
+		
+		
+
 	};
 
-	onButtonSubmit = () => {
+	onButtonSubmit = (event) => {
+		console.log("symptoms" + this.state.symptoms);
+		console.log("age" + this.state.age);
+		console.log("gender" + this.state.gender);
 		// set imageUrl state
-		this.setState({ imageUrl: this.state.input });
-		console.log({ imageUrl: this.state.input });
+		console.log( "clicked" + event.target.name);
 
-		app.models
+		const symptomsformData = new FormData();
+	  this.setState({ symptoms: this.state.input });
+		console.log({ symptoms: this.state.input });
+
+		symptomsformData.append('data', this.state.input);
+
+			axios.get('https://healthservice.priaid.ch/diagnosis?symptoms=[10]&gender=male&year_of_birth=1981&token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6InN0ZXBoZW5ob2xsYW5kMzc5QGdtYWlsLmNvbSIsInJvbGUiOiJVc2VyIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvc2lkIjoiNDg2NCIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvdmVyc2lvbiI6IjEwOSIsImh0dHA6Ly9leGFtcGxlLm9yZy9jbGFpbXMvbGltaXQiOiIxMDAiLCJodHRwOi8vZXhhbXBsZS5vcmcvY2xhaW1zL21lbWJlcnNoaXAiOiJCYXNpYyIsImh0dHA6Ly9leGFtcGxlLm9yZy9jbGFpbXMvbGFuZ3VhZ2UiOiJlbi1nYiIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvZXhwaXJhdGlvbiI6IjIwOTktMTItMzEiLCJodHRwOi8vZXhhbXBsZS5vcmcvY2xhaW1zL21lbWJlcnNoaXBzdGFydCI6IjIwMjAtMDgtMDEiLCJpc3MiOiJodHRwczovL2F1dGhzZXJ2aWNlLnByaWFpZC5jaCIsImF1ZCI6Imh0dHBzOi8vaGVhbHRoc2VydmljZS5wcmlhaWQuY2giLCJleHAiOjE2MjY2ODQ0NjAsIm5iZiI6MTYyNjY3NzI2MH0.J7sW5dodACCjZeev1-hdaWmiGfFD7K9s9FAWm1iUwYA&format=json&language=en-gb', symptomsformData).then((res) => {
+					console.log(res.data[0]);
+				console.log(res.data[0].Issue.Name);
+				console.log(res.data[0].Issue.Accuracy);
+				
+
+
+		//	console.log(res.data.name);
+
+		//	let confidence_new = (Math.round(res.data.confidence * 100) / 100).toFixed(2)*100 + "%";
+			// alert(res);
+		//	document.getElementById('result').innerHTML = res.data.name;
+			//	document.getElementById('confidence').innerHTML = confidence_new;
+		});
+
+	/*	app.models
 			.predict(Clarifai.FACE_DETECT_MODEL, this.state.input)
 			.then((response) =>
 				// calculateFaceLocation function pass to displaybox as is parameter
@@ -123,6 +169,10 @@ class App extends Component {
 			)
 			// if error exist console.log error
 			.catch((err) => console.log(err));
+		
+		*/
+		
+		
 	};
 
 	fileSelectedHandler = (event) => {
@@ -161,12 +211,12 @@ class App extends Component {
 					<div>
 						<Navigation onRouteChange={this.onRouteChange} />
 						<Logo />
-						<Diagnosis />
-						   <Rank
-				 //
-				    name={this.state.user.name}
-              //  entries={this.state.user.entries}
-              />
+					
+						<Rank
+							//
+							name={this.state.user.name}
+						//  entries={this.state.user.entries}
+						/>
 
 						{/*
      <ImageLinkForm 
@@ -180,12 +230,28 @@ class App extends Component {
 
 						<SkinRecognition />
 
+						
+
 						<FaceRecognition box={this.state.box} imageUrl={this.state.imageUrl} />
 					</div>
 				) : this.state.route === 'signin' ? (
-						<SignIn loadUser={this.loadUser} onRouteChange={this.onRouteChange}
+					<SignIn loadUser={this.loadUser} onRouteChange={this.onRouteChange}
 						
-						/>
+					/>
+				) : this.state.route === 'imageLinkForm' ? (
+							
+							
+						
+					<ImageLinkForm loadUser={this.loadUser} onRouteChange={this.onRouteChange}
+						onInputChange={this.onInputChange} onButtonSubmit={this.onButtonSubmit}
+								
+								
+						
+							/>
+
+							
+							
+							
 				) : (
 							<Registers loadUser={this.loadUser} onRouteChange={this.onRouteChange} />
 				)}
