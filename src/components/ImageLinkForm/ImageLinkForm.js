@@ -6,19 +6,21 @@ const ImageLinkForm = ({onInputChange, onButtonSubmit}) => {
 
 return (
 	
-	<div>
+		<div>
 	<p className = 'f3'>
 
-	{'Add You Symptoms'};
-
-	</p>
-		<form></form>
-<div className = 'center'>
-	<div className = 'form center pa4 br3 shadow-2'>
+			
+			  <h1 class="f3 lh-copy">{'Please Select Your Symptoms'}</h1>
+        
+         
 			<div className='center'>
 				
+				<div className='form_transparent center pa4 br3 shadow-2'>
+					
+               {/*<input className='f4 pa2 w-390 center' type = 'file' />*/}
+
 	
-      <select  className='f4 pa2 w-390 '  id = "symptoms" onChange={onInputChange} >
+      <select   id = "symptoms" onChange={onInputChange} >
 					<option value="Select Symptoms">Select Symptoms</option>
 					
 					<option value="10">Abdominal Pain</option>
@@ -27,7 +29,7 @@ return (
     
 					</select>
 					
-					</div>
+				
 				
 				    <select id = "age" onChange={onInputChange} >
 					<option value="Select age<">Select age</option>
@@ -40,7 +42,7 @@ return (
 				
 				
 
-				
+		
 				    <select id = "gender"onChange={onInputChange} >
 					<option value="Select gender">Select gender</option>
 					
@@ -50,7 +52,7 @@ return (
     
 				</select>
 				
-			<p>&#10;&#13;</p>
+		
 
 
 <button className='w-6 grow f4 link ph3 pv2 dib white bg-light-purple' id="submit" onClick={onButtonSubmit}>Diagnose</button>
@@ -58,16 +60,14 @@ return (
 				
 			</div>
 			
-			
 		</div>
-		<div class="container mt-5">
-	<h4 class="mb-3">Diagnosis Result:</h4>
+
+	</p>
+<div className = 'center'>
 	<div id="root"></div>
 </div>
 	</div>
 
-
-	
 	
 
 	
