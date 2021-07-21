@@ -14,8 +14,8 @@ return (
 	</p>
 		<form></form>
 <div className = 'center'>
-	<div className = 'form center pa4 br3 shadow-5'>
-		
+	<div className = 'form_trans center pa4 br3 shadow-2'>
+			<div className='center'>
 				
 	
       <select  className='f4 pa2 w-390 '  id = "symptoms" onChange={onInputChange} >
@@ -25,7 +25,9 @@ return (
 
 					<option value="11">Fever</option>
     
-				</select>
+					</select>
+					
+					</div>
 				
 				    <select id = "age" onChange={onInputChange} >
 					<option value="Select age<">Select age</option>
@@ -34,7 +36,9 @@ return (
 
 					<option value="1982">1982</option>
     
-      </select>
+				</select>
+				
+				
 
 				
 				    <select id = "gender"onChange={onInputChange} >
@@ -45,13 +49,13 @@ return (
 					<option value="female">Female</option>
     
 				</select>
-			
-    
+				
+			<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+
 
 <button className='w-6 grow f4 link ph3 pv2 dib white bg-light-purple' onClick={onButtonSubmit}>Diagnose</button>
 				
 				
-
 			</div>
 			
 			
