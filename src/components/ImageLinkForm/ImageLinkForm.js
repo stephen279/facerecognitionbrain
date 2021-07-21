@@ -19,9 +19,9 @@ return (
 					
                {/*<input className='f4 pa2 w-390 center' type = 'file' />*/}
 
-	
-      <select   id = "symptoms" onChange={onInputChange} >
-					<option value="Select Symptoms">Select Symptoms</option>
+	<select id="symptoms" class="w-100 db h2 f6 bg-near-white ba b--sliver gray" name="" onChange={onInputChange} >
+    
+					<option value="Select Symptoms"> Symptoms</option>
 					
 					<option value="10">Abdominal Pain</option>
 
@@ -30,9 +30,9 @@ return (
 					</select>
 					
 				
-				
-				    <select id = "age" onChange={onInputChange} >
-					<option value="Select age<">Select age</option>
+				<select id="age" class="w-100 db h2 f6 bg-near-white ba b--sliver gray" name="" onChange={onInputChange} >
+				    
+					<option value="Select age<"> age</option>
 					
 					<option value="1981">1981</option>
 
@@ -42,9 +42,9 @@ return (
 				
 				
 
-		
-				    <select id = "gender"onChange={onInputChange} >
-					<option value="Select gender">Select gender</option>
+		<select id="gender" class="w-100 db h2 f6 bg-near-white ba b--sliver gray" name="" onChange={onInputChange} >
+				
+					<option value="Select gender"> gender</option>
 					
 					<option value="male">Male</option>
 
