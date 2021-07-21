@@ -19,7 +19,7 @@ return (
 					
                {/*<input className='f4 pa2 w-390 center' type = 'file' />*/}
 
-	<select id="symptoms" class="w-100 db h2 f6 bg-near-white ba b--sliver gray" name="" onChange={onInputChange} >
+	<select id="symptoms" class="w-80 db h2 f4 bg-near-white ba b--sliver gray" name="" onChange={onInputChange} >
     
 					<option value="Select Symptoms"> Symptoms</option>
 					
@@ -30,7 +30,7 @@ return (
 					</select>
 					
 				
-				<select id="age" class="w-100 db h2 f6 bg-near-white ba b--sliver gray" name="" onChange={onInputChange} >
+				<select id="age" class="w-80 db h2 f4 bg-near-white ba b--sliver gray" name="" onChange={onInputChange} >
 				    
 					<option value="Select age<"> age</option>
 					
@@ -42,7 +42,7 @@ return (
 				
 				
 
-		<select id="gender" class="w-100 db h2 f6 bg-near-white ba b--sliver gray" name="" onChange={onInputChange} >
+		<select id="gender" class="w-80 db h2 f4 bg-near-white ba b--sliver gray" name="" onChange={onInputChange} >
 				
 					<option value="Select gender"> gender</option>
 					
@@ -53,9 +53,9 @@ return (
 				</select>
 				
 		
+<p>&nbsp;&nbsp;</p>
 
-
-<button className='w-6 grow f4 link ph3 pv2 dib white bg-light-purple' id="submit" onClick={onButtonSubmit}>Diagnose</button>
+<button className='f6 link dim br1 ph5 pv2 mb4 dib white bg-light-purple' id="submit" onClick={onButtonSubmit}>Diagnose</button>
 				
 				
 			</div>
