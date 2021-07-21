@@ -53,9 +53,9 @@ return (
 				</select>
 				
 		
-<p>&nbsp;&nbsp;</p>
+<p> &nbsp; </p>
 
-<button className='f6 link dim br1 ph5 pv2 mb4 dib white bg-light-purple' id="submit" onClick={onButtonSubmit}>Diagnose</button>
+<button className='w-6 grow f6 link ph3 pv2 dib white bg-light-purple' id="submit" onClick={onButtonSubmit}>Diagnose</button>
 				
 				
 			</div>
