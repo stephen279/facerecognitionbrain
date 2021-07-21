@@ -14,7 +14,7 @@ return (
 	</p>
 		<form></form>
 <div className = 'center'>
-	<div className = 'form_trans center pa4 br3 shadow-2'>
+	<div className = 'form center pa4 br3 shadow-2'>
 			<div className='center'>
 				
 	
@@ -50,10 +50,10 @@ return (
     
 				</select>
 				
-			<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+			<p>&#10;&#13;</p>
 
 
-<button className='w-6 grow f4 link ph3 pv2 dib white bg-light-purple' onClick={onButtonSubmit}>Diagnose</button>
+<button className='w-6 grow f4 link ph3 pv2 dib white bg-light-purple' id="submit" onClick={onButtonSubmit}>Diagnose</button>
 				
 				
 			</div>
