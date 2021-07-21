@@ -18,9 +18,11 @@ import Rank from './components/Rank/Rank';
 
 import SignIn from './components/SignIn/SignIn';
 
+import SymptomsRecognition from './components/SymptomsRecognition/SymptomsRecognition';
+
 import Registers from './components/Registers/Registers';
 
-import Diagnosis from './components/Diagnosis/Diagnosis';
+
 
 import Particles from 'react-particles-js';
 
@@ -135,21 +137,35 @@ class App extends Component {
 
 	onButtonSubmit = (event) => {
 		console.log("symptoms" + this.state.symptoms);
+		
+		
+
+		
 		console.log("age" + this.state.age);
 		console.log("gender" + this.state.gender);
 		// set imageUrl state
-		console.log( "clicked" + event.target.name);
+	
 
 		const symptomsformData = new FormData();
-	  this.setState({ symptoms: this.state.input });
-		console.log({ symptoms: this.state.input });
+	
 
 		symptomsformData.append('data', this.state.input);
+var symptoms = this.state.symptoms;
 
-			axios.get('https://healthservice.priaid.ch/diagnosis?symptoms=[10]&gender=male&year_of_birth=1981&token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6InN0ZXBoZW5ob2xsYW5kMzc5QGdtYWlsLmNvbSIsInJvbGUiOiJVc2VyIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvc2lkIjoiNDg2NCIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvdmVyc2lvbiI6IjEwOSIsImh0dHA6Ly9leGFtcGxlLm9yZy9jbGFpbXMvbGltaXQiOiIxMDAiLCJodHRwOi8vZXhhbXBsZS5vcmcvY2xhaW1zL21lbWJlcnNoaXAiOiJCYXNpYyIsImh0dHA6Ly9leGFtcGxlLm9yZy9jbGFpbXMvbGFuZ3VhZ2UiOiJlbi1nYiIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvZXhwaXJhdGlvbiI6IjIwOTktMTItMzEiLCJodHRwOi8vZXhhbXBsZS5vcmcvY2xhaW1zL21lbWJlcnNoaXBzdGFydCI6IjIwMjAtMDgtMDEiLCJpc3MiOiJodHRwczovL2F1dGhzZXJ2aWNlLnByaWFpZC5jaCIsImF1ZCI6Imh0dHBzOi8vaGVhbHRoc2VydmljZS5wcmlhaWQuY2giLCJleHAiOjE2MjY2ODQ0NjAsIm5iZiI6MTYyNjY3NzI2MH0.J7sW5dodACCjZeev1-hdaWmiGfFD7K9s9FAWm1iUwYA&format=json&language=en-gb', symptomsformData).then((res) => {
+		let age = this.state.age;
+
+		let gender = this.state.gender;
+			axios.get('https://healthservice.priaid.ch/diagnosis?symptoms=['+symptoms+']&gender='+gender+'&year_of_birth='+age+'&token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6InN0ZXBoZW5ob2xsYW5kMzc5QGdtYWlsLmNvbSIsInJvbGUiOiJVc2VyIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvc2lkIjoiNDg2NCIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvdmVyc2lvbiI6IjEwOSIsImh0dHA6Ly9leGFtcGxlLm9yZy9jbGFpbXMvbGltaXQiOiIxMDAiLCJodHRwOi8vZXhhbXBsZS5vcmcvY2xhaW1zL21lbWJlcnNoaXAiOiJCYXNpYyIsImh0dHA6Ly9leGFtcGxlLm9yZy9jbGFpbXMvbGFuZ3VhZ2UiOiJlbi1nYiIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvZXhwaXJhdGlvbiI6IjIwOTktMTItMzEiLCJodHRwOi8vZXhhbXBsZS5vcmcvY2xhaW1zL21lbWJlcnNoaXBzdGFydCI6IjIwMjAtMDgtMDEiLCJpc3MiOiJodHRwczovL2F1dGhzZXJ2aWNlLnByaWFpZC5jaCIsImF1ZCI6Imh0dHBzOi8vaGVhbHRoc2VydmljZS5wcmlhaWQuY2giLCJleHAiOjE2MjY4NTc4MTUsIm5iZiI6MTYyNjg1MDYxNX0.R5UNCqIew_9IjaX2CdwQJ4c23pkBsjYcUF4SECFGp-M&format=json&language=en-gb', symptomsformData).then((res) => {
 					console.log(res.data[0]);
 				console.log(res.data[0].Issue.Name);
 				console.log(res.data[0].Issue.Accuracy);
+				console.log(res.data[0].Issue.Gender);
+				
+
+
+				let name = res.data[0].Issue.Name;
+				let accuracy = res.data[0].Issue.Accuracy+ "%";
+				let geder = res.data[0].Issue.Gender;
 				
 
 
@@ -157,8 +173,8 @@ class App extends Component {
 
 		//	let confidence_new = (Math.round(res.data.confidence * 100) / 100).toFixed(2)*100 + "%";
 			// alert(res);
-		//	document.getElementById('result').innerHTML = res.data.name;
-			//	document.getElementById('confidence').innerHTML = confidence_new;
+			document.getElementById('symptoms_result').innerHTML = name;
+			document.getElementById('symptoms_confidence').innerHTML = accuracy;
 		});
 
 	/*	app.models
@@ -218,6 +234,16 @@ class App extends Component {
 						//  entries={this.state.user.entries}
 						/>
 
+						<ImageLinkForm loadUser={this.loadUser} onRouteChange={this.onRouteChange}
+						onInputChange={this.onInputChange} onButtonSubmit={this.onButtonSubmit}
+								
+								
+						
+						/>
+						
+						<SymptomsRecognition />
+
+
 						{/*
      <ImageLinkForm 
      onInputChange={this.onInputChange} 
@@ -228,7 +254,12 @@ class App extends Component {
 							fileUploadHandler={this.fileUploadHandler}
 						/>
 
+						
+						
+
 						<SkinRecognition />
+
+						
 
 						
 
@@ -238,20 +269,8 @@ class App extends Component {
 					<SignIn loadUser={this.loadUser} onRouteChange={this.onRouteChange}
 						
 					/>
-				) : this.state.route === 'imageLinkForm' ? (
-							
-							
-						
-					<ImageLinkForm loadUser={this.loadUser} onRouteChange={this.onRouteChange}
-						onInputChange={this.onInputChange} onButtonSubmit={this.onButtonSubmit}
-								
-								
-						
-							/>
-
-							
-							
-							
+				)  : this.state.route === 'diagnoses' ? (
+							<SymptomsRecognition loadUser={this.loadUser} onRouteChange={this.onRouteChange} />
 				) : (
 							<Registers loadUser={this.loadUser} onRouteChange={this.onRouteChange} />
 				)}
