@@ -21,11 +21,35 @@ return (
 
 	<select id="symptoms" class="w-80 db h2 f4 bg-near-white ba b--sliver gray" name="" onChange={onInputChange} >
     
-					<option value="Select Symptoms"> Symptoms</option>
+					<option value="Select Symptoms"> Symptoms one</option>
 					
 					<option value="10">Abdominal Pain</option>
 
-					<option value="11">Fever</option>
+						<option value="11">Fever</option>
+							<option value="12">other</option>
+    
+					</select>
+
+					<select id="symptoms1" class="w-80 db h2 f4 bg-near-white ba b--sliver gray" name="" onChange={onInputChange} >
+    
+					<option value="Select Symptoms"> Symptoms two </option>
+					
+					<option value="10">Abdominal Pain</option>
+
+						<option value="11">Fever</option>
+							<option value="12">other</option>
+    
+					</select>
+
+						<select id="symptoms2" class="w-80 db h2 f4 bg-near-white ba b--sliver gray" name="" onChange={onInputChange} >
+    
+					<option value="Select Symptoms"> Symptoms three </option>
+					
+					<option value="10">Abdominal Pain</option>
+
+						<option value="11">Fever</option>
+						
+						<option value="12">other</option>
     
 					</select>
 					
