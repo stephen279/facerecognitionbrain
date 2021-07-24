@@ -221,23 +221,39 @@ class App extends Component {
 const options = {
   method: 'GET',
   url: 'https://priaid-symptom-checker-v1.p.rapidapi.com/diagnosis',
-  params: {gender: gender, year_of_birth: age, symptoms: '['+symptoms+','+symptoms1+','+symptoms2+']', language: 'en-gb'},
-  headers: {
-      'x-rapidapi-key': '3b5c37eca6msh16cc56dbeca52cfp1bdf10jsn63b2a383dcbd',
+  params: {gender: gender, year_of_birth: age, symptoms: '['+symptoms+','+symptoms1+']', language: 'en-gb'},
+ headers: {
+    'x-rapidapi-key': '3b5c37eca6msh16cc56dbeca52cfp1bdf10jsn63b2a383dcbd',
     'x-rapidapi-host': 'priaid-symptom-checker-v1.p.rapidapi.com'
   }
 };
 
+
 axios.request(options).then(function (response) {
-//	console.log("new response" + response.data[0].Issue.Name);
+	console.log(response.data[0].Issue.Name);
 	let name = response.data[0].Issue.Name;
-				let accuracy = response.data[0].Issue.Accuracy+ "%";
+	let accuracy = response.data[0].Issue.Accuracy+ "%";
 	let geder = response.data[0].Issue.Gender;
+
 	document.getElementById('symptoms_result').innerHTML = name;
 			document.getElementById('symptoms_confidence').innerHTML = accuracy;
 }).catch(function (error) {
 	console.error(error);
 });
+/*
+axios.request(options).then(function (response) {
+	console.log("new response" + response.data[0].Issue);
+	let name = response.data[0].Issue.Name;
+	let accuracy = response.data[0].Issue.Accuracy+ "%";
+	let geder = response.data[0].Issue.Gender;
+	let all = response.data;
+	console.log(all);
+	document.getElementById('symptoms_result').innerHTML = name;
+			document.getElementById('symptoms_confidence').innerHTML = accuracy;
+}).catch(function (error) {
+	console.error(error);
+});
+		*/
 		
 		
 				
