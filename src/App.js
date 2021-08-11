@@ -24,6 +24,10 @@ import Registers from './components/Registers/Registers';
 
 
 
+//const dotenv = require('dotenv').config()
+
+
+
 
 
 
@@ -74,7 +78,7 @@ class App extends Component {
         entries: 0,
         joined: ''
       },
-			route: 'home',
+			route: 'signin',
 			selectedFile: null
 		};
 	}
@@ -232,11 +236,22 @@ const options = {
 axios.request(options).then(function (response) {
 	console.log(response.data[0].Issue.Name);
 	let name = response.data[0].Issue.Name;
-	let accuracy = response.data[0].Issue.Accuracy+ "%";
+	let accuracy = response.data[0].Issue.Accuracy;
+	let name_1 = response.data[1].Issue.Name;
+	let accuracy_1= (Math.round(response.data[1].Issue.Accuracy * 100) / 100).toFixed(0)  ;
+	//let accuracy_1= response.data[1].Issue.Accuracy+ "%";
+
 	let geder = response.data[0].Issue.Gender;
+
+	console.log(response.data[0]);
 
 	document.getElementById('symptoms_result').innerHTML = name;
 			document.getElementById('symptoms_confidence').innerHTML = accuracy;
+
+			
+
+				document.getElementById('symptoms_result_1').innerHTML = name_1;
+			document.getElementById('symptoms_confidence_1').innerHTML = accuracy_1;
 }).catch(function (error) {
 	console.error(error);
 });

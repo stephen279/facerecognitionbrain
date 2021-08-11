@@ -5,6 +5,7 @@
   "dependencies": {
     "clarifai": "^2.9.1",
     "crypto-js": "^4.1.1",
+    "express-session": "^1.17.2",
     "jquery": "^3.6.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
