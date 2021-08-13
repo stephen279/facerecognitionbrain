@@ -320,6 +320,9 @@ axios.request(options).then(function (response) {
 				method: 'get',
      
 			}).then(response => response.json())
+
+
+			
 				.then
 			
 			console.log("response "+response);
