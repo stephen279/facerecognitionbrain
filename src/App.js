@@ -317,8 +317,8 @@ axios.request(options).then(function (response) {
 			
 			fetch('https://protected-gorge-67490.herokuapp.com/')
 				.then(res => {
-					console.log("result returned is" + res.json);
-					console.log("result returned is" + res);
+					console.log("result returned is" + res.json());
+					console.log("result1 returned is" + res);
 					//  return res.json()
 					if (res == "session") {
 						this.setState({ route: 'home' })
