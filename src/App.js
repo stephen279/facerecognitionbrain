@@ -322,11 +322,11 @@ axios.request(options).then(function (response) {
 
 				
 					//  return res.json()
-					if (data == "session") {
-						this.setState({ route: 'home' })
-					} else 
-						this.setState({ route: 'signin' })
-					
+			if (data == "session") {
+				this.setState({ route: 'home' })
+			} else {
+				this.setState({ route: 'signin' })
+			}
 				
    
 		
