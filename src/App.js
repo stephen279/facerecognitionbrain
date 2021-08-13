@@ -316,8 +316,8 @@ axios.request(options).then(function (response) {
 			console.log("result test-------"+route);
 			
 			fetch('https://protected-gorge-67490.herokuapp.com/')
-				.then(res => {
-					console.log("result returned is" + res.text())
+			
+					.then(response => response.text())
 					.then(data => console.log(data));
 
 					
