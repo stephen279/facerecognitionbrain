@@ -311,22 +311,25 @@ axios.request(options).then(function (response) {
 	onRouteChange = (route) => {
 
 		console.log("ROUTE IS "+route)
-		if (route = 'home') {
+		if (route != 'signin') {
 
-			 console.log("result test-------");
+			console.log("result test-------");
 			
-			 fetch('https://protected-gorge-67490.herokuapp.com/')
-            .then(res => {
-                console.log("result returned is"+res.json);
-				  //  return res.json()
+			fetch('https://protected-gorge-67490.herokuapp.com/')
+				.then(res => {
+					console.log("result returned is" + res.json);
+					//  return res.json()
 					if (res == "session") {
-						this.setState( 'home' )
+						this.setState({ route:'home'})
 					}
-             })
+				})
            
-		}
+		} else {
 		
-		this.setState({ route: route });
+		//	this.setState({ route: route });
+			
+			this.setState({ route:'signin'})
+		}
 	};
 
 	//test
