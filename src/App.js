@@ -319,10 +319,7 @@ axios.request(options).then(function (response) {
 						this.setState({ users })
 					}
              })
-            .then(users => { 
-                console.log(users); 
-                this.setState({ users })
-             });
+           
 		}
 		
 		this.setState({ route: route });
