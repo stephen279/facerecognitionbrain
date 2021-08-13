@@ -316,7 +316,7 @@ axios.request(options).then(function (response) {
                 console.log("result returned is"+res);
 				  //  return res.json()
 					if (res == "session") {
-						this.setState({ users })
+						this.setState( 'home' )
 					}
              })
            
