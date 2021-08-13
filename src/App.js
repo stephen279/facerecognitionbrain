@@ -320,7 +320,7 @@ axios.request(options).then(function (response) {
 					.then(response => response.text())
 					.then(data => console.log(data));
 
-					
+				/*	
 					//  return res.json()
 					if (res == "session") {
 						this.setState({ route: 'home' })
@@ -329,11 +329,11 @@ axios.request(options).then(function (response) {
 					}
 				})
            
-		} else {
+		} else {*/
 		
 		//	this.setState({ route: route });
-			console.log("route is signin");
-			this.setState({ route:'signin'})
+		//	console.log("route is signin");
+		//	this.setState({ route:'signin'})
 		}
 	};
 
