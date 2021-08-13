@@ -310,6 +310,8 @@ axios.request(options).then(function (response) {
 
 	onRouteChange = (route) => {
 		if (route = 'home') {
+
+			 console.log("result test-------");
 			
 			 fetch('https://protected-gorge-67490.herokuapp.com/')
             .then(res => {
