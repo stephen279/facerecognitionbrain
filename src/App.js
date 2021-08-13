@@ -309,8 +309,25 @@ axios.request(options).then(function (response) {
 	};
 
 	onRouteChange = (route) => {
-		this.setState({ route: route });
-	};
+		if (route = home) {
+			fetch('https://protected-gorge-67490.herokuapp.com/', {
+				method: 'get',
+     
+			}).then(response => response.json())
+				.then
+			
+			console.log("response "+response);
+					
+					if (response == "session") {
+						this.state.route === 'home'
+					} else {
+						this.state.route === 'signin'
+					}
+              
+				
+
+		}
+	}
 
 	render() {
 		return (
