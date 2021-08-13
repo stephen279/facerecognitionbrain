@@ -311,7 +311,7 @@ axios.request(options).then(function (response) {
 	onRouteChange = (route) => {
 
 		console.log("ROUTE IS "+route)
-		if (route != 'signin') {
+		if (route == 'signin') {
 
 			console.log("result -------"+route);
 			
