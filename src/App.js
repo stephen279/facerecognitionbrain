@@ -313,7 +313,7 @@ axios.request(options).then(function (response) {
 		console.log("ROUTE IS "+route)
 		if (route != 'signin') {
 
-			console.log("result test-------"+route);
+			console.log("result -------"+route);
 			
 			fetch('https://protected-gorge-67490.herokuapp.com/')
 			
