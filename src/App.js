@@ -313,11 +313,11 @@ axios.request(options).then(function (response) {
 		console.log("ROUTE IS "+route)
 		if (route != 'signin') {
 
-			console.log("result test-------");
+			console.log("result test-------"+route);
 			
 			fetch('https://protected-gorge-67490.herokuapp.com/')
 				.then(res => {
-					console.log("result returned is" + res.json);
+					console.log("result returned is" + res);
 					//  return res.json()
 					if (res == "session") {
 						this.setState({ route:'home'})
