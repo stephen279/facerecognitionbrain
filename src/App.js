@@ -329,7 +329,7 @@ axios.request(options).then(function (response) {
 		} else {
 		
 		//	this.setState({ route: route });
-			
+			console.log("route is signin");
 			this.setState({ route:'signin'})
 		}
 	};
