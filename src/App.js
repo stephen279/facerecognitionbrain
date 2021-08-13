@@ -78,7 +78,7 @@ class App extends Component {
         entries: 0,
         joined: ''
       },
-			route: 'signin',
+			route: 'home',
 			selectedFile: null
 		};
 	}
