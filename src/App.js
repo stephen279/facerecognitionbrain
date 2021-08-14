@@ -60,7 +60,14 @@ const app = new Clarifai.App({
 
 class App extends Component {
 	constructor() {
+
+
+		
 		super(); // to use this
+
+
+
+		
 
 		this.state = {
 			input: '',
@@ -69,38 +76,45 @@ class App extends Component {
 			symptoms1: '',
 			symptoms2: '',
 			age: '',
-			gender:'',
+			gender: '',
 			box: {},
 			user: {
-        id: '',
-        name: '',
-        email: '',
-        entries: 0,
-        joined: ''
-      },
+				id: '',
+				name: '',
+				email: '',
+				entries: 0,
+				joined: ''
+			},
 			route: 'home',
 			selectedFile: null
 		};
+		this.checkSession(this.state.route);
 	}
 
-	loadUser = (data) => {
-	 console.log("data passed to loadUser"+data)
-    this.setState({user: {
-      id: data.id,
-      name: data.name,
-      email: data.email,
-      entries: data.entries,
-      joined: data.joined
-    }})
-  }
 	
 
-/*
-	componentDidMount() {
-		fetch('http://localhost:3000').then(function (response) {
-        return response.json();
-      }).then(console.log);
-	}*/
+	loadUser = (data) => {
+		console.log("data passed to loadUser" + data)
+		this.setState({
+			user: {
+				id: data.id,
+				name: data.name,
+				email: data.email,
+				entries: data.entries,
+				joined: data.joined
+			}
+		})
+	}
+	
+
+	/*
+		componentDidMount() {
+			fetch('http://localhost:3000').then(function (response) {
+			  return response.json();
+			}).then(console.log);
+		}*/
+
+
 
 	calculateFaceLocation = (data) => {
 		console.log('inside face Location');
@@ -144,7 +158,7 @@ class App extends Component {
 			console.log("age" + this.state.age);
 		} else if (event.target.id == 'gender') {
 			this.setState({ gender: event.target.value });
-			console.log("gender"+this.state.gender);
+			console.log("gender" + this.state.gender);
 		}
 		//this.setState({ symptoms: event.target.id });
 		//this.setState({ age: event.target.id });
@@ -208,67 +222,67 @@ class App extends Component {
 
 		*/
 
-	/*	app.models
-			.predict(Clarifai.FACE_DETECT_MODEL, this.state.input)
-			.then((response) =>
-				// calculateFaceLocation function pass to displaybox as is parameter
-				this.displayFaceBox(this.calculateFaceLocation(response))
-			)
-			// if error exist console.log error
-			.catch((err) => console.log(err));
-		
-		*/
-		
-
+		/*	app.models
+				.predict(Clarifai.FACE_DETECT_MODEL, this.state.input)
+				.then((response) =>
+					// calculateFaceLocation function pass to displaybox as is parameter
+					this.displayFaceBox(this.calculateFaceLocation(response))
+				)
+				// if error exist console.log error
+				.catch((err) => console.log(err));
+			
+			*/
 		
 
-const options = {
-  method: 'GET',
-  url: 'https://priaid-symptom-checker-v1.p.rapidapi.com/diagnosis',
-  params: {gender: gender, year_of_birth: age, symptoms: '['+symptoms+','+symptoms1+']', language: 'en-gb'},
- headers: {
-    'x-rapidapi-key': '3b5c37eca6msh16cc56dbeca52cfp1bdf10jsn63b2a383dcbd',
-    'x-rapidapi-host': 'priaid-symptom-checker-v1.p.rapidapi.com'
-  }
-};
+		
+
+		const options = {
+			method: 'GET',
+			url: 'https://priaid-symptom-checker-v1.p.rapidapi.com/diagnosis',
+			params: { gender: gender, year_of_birth: age, symptoms: '[' + symptoms + ',' + symptoms1 + ']', language: 'en-gb' },
+			headers: {
+				'x-rapidapi-key': '3b5c37eca6msh16cc56dbeca52cfp1bdf10jsn63b2a383dcbd',
+				'x-rapidapi-host': 'priaid-symptom-checker-v1.p.rapidapi.com'
+			}
+		};
 
 
-axios.request(options).then(function (response) {
-	console.log(response.data[0].Issue.Name);
-	let name = response.data[0].Issue.Name;
-	let accuracy = response.data[0].Issue.Accuracy;
-	let name_1 = response.data[1].Issue.Name;
-	let accuracy_1= (Math.round(response.data[1].Issue.Accuracy * 100) / 100).toFixed(0)  ;
-	//let accuracy_1= response.data[1].Issue.Accuracy+ "%";
+		axios.request(options).then(function (response) {
+			console.log(response.data[0].Issue.Name);
+			let name = response.data[0].Issue.Name;
+			let accuracy = response.data[0].Issue.Accuracy;
+			let name_1 = response.data[1].Issue.Name;
+			let accuracy_1 = (Math.round(response.data[1].Issue.Accuracy * 100) / 100).toFixed(0);
+			//let accuracy_1= response.data[1].Issue.Accuracy+ "%";
 
-	let geder = response.data[0].Issue.Gender;
+			let geder = response.data[0].Issue.Gender;
 
-	console.log(response.data[0]);
+			console.log(response.data[0]);
 
-	document.getElementById('symptoms_result').innerHTML = name;
+			document.getElementById('symptoms_result').innerHTML = name;
 			document.getElementById('symptoms_confidence').innerHTML = accuracy;
 
 			
 
-				document.getElementById('symptoms_result_1').innerHTML = name_1;
+			document.getElementById('symptoms_result_1').innerHTML = name_1;
 			document.getElementById('symptoms_confidence_1').innerHTML = accuracy_1;
-}).catch(function (error) {
-	console.error(error);
-});
-/*
-axios.request(options).then(function (response) {
-	console.log("new response" + response.data[0].Issue);
-	let name = response.data[0].Issue.Name;
-	let accuracy = response.data[0].Issue.Accuracy+ "%";
-	let geder = response.data[0].Issue.Gender;
-	let all = response.data;
-	console.log(all);
-	document.getElementById('symptoms_result').innerHTML = name;
-			document.getElementById('symptoms_confidence').innerHTML = accuracy;
-}).catch(function (error) {
-	console.error(error);
-});
-		*/
+		}).catch(function (error) {
+			console.error(error);
+		});
+		/*
+		axios.request(options).then(function (response) {
+			console.log("new response" + response.data[0].Issue);
+			let name = response.data[0].Issue.Name;
+			let accuracy = response.data[0].Issue.Accuracy+ "%";
+			let geder = response.data[0].Issue.Gender;
+			let all = response.data;
+			console.log(all);
+			document.getElementById('symptoms_result').innerHTML = name;
+					document.getElementById('symptoms_confidence').innerHTML = accuracy;
+		}).catch(function (error) {
+			console.error(error);
+		});
+				*/
 		
 		
 				
@@ -278,7 +292,7 @@ axios.request(options).then(function (response) {
 		//	console.log(res.data.name);
 
 		//	let confidence_new = (Math.round(res.data.confidence * 100) / 100).toFixed(2)*100 + "%";
-			// alert(res);
+		// alert(res);
 			
 		
 	};
@@ -301,52 +315,129 @@ axios.request(options).then(function (response) {
 			console.log(res.data.confidence);
 			console.log(res.data.name);
 
-			let confidence_new = (Math.round(res.data.confidence * 100) / 100).toFixed(2)*100 + "%";
+			let confidence_new = (Math.round(res.data.confidence * 100) / 100).toFixed(2) * 100 + "%";
 			// alert(res);
 			document.getElementById('result').innerHTML = res.data.name;
-				document.getElementById('confidence').innerHTML = confidence_new;
+			document.getElementById('confidence').innerHTML = confidence_new;
 		});
 	};
 
 	onRouteChange = (route) => {
+		const that = this;
 
-		console.log("ROUTE IS "+route)
-		if (route == 'signin') {
+		console.log("ROUTE IS " + route)
+		if (route == 'home') {
 
-			console.log("result -------"+route);
+			//	this.setState({ route: 'signin' });
+
+			console.log("result -------" + route);
+
+			let data;
 			
-			/*fetch('https://protected-gorge-67490.herokuapp.com/')
+			fetch('https://protected-gorge-67490.herokuapp.com/')
 			
-					.then(response => response.text())
-				.then(data => console.log(data)
+				.then(response => response.statusText)
+				
+				.then(function (data) {
+					console.log('Request succeeded with JSON response', data);
+					if (data) {
+						console.log("got resulr");
+						//	this.state.route === 'home';
+						that.setState({ route: "home" });
+					} else {
+
+						console.log("got No resulr");
+						that.setState({ route: "signin" });
+						//  alert("User not Registered!")
+							
+					}
+				}).catch(function (error) {
+					console.log('Request failed', error);
+				});
+					
 	
 		
-			);*/
+			
 
-			let response =  fetch('https://protected-gorge-67490.herokuapp.com/');
-
-    console.log(response.status); // 200
-    console.log(response.statusText); // OK
-
-    if (response.status === 200) {
-        let data =  response.text();
-		  // handle data
-		 //console.log("ata is----------" +data);
-		 
-    }
+			
+	
+		
 			//console.log("ata is----------" +data);
 				
-					//  return res.json()
+			//  return res.json()
 		
 				
    
 		
-		//	this.setState({ route: route });
-		//	console.log("route is signin");
-		//	this.setState({ route:'signin'})
+			//	this.setState({ route: route });
+			//	console.log("route is signin");
+			
 		}
+		this.setState({ route: 'signin' })
 	};
 
+
+
+	checkSession = (route) => {
+
+		console.log("scheck sesssion");
+		
+	const that = this;
+
+		console.log("ROUTE IS " + route)
+		if (route == 'home') {
+
+			//	this.setState({ route: 'signin' });
+
+			console.log("result -------" + route);
+
+			let data;
+			
+			fetch('https://protected-gorge-67490.herokuapp.com/')
+			
+				.then(response => response.statusText)
+				
+				.then(function (data) {
+					console.log('Request succeeded with JSON response', data);
+					if (data) {
+						console.log("got result inside checksession");
+						//	this.state.route === 'home';
+						that.setState({ route: "home" });
+					} else {
+
+						console.log("got No resulr");
+						that.setState({ route: "signin" });
+						//  alert("User not Registered!")
+							
+					}
+				}).catch(function (error) {
+					console.log('Request failed', error);
+				});
+					
+	
+		
+			
+
+			
+	
+		
+			//console.log("ata is----------" +data);
+				
+			//  return res.json()
+		
+				
+   
+		
+			//	this.setState({ route: route });
+			//	console.log("route is signin");
+			
+		}
+		this.setState({ route: 'signin' })
+
+	}
+
+	
+ 
 	//test
 	/*onRouteChange = (route) => {
 		if (route = 'home') {
@@ -372,6 +463,19 @@ axios.request(options).then(function (response) {
 		}
 	}*/
 
+
+
+	getUsers = () => {
+    let url = 'users.json';
+    try {
+		 let res = fetch('https://protected-gorge-67490.herokuapp.com/');
+		 console.log(res.json);
+        return  res.json();
+    } catch (error) {
+        console.log(error);
+    }
+}
+
 	render() {
 		return (
 			<div className="App">
@@ -382,7 +486,10 @@ axios.request(options).then(function (response) {
 
 				{this.state.route === 'home' ? (
 					<div>
-						<Navigation onRouteChange={this.onRouteChange} />
+						
+						<Navigation onRouteChange={this.onRouteChange}
+							checkSession
+						/>
 						<Logo />
 					
 						<Rank
