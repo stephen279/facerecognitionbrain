@@ -315,16 +315,29 @@ axios.request(options).then(function (response) {
 
 			console.log("result -------"+route);
 			
-			fetch('https://protected-gorge-67490.herokuapp.com/')
+			/*fetch('https://protected-gorge-67490.herokuapp.com/')
 			
 					.then(response => response.text())
-					.then(data => console.log(data));
+				.then(data => console.log(data)
+	
+		
+			);*/
 
+			let response =  fetch('https://protected-gorge-67490.herokuapp.com/');
+
+    console.log(response.status); // 200
+    console.log(response.statusText); // OK
+
+    if (response.status === 200) {
+        let data =  response.text();
+		  // handle data
+		 //console.log("ata is----------" +data);
+		 
+    }
+			//console.log("ata is----------" +data);
 				
 					//  return res.json()
-			if (data == "session") {
-				this.setState({ route: 'home' })
-			}
+		
 				
    
 		
