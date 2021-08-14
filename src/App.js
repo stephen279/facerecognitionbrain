@@ -323,7 +323,7 @@ class App extends Component {
 	};
 
 	onRouteChange = (route) => {
-		const that = this;
+		/*const that = this;
 
 		console.log("ROUTE IS " + route)
 		if (route == 'home') {
@@ -369,11 +369,12 @@ class App extends Component {
 				
    
 		
-			//	this.setState({ route: route });
+			this.setState({ route: route });
 			//	console.log("route is signin");
 			
-		}
-		this.setState({ route: 'signin' })
+		}*/
+		//this.setState({ route: 'signin' })
+			this.setState({ route: route });
 	};
 
 
