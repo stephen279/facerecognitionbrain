@@ -381,6 +381,11 @@ class App extends Component {
 
 	checkSession = (route) => {
 
+		if (this.state.user.name != "") {
+			
+			console.log("Logged in ok");
+		}
+
 		console.log("called and inside scheck sesssion ");
 		
 	const that = this;
@@ -392,7 +397,7 @@ class App extends Component {
 
 			console.log("result -------" + route);
 
-			let data;
+			//let data;
 			
 			fetch('https://protected-gorge-67490.herokuapp.com/')
 			
@@ -489,7 +494,7 @@ class App extends Component {
 					<div>
 						
 						<Navigation onRouteChange={this.onRouteChange}
-							checkSession
+						
 						/>
 						<Logo />
 					
