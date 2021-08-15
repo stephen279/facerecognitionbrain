@@ -400,7 +400,7 @@ class App extends Component {
 				
 				.then(function (data) {
 					console.log('Request succeeded with JSON response', data);
-					if (data) {
+					if (data != "Bad Request") {
 						console.log("got result inside checksession"+data);
 						//	this.state.route === 'home';
 						that.setState({ route: "home" });
