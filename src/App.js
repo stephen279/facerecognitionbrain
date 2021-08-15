@@ -396,7 +396,7 @@ class App extends Component {
 			
 			fetch('https://protected-gorge-67490.herokuapp.com/')
 			
-				.then(response => response.json)
+				.then(response => response.statusText)
 				
 				.then(function (data) {
 					console.log('Request succeeded with JSON response', data);
