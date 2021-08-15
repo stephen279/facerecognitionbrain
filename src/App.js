@@ -381,7 +381,7 @@ class App extends Component {
 
 	checkSession = (route) => {
 
-		console.log("scheck sesssion");
+		console.log("called and inside scheck sesssion ");
 		
 	const that = this;
 
@@ -396,12 +396,12 @@ class App extends Component {
 			
 			fetch('https://protected-gorge-67490.herokuapp.com/')
 			
-				.then(response => response.statusText)
+				.then(response => response.json)
 				
 				.then(function (data) {
 					console.log('Request succeeded with JSON response', data);
 					if (data) {
-						console.log("got result inside checksession");
+						console.log("got result inside checksession"+data);
 						//	this.state.route === 'home';
 						that.setState({ route: "home" });
 					} else {
