@@ -66,6 +66,7 @@ class App extends Component {
 		super(); // to use this
 
 
+		console.log("constructor called");
 
 		
 
@@ -401,7 +402,7 @@ class App extends Component {
 			
 			fetch('https://protected-gorge-67490.herokuapp.com/')
 			
-				.then(response => response.statusText)
+				.then(response => response.json)
 				
 				.then(function (data) {
 					console.log('Request succeeded with JSON response', data);
