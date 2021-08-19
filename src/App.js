@@ -402,11 +402,9 @@ class App extends Component {
 			fetch('https://protected-gorge-67490.herokuapp.com/')
 			
 				.then(response => response.statusText)
-				//.getResponseHeader("Set-Cookie")
-				//.ResponseHeaders
 				
 				.then(function (data) {
-					console.log('Request response succeeded with JSON response', data);
+					console.log('Request succeeded with JSON response', data);
 					if (data != "Bad Request") {
 						console.log("got result inside checksession"+data);
 						//	this.state.route === 'home';
