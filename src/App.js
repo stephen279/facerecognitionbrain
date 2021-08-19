@@ -401,7 +401,7 @@ class App extends Component {
 			
 			fetch('https://protected-gorge-67490.herokuapp.com/')
 			
-				.then(response => response.headers)
+				.then(response => response.statusText)
 				//.getResponseHeader("Set-Cookie")
 				//.ResponseHeaders
 				
