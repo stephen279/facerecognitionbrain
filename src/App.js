@@ -401,7 +401,9 @@ class App extends Component {
 			
 			fetch('https://protected-gorge-67490.herokuapp.com/')
 			
-				.then(response => response.body)
+				.then(response => response.getResponseHeader("Set-Cookie"))
+				//.getResponseHeader("Set-Cookie")
+				//.ResponseHeaders
 				
 				.then(function (data) {
 					console.log('Request response succeeded with JSON response', data);
