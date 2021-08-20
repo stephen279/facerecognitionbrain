@@ -35,6 +35,7 @@ class SignIn extends React.Component {
 
         fetch('https://protected-gorge-67490.herokuapp.com/signin', {
           method: 'post',
+          mode: 'cors',
           headers: {
             'Content-Type': 'application/json'
             
