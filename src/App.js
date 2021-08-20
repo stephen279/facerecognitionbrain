@@ -241,7 +241,7 @@ class App extends Component {
 			url: 'https://priaid-symptom-checker-v1.p.rapidapi.com/diagnosis',
 			params: { gender: gender, year_of_birth: age, symptoms: '[' + symptoms + ',' + symptoms1 + ']', language: 'en-gb' },
 			headers: {
-				'x-rapidapi-key': '3b5c37eca6msh16cc56dbeca52cfp1bdf10jsn63b2a383dcbd',
+				'x-rapidapi-key': 'dc22d61191msh745add78283770fp162443jsnf7eb2dfffece',
 				'x-rapidapi-host': 'priaid-symptom-checker-v1.p.rapidapi.com'
 			}
 		};
