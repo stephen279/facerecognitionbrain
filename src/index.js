@@ -5,6 +5,12 @@ import App from './App';
 import 'tachyons';
 import reportWebVitals from './reportWebVitals';
 
+const cors = require('cors');
+app.use(cors({
+    origin: '*'
+}));
+
+
 ReactDOM.render(
 	//Removing the following to clear a bog
  // <React.StrictMode>
