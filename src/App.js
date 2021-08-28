@@ -18,6 +18,10 @@ import Rank from './components/Rank/Rank';
 
 import SignIn from './components/SignIn/SignIn';
 
+import About from './components/About/About';
+
+import Footer from './components/Footer/Footer';
+
 import SymptomsRecognition from './components/SymptomsRecognition/SymptomsRecognition';
 
 import Registers from './components/Registers/Registers';
@@ -494,8 +498,10 @@ class App extends Component {
 					<div>
 						
 						<Navigation onRouteChange={this.onRouteChange}
+							
 						
 						/>
+						
 						<Logo />
 					
 						<Rank
@@ -534,16 +540,41 @@ class App extends Component {
 						
 
 						<FaceRecognition box={this.state.box} imageUrl={this.state.imageUrl} />
+
+						<Footer />
+
 					</div>
 				) : this.state.route === 'signin' ? (
 					<SignIn loadUser={this.loadUser} onRouteChange={this.onRouteChange}
 						
 					/>
-				)  : this.state.route === 'diagnoses' ? (
-							<SymptomsRecognition loadUser={this.loadUser} onRouteChange={this.onRouteChange} />
+					) : this.state.route === 'about' ? (
+							
+							
+							<div>	
+								
+									<Navigation onRouteChange={this.onRouteChange}
+							
+						
+						/>
+						
+					<About onRouteChange={this.onRouteChange}
+						
+								/>
+								
+								
+
+						
+						</div>
+							
+						
 				) : (
 							<Registers loadUser={this.loadUser} onRouteChange={this.onRouteChange} />
-				)}
+							)
+				
+				
+				
+				}
 			</div>
 		);
 	}
