@@ -12,10 +12,10 @@ return (
 		<div className='white f3'>
 			
 		
-		{name}
+		{name} <h4> Amount of tokens used is</h4>
 	  	
 
-{entries}
+<b>{entries} </b>
 
 	  </div>
 	</div>

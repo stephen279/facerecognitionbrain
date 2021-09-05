@@ -22,9 +22,16 @@ import About from './components/About/About';
 
 import Footer from './components/Footer/Footer';
 
+
+
 import SymptomsRecognition from './components/SymptomsRecognition/SymptomsRecognition';
 
 import Registers from './components/Registers/Registers';
+
+
+
+
+
 
 
 
@@ -65,7 +72,6 @@ const app = new Clarifai.App({
 class App extends Component {
 	constructor() {
 
-
 		
 		super(); // to use this
 
@@ -89,16 +95,33 @@ class App extends Component {
 				entries: 0,
 				joined: ''
 			},
-			route: 'home',
-			selectedFile: null
+			route: 'about',
+			isSignedIn: 'false'
+,			selectedFile: null
 		};
-		this.checkSession(this.state.route);
+
+		
+	//	this.checkSession(this.state.name);
+
+		
 	}
 
+	componentWillMount() {
+		
+      	this.checkSession();
+	}
+
+
+	checkLoginStatus() {
+		axios.server("https://protected-gorge-67490.herokuapp.com/")
+	}
+	
 	
 
+
+
 	loadUser = (data) => {
-		console.log("data passed to loadUser" + data)
+		console.log("data passed to loadUser" + data.name)
 		this.setState({
 			user: {
 				id: data.id,
@@ -108,6 +131,7 @@ class App extends Component {
 				joined: data.joined
 			}
 		})
+		console.log("name set now"+this.state.user.name);
 	}
 	
 
@@ -175,6 +199,11 @@ class App extends Component {
 
 	};
 
+
+
+	
+		 
+
 	onButtonSubmit = (event) => {
 		console.log("symptoms" + this.state.symptoms);
 		console.log("symptoms1" + this.state.symptoms1);
@@ -200,6 +229,24 @@ class App extends Component {
 		let age = this.state.age;
 
 		let gender = this.state.gender;
+
+
+		fetch('https://protected-gorge-67490.herokuapp.com/image', {
+            method: 'put',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+              id: this.state.user.id
+            })
+          })
+            .then(response => response.json())
+            .then(count => {
+					this.setState(Object.assign(this.state.user, { entries: count }))
+					
+
+					
+
+
+            })
 
 		/*
 			axios.get('https://healthservice.priaid.ch/diagnosis?symptoms=['+symptoms+']&gender='+gender+'&year_of_birth='+age+'&token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6InN0ZXBoZW5ob2xsYW5kMzc5QGdtYWlsLmNvbSIsInJvbGUiOiJVc2VyIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvc2lkIjoiNDg2NCIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvdmVyc2lvbiI6IjEwOSIsImh0dHA6Ly9leGFtcGxlLm9yZy9jbGFpbXMvbGltaXQiOiIxMDAiLCJodHRwOi8vZXhhbXBsZS5vcmcvY2xhaW1zL21lbWJlcnNoaXAiOiJCYXNpYyIsImh0dHA6Ly9leGFtcGxlLm9yZy9jbGFpbXMvbGFuZ3VhZ2UiOiJlbi1nYiIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvZXhwaXJhdGlvbiI6IjIwOTktMTItMzEiLCJodHRwOi8vZXhhbXBsZS5vcmcvY2xhaW1zL21lbWJlcnNoaXBzdGFydCI6IjIwMjAtMDgtMDEiLCJpc3MiOiJodHRwczovL2F1dGhzZXJ2aWNlLnByaWFpZC5jaCIsImF1ZCI6Imh0dHBzOi8vaGVhbHRoc2VydmljZS5wcmlhaWQuY2giLCJleHAiOjE2MjY5NDM1MjYsIm5iZiI6MTYyNjkzNjMyNn0.Lcs6Dv3uwcVq0c6le3Ogcy7uYOp6n0RRq3y9sBJ7764&format=json&language=en-gb', symptomsformData).then((res) => {
@@ -324,9 +371,23 @@ class App extends Component {
 			document.getElementById('result').innerHTML = res.data.name;
 			document.getElementById('confidence').innerHTML = confidence_new;
 		});
+		fetch('https://protected-gorge-67490.herokuapp.com/image', {
+            method: 'put',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+              id: this.state.user.id
+            })
+          })
+            .then(response => response.json())
+            .then(count => {
+              this.setState(Object.assign(this.state.user, { entries: count}))
+            })
+
 	};
 
 	onRouteChange = (route) => {
+
+		console.log("inside onroutechange function");
 		/*const that = this;
 
 		console.log("ROUTE IS " + route)
@@ -378,71 +439,50 @@ class App extends Component {
 			
 		}*/
 		//this.setState({ route: 'signin' })
+
+
+
+
+
+		if (this.checkSession() || route == 'register') {
+			this.setState({ isSignedIn: true })
+		
 			this.setState({ route: route });
+		} else {
+			  this.setState({isSignedIn: false})
+			this.setState({ route: 'signin' });
+		}
 	};
 
 
 
-	checkSession = (route) => {
+	checkSession = () => {
 
-		if (this.state.user.name != "") {
+	
+
+console.log("isSignedIN called"+this.state.isSignedIn);
+		console.log("checksession called"+this.state.user.name);
+		if  (this.state.user.name === "") {
 			
-			console.log("Logged in ok");
-		}
 
-		console.log("called and inside scheck sesssion ");
-		
-	const that = this;
 
-		console.log("ROUTE IS " + route)
-		if (route == 'home') {
+			console.log("name is not undifiend");
 
-			//	this.setState({ route: 'signin' });
-
-			console.log("result -------" + route);
-
-			//let data;
 			
-			fetch('https://protected-gorge-67490.herokuapp.com/')
-			
-				.then(response => response.statusText)
-				
-				.then(function (data) {
-					console.log('Request succeeded with JSON response', data);
-					if (data != "Bad Request") {
-						console.log("got result inside checksession"+data);
-						//	this.state.route === 'home';
-						that.setState({ route: "home" });
-					} else {
+			this.setState({ route: 'about' });
+			this.setState({ isSignedIn: false });
+			console.log("isSignedIN1 called"+this.state.isSignedIn);
+			return false;
 
-						console.log("got No resulr");
-						that.setState({ route: "signin" });
-						//  alert("User not Registered!")
-							
-					}
-				}).catch(function (error) {
-					console.log('Request failed', error);
-				});
 					
 	
-		
-			
+		} else
 
-			
-	
+			console.log("name is defined");
+		this.setState({ isSignedIn: true });
+		console.log("isSignedIN2 called"+this.state.isSignedIn);
+		   return true;
 		
-			//console.log("ata is----------" +data);
-				
-			//  return res.json()
-		
-				
-   
-		
-			//	this.setState({ route: route });
-			//	console.log("route is signin");
-			
-		}
-		this.setState({ route: 'signin' })
 
 	}
 
@@ -487,6 +527,7 @@ class App extends Component {
 }
 
 	render() {
+		const{isSignedIn, imageUrl, route, box} = this.state
 		return (
 			<div className="App">
 				{/*<input type="file" onChange={this.fileSelectedHandler} />
@@ -497,7 +538,7 @@ class App extends Component {
 				{this.state.route === 'home' ? (
 					<div>
 						
-						<Navigation onRouteChange={this.onRouteChange}
+						<Navigation isSignedIn={isSignedIn} onRouteChange={this.onRouteChange}
 							
 						
 						/>
@@ -506,8 +547,10 @@ class App extends Component {
 					
 						<Rank
 							//
+							
 							name={this.state.user.name}
-						//  entries={this.state.user.entries}
+							
+						  entries={this.state.user.entries}
 						/>
 
 						<ImageLinkForm loadUser={this.loadUser} onRouteChange={this.onRouteChange}
@@ -553,10 +596,7 @@ class App extends Component {
 							
 							<div>	
 								
-									<Navigation onRouteChange={this.onRouteChange}
-							
-						
-						/>
+					
 						
 					<About onRouteChange={this.onRouteChange}
 						

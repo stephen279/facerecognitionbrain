@@ -19,11 +19,23 @@ class About extends React.Component {
         this.setState({signInEmail: event.target.value})
       
     }
+  
+  onReturn = () => {
+     this.props.onRouteChange('signin');
+  }
 
 
     onPasswordChange = (event) => {
       this.setState({signInPassword: event.target.value})
     }
+
+  onGetStarted = () => {
+    
+    this.props.onRouteChange('home');
+
+
+
+  }
    
    
    
@@ -89,7 +101,7 @@ class About extends React.Component {
           
            
         {/* Hello world */}
-        <title>W3.CSS Template</title>
+        <title>OneVitals.ai</title>
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
@@ -127,7 +139,7 @@ class About extends React.Component {
            <header className="w3-row-padding w3-violet w3-padding-64 w3-container" style={{ padding: '128px 16px'}}>
           <h1 className="w3-margin w3-jumbo">Welcome</h1>
           <p className="w3-xlarge">OneVitals.ai is a new innocative way to use ai to diagnose your common symptoms and skin diseases.</p>
-          <button className="w3-button w3-black w3-padding-large w3-large w3-margin-top">Get Started</button>
+           <button onClick={ this.onGetStarted} className="w3-button w3-black w3-padding-large w3-large w3-margin-top">Get Started</button>
         </header>
         {/* First Grid */}
         <div className="w3-container w3-black w3-center w3-opacity w3-padding-64">

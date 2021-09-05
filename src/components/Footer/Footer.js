@@ -81,18 +81,18 @@ class Footer extends React.Component {
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
              <style dangerouslySetInnerHTML={{__html: "\nbody,h1,h2,h3,h4,h5,h6 {font-family: \"Lato\", sans-serif}\n.w3-bar,h1,button {font-family: \"Montserrat\", sans-serif}\n.fa-heart,.fa-user-circle-o{font-size:200px; color:blue}\n" }} />
      
-        <footer classname="w3-container w3-padding-64 w3-center w3-opacity">  
-          <div classname="w3-xlarge w3-padding-32">
-            <i classname="fa fa-facebook-official w3-hover-opacity">
-              <i classname="fa fa-instagram w3-hover-opacity">
-                <i classname="fa fa-snapchat w3-hover-opacity">
-                  <i classname="fa fa-pinterest-p w3-hover-opacity">
-                    <i classname="fa fa-twitter w3-hover-opacity">
-                      <i classname="fa fa-linkedin w3-hover-opacity">
-                      </i></i></i></i></i></i></div><i classname="fa fa-facebook-official w3-hover-opacity"><i classname="fa fa-instagram w3-hover-opacity"><i classname="fa fa-snapchat w3-hover-opacity"><i classname="fa fa-pinterest-p w3-hover-opacity"><i classname="fa fa-twitter w3-hover-opacity"><i classname="fa fa-linkedin w3-hover-opacity">
-                      <p>Powered by <a href="https://www.onevitals.com/accounts/landing.html" target="_blank">OneVitals health Applications</a></p>
-                    </i></i></i></i></i></i></footer><i classname="fa fa-facebook-official w3-hover-opacity"><i classname="fa fa-instagram w3-hover-opacity"><i classname="fa fa-snapchat w3-hover-opacity"><i classname="fa fa-pinterest-p w3-hover-opacity"><i classname="fa fa-twitter w3-hover-opacity"><i classname="fa fa-linkedin w3-hover-opacity">
-                  </i></i></i></i></i></i></div>
+             <footer className="w3-container w3-padding-64 w3-center w3-opacity">  
+          <div className="w3-xlarge w3-padding-32">
+            <i className="fa fa-facebook-official w3-hover-opacity" />
+            <i className="fa fa-instagram w3-hover-opacity" />
+            <i className="fa fa-snapchat w3-hover-opacity" />
+            <i className="fa fa-pinterest-p w3-hover-opacity" />
+            <i className="fa fa-twitter w3-hover-opacity" />
+            <i className="fa fa-linkedin w3-hover-opacity" />
+          </div>
+          <p>Powered by <a href="https://www.onevitals.com/accounts/landing.html" target="_blank">OneVitals health Applications</a></p>
+        </footer>
+        </div>
      
   );
 }
