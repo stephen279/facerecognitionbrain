@@ -16,7 +16,7 @@ const SymptomsRecognition = () => {
              
     </p>
             
-     <p id = "symptoms_explain"  class="f6 f5-ns lh-copy measure"> .
+     <p id = "symptoms_explain"  class="f6 f5-ns lh-copy measure"> kkkkkkkkk.
     
       
     </p>
