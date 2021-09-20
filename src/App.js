@@ -306,7 +306,7 @@ class App extends Component {
 		
 			let name_1 = response.data[1].Issue.Name;
 			let accuracy_1 = (Math.round(response.data[1].Issue.Accuracy * 100) / 100).toFixed(0);
-			let specialist = response.data[1].Specialisation.Name;
+			let specialist_1 = response.data[1].Specialisation.Name;
 			//let accuracy_1= response.data[1].Issue.Accuracy+ "%";
 
 			let geder = response.data[0].Issue.Gender;
