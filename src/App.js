@@ -302,8 +302,8 @@ class App extends Component {
 			console.log(response.data[0].Issue.Name);
 			let name = response.data[0].Issue.Name;
 			let accuracy = (Math.round(response.data[0].Issue.Accuracy * 100) / 100).toFixed(0);
-			let specialist = response.data[0].Specialisation.Name;
-		
+			//let specialist = response.data[0].Specialisation.Name;
+			let specialist = response.data[0].Issue.Name;
 			let name_1 = response.data[1].Issue.Name;
 			let accuracy_1 = (Math.round(response.data[1].Issue.Accuracy * 100) / 100).toFixed(0);
 			let specialist_1 = response.data[1].Specialisation.Name;
@@ -316,7 +316,7 @@ class App extends Component {
 			document.getElementById('symptoms_result').innerHTML = name;
 			document.getElementById('symptoms_confidence').innerHTML = accuracy;
 			document.getElementById('specialist').innerHTML = specialist;
-				document.getElementById('symptoms_expalin').innerHTML = accuracy;
+			document.getElementById('symptoms_expalin').innerHTML = specialist;
 
 			
 
