@@ -18,7 +18,9 @@ const SymptomsRecognition = () => {
              <p id = "specialist"  class="f6 f5-ns lh-copy measure"> 
     
       
-    </p>
+            </p>
+            
+            <p> Treated By </p>
             
      <p id = "symptoms_explain"  class="f6 f5-ns lh-copy measure"> 
     
