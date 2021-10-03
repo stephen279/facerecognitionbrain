@@ -6,6 +6,8 @@ import 'tachyons';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
+
+  
 	//Removing the following to clear a bog
  // <React.StrictMode>
   //  <App />
