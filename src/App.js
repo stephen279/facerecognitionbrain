@@ -298,6 +298,7 @@ class App extends Component {
 		};
 
 
+
 		axios.request(options).then(function (response) {
 			console.log(response.data[0].Issue.Name);
 			let name = response.data[0].Issue.Name;
@@ -317,9 +318,6 @@ class App extends Component {
 			document.getElementById('symptoms_confidence').innerHTML = accuracy;
 			document.getElementById('specialist').innerHTML = specialist;
 			document.getElementById('symptoms_expalin').innerHTML = specialist;
-
-			
-
 			document.getElementById('symptoms_result_1').innerHTML = name_1;
 			document.getElementById('symptoms_confidence_1').innerHTML = accuracy_1;
 		}).catch(function (error) {
