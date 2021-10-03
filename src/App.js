@@ -303,7 +303,7 @@ class App extends Component {
 			console.log(response.data[0].Issue.Name);
 			let name = response.data[0].Issue.Name;
 			let accuracy = (Math.round(response.data[0].Issue.Accuracy * 100) / 100).toFixed(0);
-			let specialist = response.data[0].Specialisation.Name;
+			let specialist = response.data[0].Specialisation[0].Name;
 			//let specialist = response.data[0].Issue.Name;
 			let name_1 = response.data[1].Issue.Name;
 			let accuracy_1 = (Math.round(response.data[1].Issue.Accuracy * 100) / 100).toFixed(0);
