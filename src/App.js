@@ -312,9 +312,9 @@ class App extends Component {
 
 			let geder = response.data[0].Issue.Gender;
 
-			//console.log(response.data[0]);
+			console.log(response.data[0]);
 			//console.log(response.data[0].Issue.Name);
-			console.log(response.data[1].Specialisation.Name);
+			console.log(response.data[0].Specialisation.Name);
 
 			document.getElementById('symptoms_result').innerHTML = name;
 			document.getElementById('symptoms_confidence').innerHTML = accuracy;
