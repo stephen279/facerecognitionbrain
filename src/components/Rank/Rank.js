@@ -3,12 +3,38 @@ import React from 'react'
 
 const Rank = ({ name, entries }) => {
 	
-	/*
 
 	return (
 	
 		
 	
+		<div className='ma4 mt0'> 
+			
+			
+
+
+		
+		<div className='white f3'>
+			
+
+
+	  </div>
+	</div>
+	
+	
+	
+	);
+
+}
+
+export default Rank;
+
+/*
+
+
+
+
+
 		<div className='ma4 mt0'> 
 			
 			
@@ -25,15 +51,5 @@ const Rank = ({ name, entries }) => {
 
 	  </div>
 	</div>
-	
-	
-	
-	);
 
 	*/
-
-	
-
-}
-
-export default Rank;
