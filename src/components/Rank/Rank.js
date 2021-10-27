@@ -1,11 +1,17 @@
 import React from 'react'
 
 
-const Rank = ({name, entries}) => {
-
-return (
+const Rank = ({ name, entries }) => {
 	
-	<div className='ma4 mt0'>
+	/*
+
+	return (
+	
+		
+	
+		<div className='ma4 mt0'> 
+			
+			
 
 
 		
@@ -19,7 +25,14 @@ return (
 
 	  </div>
 	</div>
+	
+	
+	
 	);
+
+	*/
+
+	
 
 }
 
