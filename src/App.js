@@ -300,6 +300,11 @@ class App extends Component {
 
 
 		axios.request(options).then(function (response) {
+			console.log(response.data[0]);
+			console.log(response.data[1]);
+			
+
+
 			console.log(response.data[0].Issue.Name);
 			let name = response.data[0].Issue.Name;
 			let accuracy = (Math.round(response.data[0].Issue.Accuracy * 100) / 100).toFixed(0);
