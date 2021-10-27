@@ -544,7 +544,7 @@ console.log("isSignedIN called"+this.state.isSignedIn);
 				{this.state.route === 'home' ? (
 					<div>
 						
-						<Navigation isSignedIn={isSignedIn} onRouteChange={this.onRouteChange}
+						<Navigation isSignedIn={isSignedIn} name={this.state.name} onRouteChange={this.onRouteChange}
 							
 						
 						/>
