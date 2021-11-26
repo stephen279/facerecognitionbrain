@@ -106,9 +106,49 @@ class App extends Component {
 		
 	}
 
-	componentWillMount() {
-		
-      	this.checkSession();
+	//check for session on refresh
+	componentDidMount() {
+
+		const token = window.sessionStorage.getItem('token');
+		if (token) {
+			fetch('https://protected-gorge-67490.herokuapp.com/signin', {
+				
+				method: 'post',
+				headers: {
+					'content-Type': 'application/json',
+					'Authorization': token
+				}
+				
+			}).then(resp => resp.json())
+				.then(data => {
+					if (data) {
+						//console.log('success we need to get the user profile');
+						
+						console.log("data.id "+data.id);
+						fetch('https://protected-gorge-67490.herokuapp.com/profile/'+data, {
+							method: 'get',
+							headers: {
+								'content-Type': 'application/json',
+								'Authorization': token
+							
+							}
+							
+
+						})
+							.then(resp => resp.json())
+							.then(user => {
+								if (user) {
+									console.log("before loaduser is called"+user);
+									this.loadUser(user);
+									this.onRouteChange('home');
+								}
+						
+							})
+					}
+				})
+				.catch(console.log);
+		}
+    //  this.checkSession();
 	}
 
 

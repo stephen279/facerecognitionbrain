@@ -31,6 +31,20 @@ class SignIn extends React.Component {
   //https://protected-gorge-67490.herokuapp.com
   //http://localhost:3000/signin
   
+/*
+  saveAuthTokenInSession = (session) => {
+
+    window.sessionStorage.setItem('token', token);
+    
+  }*/
+
+  saveAuthTokenInSession = (token) => {
+    window.sessionStorage.setItem('token', token);
+
+  }
+
+
+
       onSubmitSignIn = () => {
 
         fetch('https://protected-gorge-67490.herokuapp.com/signin', {
@@ -47,6 +61,8 @@ class SignIn extends React.Component {
         }).then(response => response.json())
             .then(user => {
               if (user.id) {
+                this.saveAuthTokenInSession(user.token);
+              //  this.saveAuthTokenInSession(user.token);
                 this.props.loadUser(user);
                 this.props.onRouteChange('home');
               } else {
