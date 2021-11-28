@@ -109,6 +109,8 @@ class App extends Component {
 	//check for session on refresh
 	componentDidMount() {
 
+
+
 		const token = window.sessionStorage.getItem('token');
 		if (token) {
 			fetch('https://protected-gorge-67490.herokuapp.com/signin', {
@@ -579,6 +581,7 @@ console.log("isSignedIN called"+this.state.isSignedIn);
 
 	render() {
 		const{isSignedIn, imageUrl, route, box} = this.state
+		
 		return (
 			<div className="App">
 				{/*<input type="file" onChange={this.fileSelectedHandler} />
