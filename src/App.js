@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component,useEffect, useState } from 'react';
 
 import Navigation from './components/Navigation/Navigation';
 
@@ -21,6 +21,8 @@ import SignIn from './components/SignIn/SignIn';
 import About from './components/About/About';
 
 import Footer from './components/Footer/Footer';
+
+
 
 
 
@@ -80,6 +82,9 @@ class App extends Component {
 		
 
 		this.state = {
+
+			showMe: false,
+
 			input: '',
 			imageUrl: '',
 			symptoms: '',
@@ -97,7 +102,8 @@ class App extends Component {
 			},
 			route: 'about',
 			isSignedIn: 'false'
-,			selectedFile: null
+			, selectedFile: null,
+		
 		};
 
 		
@@ -112,6 +118,7 @@ class App extends Component {
 
 
 		const token = window.sessionStorage.getItem('token');
+		
 		if (token) {
 			fetch('https://protected-gorge-67490.herokuapp.com/signin', {
 				
@@ -330,6 +337,8 @@ class App extends Component {
 		
 
 		const options = {
+
+			
 			method: 'GET',
 			url: 'https://priaid-symptom-checker-v1.p.rapidapi.com/diagnosis',
 			params: { gender: gender, year_of_birth: age, symptoms: '[' + symptoms + ',' + symptoms1 + ']', language: 'en-gb' },
@@ -337,11 +346,13 @@ class App extends Component {
 				'x-rapidapi-key': '3b5c37eca6msh16cc56dbeca52cfp1bdf10jsn63b2a383dcbd',
 				'x-rapidapi-host': 'priaid-symptom-checker-v1.p.rapidapi.com'
 			}
+
 		};
 
 
 
 		axios.request(options).then(function (response) {
+			this.showOperation();
 			console.log(response.data[0]);
 			console.log(response.data[1]);
 			
@@ -577,25 +588,34 @@ console.log("isSignedIN called"+this.state.isSignedIn);
     } catch (error) {
         console.log(error);
     }
-}
+	}
+	
+
 
 	render() {
-		const{isSignedIn, imageUrl, route, box} = this.state
-		
+		const { isSignedIn, imageUrl, route, box } = this.state;
+	
 		return (
 			<div className="App">
 				{/*<input type="file" onChange={this.fileSelectedHandler} />
      <button onClick={this.fileUploadHandler} >Check </button>  */}
+				
+		
 
 				<Particles className="particles" params={particlesOptions} />
 
 				{this.state.route === 'home' ? (
 					<div>
+
 						
-						<Navigation isSignedIn={isSignedIn}  onRouteChange={this.onRouteChange} name={this.state.user.name}   entries={this.state.user.entries}
+				
+					
+							<Navigation isSignedIn={isSignedIn} onRouteChange={this.onRouteChange} name={this.state.user.name} entries={this.state.user.entries}
 							
 						
-						/>
+							/>
+				
+								
 						
 						<Logo />
 					
@@ -613,10 +633,15 @@ console.log("isSignedIN called"+this.state.isSignedIn);
 								
 						
 						/>
+
+						
+					
+					
 						
 						<SymptomsRecognition />
 
 
+				
 						{/*
      <ImageLinkForm 
      onInputChange={this.onInputChange} 
@@ -628,9 +653,12 @@ console.log("isSignedIN called"+this.state.isSignedIn);
 						/>
 
 						
-						
+								
 
 						<SkinRecognition />
+							
+							
+					
 
 						
 
