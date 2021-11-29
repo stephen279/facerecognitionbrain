@@ -589,6 +589,12 @@ console.log("isSignedIN called"+this.state.isSignedIn);
         console.log(error);
     }
 	}
+
+	showOperation = () => {
+		this.setState({
+			showMe:true
+		})
+	}
 	
 
 
@@ -636,12 +642,16 @@ console.log("isSignedIN called"+this.state.isSignedIn);
 
 						
 					
+						{
+							
+								this.state.showMe?
 					
 						
-						<SymptomsRecognition />
+							<SymptomsRecognition />
 
-
-				
+								:
+								null
+						}
 						{/*
      <ImageLinkForm 
      onInputChange={this.onInputChange} 
