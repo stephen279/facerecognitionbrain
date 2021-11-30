@@ -254,6 +254,8 @@ class App extends Component {
 		 
 
 	onButtonSubmit = (event) => {
+			this.showOperation();
+			console.log("inside axio request");
 		console.log("symptoms" + this.state.symptoms);
 		console.log("symptoms1" + this.state.symptoms1);
 		console.log("symptoms2" + this.state.symptoms2);
@@ -352,10 +354,11 @@ class App extends Component {
 
 
 		axios.request(options).then(function (response) {
-			this.showOperation();
+			
+		
+			console.log("inside axio request");
 			console.log(response.data[0]);
 			console.log(response.data[1]);
-			
 
 
 			console.log(response.data[0].Issue.Name);
@@ -380,7 +383,8 @@ class App extends Component {
 			document.getElementById('symptoms_expalin').innerHTML = specialist;
 			document.getElementById('symptoms_result_1').innerHTML = name_1;
 			document.getElementById('symptoms_confidence_1').innerHTML = accuracy_1;
-				document.getElementById('specialist_1').innerHTML = specialist_1;
+			document.getElementById('specialist_1').innerHTML = specialist_1;
+		
 		}).catch(function (error) {
 			console.error(error);
 		});
@@ -424,6 +428,8 @@ class App extends Component {
 	};
 
 	fileUploadHandler = () => {
+		
+ 	this.showOperation()
 		const formData = new FormData();
 		formData.append('data', this.state.selectedFile, this.state.selectedFile.name);
 		axios.post('https://www.nyckel.com/v0.9/functions/edx2ml1gbri4n34d/invoke', formData).then((res) => {
@@ -663,11 +669,13 @@ console.log("isSignedIN called"+this.state.isSignedIn);
 						/>
 
 						
-								
+						{ this.state.showMe ?
 
-						<SkinRecognition />
+							<SkinRecognition />
 							
-							
+							:
+							null
+						}
 					
 
 						
