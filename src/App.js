@@ -12,6 +12,8 @@ import Clarifai from 'clarifai';
 
 import ImageLinkForm from './components/ImageLinkForm/ImageLinkForm';
 
+import HealthScoreForm from './components/HealtScoreForm/HealthScoreForm'
+
 import ImageFileForm from './components/ImageFileForm/ImageFileForm';
 
 import Rank from './components/Rank/Rank';
@@ -53,6 +55,7 @@ import axios from 'axios';
 //import FaceDetect from "./components/FaceDetect/FaceDetect";
 
 import './App.css';
+//import HealthScoreForm from './components/HealtScoreForm/HealthScoreForm';
 
 const particlesOptions = {
 	particles: {
@@ -103,6 +106,11 @@ class App extends Component {
 			route: 'about',
 			isSignedIn: 'false'
 			, selectedFile: null,
+			hs_age: '',
+			hs_sex: '',
+			height: '',
+			weight: ''
+
 		
 		};
 
@@ -240,6 +248,12 @@ class App extends Component {
 		//this.setState({ symptoms: event.target.id });
 		//this.setState({ age: event.target.id });
 
+		else if (event.target.id == 'hs_age') {
+
+			console.log(event.target.value);
+			
+		}
+
 
 	
 
@@ -297,46 +311,10 @@ class App extends Component {
 					
 
 
-            })
-
-		/*
-			axios.get('https://healthservice.priaid.ch/diagnosis?symptoms=['+symptoms+']&gender='+gender+'&year_of_birth='+age+'&token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6InN0ZXBoZW5ob2xsYW5kMzc5QGdtYWlsLmNvbSIsInJvbGUiOiJVc2VyIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvc2lkIjoiNDg2NCIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvdmVyc2lvbiI6IjEwOSIsImh0dHA6Ly9leGFtcGxlLm9yZy9jbGFpbXMvbGltaXQiOiIxMDAiLCJodHRwOi8vZXhhbXBsZS5vcmcvY2xhaW1zL21lbWJlcnNoaXAiOiJCYXNpYyIsImh0dHA6Ly9leGFtcGxlLm9yZy9jbGFpbXMvbGFuZ3VhZ2UiOiJlbi1nYiIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvZXhwaXJhdGlvbiI6IjIwOTktMTItMzEiLCJodHRwOi8vZXhhbXBsZS5vcmcvY2xhaW1zL21lbWJlcnNoaXBzdGFydCI6IjIwMjAtMDgtMDEiLCJpc3MiOiJodHRwczovL2F1dGhzZXJ2aWNlLnByaWFpZC5jaCIsImF1ZCI6Imh0dHBzOi8vaGVhbHRoc2VydmljZS5wcmlhaWQuY2giLCJleHAiOjE2MjY5NDM1MjYsIm5iZiI6MTYyNjkzNjMyNn0.Lcs6Dv3uwcVq0c6le3Ogcy7uYOp6n0RRq3y9sBJ7764&format=json&language=en-gb', symptomsformData).then((res) => {
-					console.log(res.data[0]);
-				console.log(res.data[0].Issue.Name);
-				console.log(res.data[0].Issue.Accuracy);
-				console.log(res.data[0].Issue.Gender);
-				
-
-
-				let name = res.data[0].Issue.Name;
-				let accuracy = res.data[0].Issue.Accuracy+ "%";
-				let geder = res.data[0].Issue.Gender;
-				
-
-
-		//	console.log(res.data.name);
-
-		//	let confidence_new = (Math.round(res.data.confidence * 100) / 100).toFixed(2)*100 + "%";
-			// alert(res);
-			document.getElementById('symptoms_result').innerHTML = name;
-			document.getElementById('symptoms_confidence').innerHTML = accuracy;
-		});
-
-		*/
-
-		/*	app.models
-				.predict(Clarifai.FACE_DETECT_MODEL, this.state.input)
-				.then((response) =>
-					// calculateFaceLocation function pass to displaybox as is parameter
-					this.displayFaceBox(this.calculateFaceLocation(response))
-				)
-				// if error exist console.log error
-				.catch((err) => console.log(err));
-			
-			*/
+				})
 		
 
-		
+
 
 		const options = {
 
@@ -350,7 +328,6 @@ class App extends Component {
 			}
 
 		};
-
 
 
 		axios.request(options).then(function (response) {
@@ -388,33 +365,120 @@ class App extends Component {
 		}).catch(function (error) {
 			console.error(error);
 		});
-		/*
-		axios.request(options).then(function (response) {
-			console.log("new response" + response.data[0].Issue);
-			let name = response.data[0].Issue.Name;
-			let accuracy = response.data[0].Issue.Accuracy+ "%";
-			let geder = response.data[0].Issue.Gender;
-			let all = response.data;
-			console.log(all);
-			document.getElementById('symptoms_result').innerHTML = name;
-					document.getElementById('symptoms_confidence').innerHTML = accuracy;
-		}).catch(function (error) {
-			console.error(error);
-		});
-				*/
-		
-		
-				
-				
-
-
-		//	console.log(res.data.name);
-
-		//	let confidence_new = (Math.round(res.data.confidence * 100) / 100).toFixed(2)*100 + "%";
-		// alert(res);
+	
 			
 		
 	};
+
+
+
+
+	hshandleFormSubmit = (event) => {
+			this.showOperation();
+			console.log("inside axio request");
+		console.log("symptoms" + this.state.symptoms);
+		console.log("symptoms1" + this.state.symptoms1);
+		console.log("symptoms2" + this.state.symptoms2);
+
+		
+		
+
+		
+		console.log("age" + this.state.age);
+		console.log("gender" + this.state.gender);
+		// set imageUrl state
+	
+
+		const hsformData = new FormData();
+	
+
+		hsformData.append('data', this.state.input);
+		var symptoms = this.state.symptoms;
+		var symptoms1 = this.state.symptoms1;
+		var symptoms2 = this.state.symptoms2;
+
+		let hs_age = this.state.hs_age;
+
+		let hs_sex = this.state.hs_sex;
+
+		//let sex = this.state.hs_sex;
+
+
+		fetch('https://models-nl.dacadoo.com/score/1.4.0', {
+            method: 'POST',
+			headers: {
+			
+				
+			
+			},
+            body: JSON.stringify({
+					age: this.state.hs_age,
+					sex: this.state.hs_sex            })
+          })
+            .then(response => response.json())
+           /* .then(count => {
+					this.setState(Object.assign(this.state.user, { entries: count }))
+					
+
+					
+
+
+				})
+		
+		
+		
+
+
+/*
+
+		axios.request(options).then(function (response) {
+			
+		
+			console.log("inside axio request");
+			console.log(response.data[0]);
+			console.log(response.data[1]);
+
+
+			console.log(response.data[0].Issue.Name);
+			let name = response.data[0].Issue.Name;
+			let accuracy = (Math.round(response.data[0].Issue.Accuracy * 100) / 100).toFixed(0);
+			let specialist = response.data[0].Specialisation[0].Name;
+			//let specialist = response.data[0].Issue.Name;
+			let name_1 = response.data[1].Issue.Name;
+			let accuracy_1 = (Math.round(response.data[1].Issue.Accuracy * 100) / 100).toFixed(0);
+			let specialist_1 = response.data[1].Specialisation[1].Name;
+			//let accuracy_1= response.data[1].Issue.Accuracy+ "%";
+
+			let geder = response.data[0].Issue.Gender;
+
+			console.log(response.data[0]);
+			//console.log(response.data[0].Issue.Name);
+			console.log(response.data[0].Specialisation.Name);
+
+			document.getElementById('symptoms_result').innerHTML = name;
+			document.getElementById('symptoms_confidence').innerHTML = accuracy;
+			document.getElementById('specialist').innerHTML = specialist;
+			document.getElementById('symptoms_expalin').innerHTML = specialist;
+			document.getElementById('symptoms_result_1').innerHTML = name_1;
+			document.getElementById('symptoms_confidence_1').innerHTML = accuracy_1;
+			document.getElementById('specialist_1').innerHTML = specialist_1;
+		
+		}).catch(function (error) {
+			console.error(error);
+		});
+	
+		*/	
+		
+	};
+
+
+	
+
+	
+
+
+
+	
 
 
 	
@@ -427,11 +491,25 @@ class App extends Component {
 		});
 	};
 
+
+	hsSelectedHandler = (event) => {
+		console.log(event.target.value);
+		this.setState({
+			hs_age: event.target.value,
+			hs_sex: 0
+			
+		});
+		
+	};
+
+
+
 	fileUploadHandler = () => {
 		
  	this.showOperation()
 		const formData = new FormData();
 		formData.append('data', this.state.selectedFile, this.state.selectedFile.name);
+		//console.log("formData"+formData);
 		axios.post('https://www.nyckel.com/v0.9/functions/edx2ml1gbri4n34d/invoke', formData).then((res) => {
 			console.log(res.data.confidence);
 			console.log(res.data.name);
@@ -454,6 +532,7 @@ class App extends Component {
             })
 
 	};
+
 
 	onRouteChange = (route) => {
 
@@ -666,6 +745,14 @@ console.log("isSignedIN called"+this.state.isSignedIn);
 						<ImageFileForm
 							fileSelectedHandler={this.fileSelectedHandler}
 							fileUploadHandler={this.fileUploadHandler}
+						/>
+
+
+						<HealthScoreForm loadUser={this.loadUser} onRouteChange={this.onRouteChange}
+						onInputChange={this.onInputChange} onHSButtonSubmit={this.onHSButtonSubmit} hsSelectedHandler={this.hsSelectedHandler}
+							hshandleFormSubmit={this.hshandleFormSubmit}	
+								
+						
 						/>
 
 						

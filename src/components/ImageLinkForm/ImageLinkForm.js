@@ -1157,13 +1157,6 @@ let symptoms = [
     
     </div>
 
-
-
-
-
-
-
-
 	<p className = 'f3'>
 
 			

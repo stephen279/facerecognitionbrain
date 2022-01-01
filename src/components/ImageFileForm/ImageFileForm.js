@@ -10,7 +10,7 @@ return (
 	<p className = 'f3'>
 
 			
-			  <h1 class="f3 lh-copy">{'Please upload your image'}</h1>
+			  <h1 class="f3 lh-copy">{'Please upload your image for Skin Diagnoses'}</h1>
         
          
 			<div className='center'>
