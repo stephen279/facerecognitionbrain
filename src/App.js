@@ -407,9 +407,13 @@ class App extends Component {
 		fetch('https://models-nl.dacadoo.com/score/1.4.0', {
             method: 'POST',
 			headers: {
-			
-				
-			
+				'POST' :'/risk/1 HTTP/1.1',
+				'X-dacadoo-Key': 'KDAgUABLa0kdebkpsNP6se5XDK4f5e6GEhGh41EZ',
+				'Accept-Encoding': 'gzip,deflate,sdch',
+				'Connection': 'keep-alive',
+					'Host': 'models-nl.dacadoo.com',
+				'content-Type': 'application/json; charset=UTF-8',
+				'Origin': 'http://onevitals.io'
 			},
             body: JSON.stringify({
 					age: this.state.hs_age,
