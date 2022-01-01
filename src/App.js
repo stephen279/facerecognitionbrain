@@ -403,32 +403,24 @@ class App extends Component {
 
 		//let sex = this.state.hs_sex;
 
+var myHeaders = new Headers();
+myHeaders.append("X-dacadoo-Key", "KDAgUABLa0kdebkpsNP6se5XDK4f5e6GEhGh41EZ");
+myHeaders.append("Host", "models-nl.dacadoo.com");
+myHeaders.append("Content-Type", "application/json; charset=UTF-8");
 
-		fetch('https://models-nl.dacadoo.com/score/1.4.0', {
-            method: 'POST',
-			headers: {
-				'POST' :'/risk/1 HTTP/1.1',
-				'X-dacadoo-Key': 'KDAgUABLa0kdebkpsNP6se5XDK4f5e6GEhGh41EZ',
-				'Accept-Encoding': 'gzip,deflate,sdch',
-				'Connection': 'keep-alive',
-					'Host': 'models-nl.dacadoo.com',
-				'content-Type': 'application/json; charset=UTF-8',
-				'Origin': 'http://onevitals.io'
-			},
-            body: JSON.stringify({
-					age: this.state.hs_age,
-					sex: this.state.hs_sex            })
-          })
-            .then(response => response.json())
-           /* .then(count => {
-					this.setState(Object.assign(this.state.user, { entries: count }))
-					
+var raw = "{\n  \"mhm\": {\n    \"age\": 40,\n    \"sex\": 1,\n    \"hgt\": 170,\n    \"wgt\": 75,\n    \"fat\": 15,\n    \"dbp\": 80,\n    \"sbp\": 120,\n    \"rhr\": 45\n  },\n  \"smk\": {\n    \"now\": 0,\n    \"evr\": 0\n  },\n  \"slp\": {\n    \"bed\": [ 8.0, null, null, 7.5, 8.0 ],\n    \"slp\": [ 7.0, null, null, 7.0, 7.9 ],\n    \"awk\": [ 1, null, null, 1, 1 ]\n  },\n  \"nut\": {\n    \"nqs\": [ 0.2, 0.2, 0.2, 0.5, null, null, 0.8 ]\n  },\n  \"qlm\": {\n    \"q01\": 1,\n     \"q02\": 1,\n      \"q03\": 0,\n    \"q07\": 0.7,\n    \"q08\": 0.2\n  },\n  \"clip\": false\n}";
 
-					
+var requestOptions = {
+  method: 'POST',
+  headers: myHeaders,
+  body: raw,
+  redirect: 'follow'
+};
 
-
-				})
-		
+fetch("https://models-nl.dacadoo.com/score/1.4.0", requestOptions)
+  .then(response => response.text())
+  .then(result => console.log(result))
+  .catch(error => console.log('error', error));
 		
 		
 
