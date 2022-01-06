@@ -374,55 +374,86 @@ class App extends Component {
 
 
 	hshandleFormSubmit = (event) => {
-			this.showOperation();
-			console.log("inside axio request");
-		console.log("symptoms" + this.state.symptoms);
-		console.log("symptoms1" + this.state.symptoms1);
-		console.log("symptoms2" + this.state.symptoms2);
-
 		
-		
-
-		
-		console.log("age" + this.state.age);
-		console.log("gender" + this.state.gender);
-		// set imageUrl state
-	
-
-		const hsformData = new FormData();
-	
-
-		hsformData.append('data', this.state.input);
-		var symptoms = this.state.symptoms;
-		var symptoms1 = this.state.symptoms1;
-		var symptoms2 = this.state.symptoms2;
-
-		let hs_age = this.state.hs_age;
-
-		let hs_sex = this.state.hs_sex;
-
-		//let sex = this.state.hs_sex;
-
+/*		
 var myHeaders = new Headers();
 myHeaders.append("X-dacadoo-Key", "KDAgUABLa0kdebkpsNP6se5XDK4f5e6GEhGh41EZ");
 myHeaders.append("Host", "models-nl.dacadoo.com");
-myHeaders.append("Content-Type", "application/json; charset=UTF-8");
+		myHeaders.append("Content-Type", "application/json; charset=UTF-8");
+				myHeaders.append("Access-Control-Allow-Origin", "*");
+		
+		// "Access-Control-Allow-Origin",'*'
 
 var raw = "{\n  \"mhm\": {\n    \"age\": 40,\n    \"sex\": 1,\n    \"hgt\": 170,\n    \"wgt\": 75,\n    \"fat\": 15,\n    \"dbp\": 80,\n    \"sbp\": 120,\n    \"rhr\": 45\n  },\n  \"smk\": {\n    \"now\": 0,\n    \"evr\": 0\n  },\n  \"slp\": {\n    \"bed\": [ 8.0, null, null, 7.5, 8.0 ],\n    \"slp\": [ 7.0, null, null, 7.0, 7.9 ],\n    \"awk\": [ 1, null, null, 1, 1 ]\n  },\n  \"nut\": {\n    \"nqs\": [ 0.2, 0.2, 0.2, 0.5, null, null, 0.8 ]\n  },\n  \"qlm\": {\n    \"q01\": 1,\n     \"q02\": 1,\n      \"q03\": 0,\n    \"q07\": 0.7,\n    \"q08\": 0.2\n  },\n  \"clip\": false\n}";
 
-var requestOptions = {
+		var requestOptions = {
+	 mode: 'cors',
   method: 'POST',
   headers: myHeaders,
   body: raw,
   redirect: 'follow'
 };
+*/
 
-fetch("https://models-nl.dacadoo.com/score/1.4.0", requestOptions)
-  .then(response => response.text())
-  .then(result => console.log(result))
-  .catch(error => console.log('error', error));
+
+
+var data = '{\n  "mhm": {\n    "age": 40,\n    "sex": 1,\n    "hgt": 170,\n    "wgt": 75,\n    "fat": 15,\n    "dbp": 80,\n    "sbp": 120,\n    "rhr": 45\n  },\n  "smk": {\n    "now": 0,\n    "evr": 0\n  },\n  "slp": {\n    "bed": [ 8.0, null, null, 7.5, 8.0 ],\n    "slp": [ 7.0, null, null, 7.0, 7.9 ],\n    "awk": [ 1, null, null, 1, 1 ]\n  },\n  "nut": {\n    "nqs": [ 0.2, 0.2, 0.2, 0.5, null, null, 0.8 ]\n  },\n  "qlm": {\n    "q01": 1,\n     "q02": 1,\n      "q03": 0,\n    "q07": 0.7,\n    "q08": 0.2\n  },\n  "clip": false\n}';
+
+var config = {
+  method: 'post',
+  url: 'https://http-cors-proxy.p.rapidapi.com/https://models-nl.dacadoo.com/score/1.4.0',
+  headers: { 
+    'X-dacadoo-Key': 'KDAgUABLa0kdebkpsNP6se5XDK4f5e6GEhGh41EZ', 
+    'Host': 'models-nl.dacadoo.com', 
+    'Content-Type': 'application/json; charset=UTF-8', 
+    'x-rapidapi-host': 'http-cors-proxy.p.rapidapi.com', 
+    'x-rapidapi-key': '3b5c37eca6msh16cc56dbeca52cfp1bdf10jsn63b2a383dcbd', 
+    'x-dacadoo-host': 'models-nl.dacadoo.com', 
+    'origin': 'models-nl.dacadoo.com', 
+    'x-requested-with': 'models-nl.dacadoo.com'
+  },
+  data : data
+};
+
+axios(config)
+.then(function (response) {
+  console.log(JSON.stringify(response.data));
+})
+.catch(function (error) {
+  console.log(error);
+});
+		/*
+
+
+		fetch('https://models-nl.dacadoo.com/score/1.4.0', {
+            method: 'POST',
+			headers: {
+				'POST' :'/risk/1 HTTP/1.1',
+				'X-dacadoo-Key': 'KDAgUABLa0kdebkpsNP6se5XDK4f5e6GEhGh41EZ',
+				'Accept-Encoding': 'gzip,deflate,sdch',
+				'Connection': 'keep-alive',
+					'Host': 'models-nl.dacadoo.com',
+				'content-Type': 'application/json; charset=UTF-8',
+				'Origin': 'http://onevitals.io'
+			},
+            body: JSON.stringify({
+					age: this.state.hs_age,
+					sex: this.state.hs_sex            })
+          })
+            .then(response => response.json())
+           /* .then(count => {
+					this.setState(Object.assign(this.state.user, { entries: count }))
+					
+
+					
+
+
+				})
 		
-		
+
+
+
+		*/
 
 
 /*
