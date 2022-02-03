@@ -25,10 +25,25 @@ import About from './components/About/About';
 import Footer from './components/Footer/Footer';
 
 
+import Sketch from './components/HealtScoreForm/./sketch'
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 import SymptomsRecognition from './components/SymptomsRecognition/SymptomsRecognition';
+
+
+import ScoreRecognition from './components/ScoreRecognition/ScoreRecognition';
 
 import Registers from './components/Registers/Registers';
 
@@ -55,6 +70,7 @@ import axios from 'axios';
 //import FaceDetect from "./components/FaceDetect/FaceDetect";
 
 import './App.css';
+
 //import HealthScoreForm from './components/HealtScoreForm/HealthScoreForm';
 
 const particlesOptions = {
@@ -106,13 +122,33 @@ class App extends Component {
 			route: 'about',
 			isSignedIn: 'false'
 			, selectedFile: null,
-			hs_age: '',
-			hs_sex: '',
-			height: '',
-			weight: ''
+			hs_age: '0',
+			hs_sex: '0',
+			hs_height: '0',
+			hs_weight: '0',
+			hs_fat: '0',
+			hs_dbp: '0',
+			hs_sbp: '0',
+			hs_rhr: '0',
+			hs_alc: '0',
+			hs_now: '0',
+			hs_evr: '0',
+			hs_fbg:'null',
+			hs_bed: [8.0, 8.0, 8.0],
+			hs_nqs: [0.5, 0.5, null, 0.5, null, null, 0.8 ],
+
+
+
+			testValue: 40,
+		
+
+			
 
 		
 		};
+
+		//		var data = JSON.stringify({ mhm: { age: +this.state.hs_age, sex: 1, hgt: 110, wgt: 125, fat: 45, rhr: 45 }, smk: { now: 0 }, sleep: { bed: [8.0, 8.0,8.0] } });
+
 
 		
 	//	this.checkSession(this.state.name);
@@ -123,8 +159,17 @@ class App extends Component {
 	//check for session on refresh
 	componentDidMount() {
 
+//following code is for captering the code inside the url for withing		
+var url_string = window.location;
+var url = new URL(url_string);
+var code = url.searchParams.get("code");
+
+//document.getElementById("code").innerHTML = "dddddd";
+  // document.getElementById("code").value = code;
+   console.log(code)
 
 
+ 
 		const token = window.sessionStorage.getItem('token');
 		
 		if (token) {
@@ -155,9 +200,10 @@ class App extends Component {
 							.then(resp => resp.json())
 							.then(user => {
 								if (user) {
-									console.log("before loaduser is called"+user);
+									//console.log("before loaduser is called"+user);
 									this.loadUser(user);
 									this.onRouteChange('home');
+									this.getAccessToken(code);
 								}
 						
 							})
@@ -166,6 +212,53 @@ class App extends Component {
 				.catch(console.log);
 		}
     //  this.checkSession();
+	}
+
+
+	getAccessToken = (code) => {
+		
+					console.log("inside getAccessToken" + code);
+							
+					var axios = require('axios');
+					var FormData = require('form-data');
+					var data = new FormData();
+					data.append('action', 'request_token');
+					data.append('grant_type', 'authorization_code');
+					data.append('client_id', 'fdc30a61126f1c849b3b5c59fb7a8d7200d745a5eb38c3f0c898d069a1c3adc4');
+					data.append('client_secret', '39343c01f5217dc236bec8d1e4277f4ed971252e7d760034b93c0c13916f0565');
+					data.append('code', 'a5fb46d32680c97afc05505ae6bb455beaa3e751');
+					data.append('redirect_uri', 'http://onevitals.io');
+					data.append('state', '1234zyx');
+
+					var config = {
+					method: 'post',
+					url: 'https://account.withings.com/oauth2/token',
+					headers: { 
+						'Cookie': 'ns_af=DhwiD832nkkfj2; next_workflow_login=oauth2_user; next_block_login=authorize2; current_path_login=%3Fresponse_type%3Dcode%26client_id%3Dfdc30a61126f1c849b3b5c59fb7a8d7200d745a5eb38c3f0c898d069a1c3adc4%26redirect_uri%3Dwww.google.com%26scope%3Duser.info%252Cuser.metrics%26state%3D1234zyx%26selecteduser%3D17539818%26b%3Dauthorize2; signin_authorize_state=71518a5675', 
+						
+							
+					},
+					data : data
+					};
+
+					axios(config)
+					.then(function (response) {
+					console.log(JSON.stringify(response.data));
+					})
+					.catch(function (error) {
+					console.log(error);
+					});
+
+
+
+
+
+
+
+
+
+
+
 	}
 
 
@@ -190,6 +283,9 @@ class App extends Component {
 		})
 		console.log("name set now"+this.state.user.name);
 	}
+
+
+
 	
 
 	/*
@@ -250,7 +346,7 @@ class App extends Component {
 
 		else if (event.target.id == 'hs_age') {
 
-			console.log(event.target.value);
+		//	console.log(event.target.value);
 			
 		}
 
@@ -323,7 +419,7 @@ class App extends Component {
 			url: 'https://priaid-symptom-checker-v1.p.rapidapi.com/diagnosis',
 			params: { gender: gender, year_of_birth: age, symptoms: '[' + symptoms + ',' + symptoms1 + ']', language: 'en-gb' },
 			headers: {
-				'x-rapidapi-key': '3b5c37eca6msh16cc56dbeca52cfp1bdf10jsn63b2a383dcbd',
+				'x-rapidapi-key': 'KDAgUABLa0kdebkpsNP6se5XDK4f5e6GEhGh41EZ',
 				'x-rapidapi-host': 'priaid-symptom-checker-v1.p.rapidapi.com'
 			}
 
@@ -375,35 +471,30 @@ class App extends Component {
 
 	hshandleFormSubmit = (event) => {
 		
-/*		
-var myHeaders = new Headers();
-myHeaders.append("X-dacadoo-Key", "KDAgUABLa0kdebkpsNP6se5XDK4f5e6GEhGh41EZ");
-myHeaders.append("Host", "models-nl.dacadoo.com");
-		myHeaders.append("Content-Type", "application/json; charset=UTF-8");
-				myHeaders.append("Access-Control-Allow-Origin", "*");
 		
-		// "Access-Control-Allow-Origin",'*'
+		const age = this.state.hs_age;
+		console.log("insode" + age);
 
-var raw = "{\n  \"mhm\": {\n    \"age\": 40,\n    \"sex\": 1,\n    \"hgt\": 170,\n    \"wgt\": 75,\n    \"fat\": 15,\n    \"dbp\": 80,\n    \"sbp\": 120,\n    \"rhr\": 45\n  },\n  \"smk\": {\n    \"now\": 0,\n    \"evr\": 0\n  },\n  \"slp\": {\n    \"bed\": [ 8.0, null, null, 7.5, 8.0 ],\n    \"slp\": [ 7.0, null, null, 7.0, 7.9 ],\n    \"awk\": [ 1, null, null, 1, 1 ]\n  },\n  \"nut\": {\n    \"nqs\": [ 0.2, 0.2, 0.2, 0.5, null, null, 0.8 ]\n  },\n  \"qlm\": {\n    \"q01\": 1,\n     \"q02\": 1,\n      \"q03\": 0,\n    \"q07\": 0.7,\n    \"q08\": 0.2\n  },\n  \"clip\": false\n}";
+//var data = '{\n  "mhm": {\n    "age": ${this.state.testVal,\n    "sex": 1,\n    "hgt": 170,\n    "wgt": 75,\n    "fat": 15,\n    "dbp": 80,\n    "sbp": 120,\n    "rhr": 45\n  },\n  "smk": {\n    "now": 0,\n    "evr": 0\n  },\n  "slp": {\n    "bed": [ 8.0, null, null, 7.5, 8.0 ],\n    "slp": [ 7.0, null, null, 7.0, 7.9 ],\n    "awk": [ 1, null, null, 1, 1 ]\n  },\n  "nut": {\n    "nqs": [ 0.2, 0.2, 0.2, 0.5, null, null, 0.8 ]\n  },\n  "qlm": {\n    "q01": 1,\n     "q02": 1,\n      "q03": 0,\n    "q07": 0.7,\n    "q08": 0.2\n  },\n  "clip": false\n}';
+		var data = JSON.stringify({
+			mhm: { age: +this.state.hs_age, sex: +this.state.hs_sex, hgt: +this.state.hs_height, wgt: +this.state.hs_weight, fat: +this.state.hs_fat, rhr: +this.state.hs_rhr, dbp: +this.state.hs_dbp ,sbp: +this.state.hs_sbp  , fbg: +this.state.hs_fbg, exh:10}, smk: { now: + this.state.hs_now , evr: + this.state.hs_evr },nut:{nqs:[ 0.1,0.1,0.1,0.1 ,0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1]},
+			slp: {
+				bed: [null,null,null],
+    			slp: [null,null,null],
+				awk: [null,null,null]
+			},
+			nut: {
+			//	nqs: [0.9, 0.9, 0.9, null, 0.1, null, null, null, null, null, null, 0.9, 1.0, 0.1, 0.9, 0.1, 0.9]
+			}
+		});
+		
 
-		var requestOptions = {
-	 mode: 'cors',
-  method: 'POST',
-  headers: myHeaders,
-  body: raw,
-  redirect: 'follow'
-};
-*/
-
-
-
-var data = '{\n  "mhm": {\n    "age": 40,\n    "sex": 1,\n    "hgt": 170,\n    "wgt": 75,\n    "fat": 15,\n    "dbp": 80,\n    "sbp": 120,\n    "rhr": 45\n  },\n  "smk": {\n    "now": 0,\n    "evr": 0\n  },\n  "slp": {\n    "bed": [ 8.0, null, null, 7.5, 8.0 ],\n    "slp": [ 7.0, null, null, 7.0, 7.9 ],\n    "awk": [ 1, null, null, 1, 1 ]\n  },\n  "nut": {\n    "nqs": [ 0.2, 0.2, 0.2, 0.5, null, null, 0.8 ]\n  },\n  "qlm": {\n    "q01": 1,\n     "q02": 1,\n      "q03": 0,\n    "q07": 0.7,\n    "q08": 0.2\n  },\n  "clip": false\n}';
-
+	//	var data = JSON.stringify({ mhm: { age: 42 } });
 var config = {
   method: 'post',
   url: 'https://http-cors-proxy.p.rapidapi.com/https://models-nl.dacadoo.com/score/1.4.0',
   headers: { 
-    'X-dacadoo-Key': 'KDAgUABLa0kdebkpsNP6se5XDK4f5e6GEhGh41EZ', 
+    'X-dacadoo-Key': '4IdqSfKqBtQteTwBKW0tblxpN24mtgZKEJ7qWfMf', 
     'Host': 'models-nl.dacadoo.com', 
     'Content-Type': 'application/json; charset=UTF-8', 
     'x-rapidapi-host': 'http-cors-proxy.p.rapidapi.com', 
@@ -417,7 +508,10 @@ var config = {
 
 axios(config)
 .then(function (response) {
-  console.log(JSON.stringify(response.data));
+	console.log(JSON.stringify(response.data));
+	let scr_result = response.data.components.bdy;
+		document.getElementById('score_result').innerHTML =  scr_result;
+
 })
 .catch(function (error) {
   console.log(error);
@@ -521,13 +615,86 @@ axios(config)
 
 	hsSelectedHandler = (event) => {
 		console.log(event.target.value);
-		this.setState({
-			hs_age: event.target.value,
-			hs_sex: 0
-			
-		});
 		
+	
+
+		if (event.target.id == 'hs_age') {
+				
+			this.setState({ hs_age: event.target.value });
+			
+			
+		} else if (event.target.id == 'hs_sex') {
+				
+			this.setState({ hs_sex: event.target.value });
+
+			
+			
+		}else if (event.target.id == 'hs_height') {
+				
+			this.setState({ hs_height: event.target.value });
+
+			
+			
+		}else if (event.target.id == 'hs_weight') {
+				
+			this.setState({ hs_weight: event.target.value });
+
+			
+			
+				}else if (event.target.id == 'hs_now') {
+				
+			this.setState({ hs_now: event.target.value });
+
+			
+			
+		}else if (event.target.id == 'hs_evr') {
+				
+			this.setState({ hs_evr: event.target.value });
+
+			
+			
+		}else if (event.target.id == 'hs_dpb') {
+				
+			this.setState({ hs_dbp: event.target.value });
+
+			
+			
+		}else if (event.target.id == 'hs_sbp') {
+				
+			this.setState({ hs_sbp: event.target.value });
+
+			
+			
+		}else if (event.target.id == 'hs_fat') {
+				
+			this.setState({ hs_fat: event.target.value });
+
+			
+			
+				}else if (event.target.id == 'hs_rhr') {
+				
+			this.setState({ hs_rhr: event.target.value });
+
+			
+			
+				}else if (event.target.id == 'hs_fbg') {
+				
+			this.setState({ hs_fbg: event.target.value });
+
+			
+			
+				}
+		
+		
+
+
+	
+
+		
+		
+
 	};
+
 
 
 
@@ -689,6 +856,73 @@ console.log("isSignedIN called"+this.state.isSignedIn);
 		}
 	}*/
 
+	
+
+	getZiva = (props) => {
+	
+
+		var Ajax = require('react-ajax');
+		
+		var connectBtn = document.getElementById('connect-health-data-btn');
+connectBtn.addEventListener('click', function (e) {
+    var opts = {
+        // Grab this from the app settings page.
+        clientId: 'UNIQUE_CLIENT_ID_FOR_THE_APPLICATION',
+        // Can be e-mail (any other internal ID of the user, from your system).
+        clientUserId: 'UNIQUE_USER_ID_IN_YOUR_APPLICATION',
+        finish: function(err, responseObject) {
+            // When the user finishes the health data connection to your app, the `finish` function will be called.
+            // `responseObject` object will have a specialToken field in it.
+            // You need to pass this `specialToken` back to us, along with `CLIENT_SECRET`
+            // Send a `POST` request to the `https://developer.zivacare.com/oauth/v2/get-access-token` endpoint.
+            // In return you will get `accessToken` for your user, which can be used to query ZivaCare API.
+            
+            // Sending POST request with jQuery might look like this.
+            // NOTE: it's not necessary to use jQuery.            
+            var data = {
+                // Grab this from the app settings page.
+                clientSecret: 'CLIENT_SECRET',
+                specialToken: responseObject.specialToken
+            };
+
+            Ajax({
+                type: 'POST',
+                contentType: 'application/x-www-form-urlencoded',
+                dataType: 'json',
+                url: 'https://developer.zivacare.com/oauth/v2/get-access-token',
+                data: data,
+                success: function(data) {
+                    // The response is a JSON with this structure:
+                    /*
+                    {
+                      "ziva_user_code": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+                      "name": "xxxxxxxxxxxxxxx...",
+                      "email": "xxxxxxxxxxxxxxx...",
+                      "access_token": "xxxxxxxxxxxxxxx..."
+                    }
+                    */
+
+                    window.console && console.log(data);
+                    alert('The aceess token for your user is: ' + data.access_token);
+                },
+                error: function() {
+                    window.console && console.log('Error getting the access token.');
+                }
+            });
+        },
+        close: function() {
+            // Do something when the user closed popup.
+            // The `close` callback function is optional.
+        }
+    };
+  //  ZivaConnect.open(opts);
+});
+
+	}
+
+
+
+
 
 
 	getUsers = () => {
@@ -792,11 +1026,16 @@ console.log("isSignedIN called"+this.state.isSignedIn);
 						}
 					
 
+						<ScoreRecognition />
 						
+
+
 
 						
 
 						<FaceRecognition box={this.state.box} imageUrl={this.state.imageUrl} />
+
+						
 
 						<Footer />
 
