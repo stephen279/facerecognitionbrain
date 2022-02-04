@@ -257,7 +257,7 @@ var code = url.searchParams.get("code");
 							
 							console.log(JSON.stringify(response.data));
 							var test = "hi";
-							this.getMeas(code);
+							getMeas(code);
 							
 						
 					})
