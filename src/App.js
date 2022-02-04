@@ -244,10 +244,12 @@ var code = url.searchParams.get("code");
 					axios(config)
 						.then(function (response) {
 
-							this.getMeas(response.data);
+							
 							console.log("Access token Value")
 							
 							console.log(JSON.stringify(response.data));
+							var test = "hi";
+							this.getMeas(test);
 							
 						
 					})
@@ -259,7 +261,7 @@ var code = url.searchParams.get("code");
 	}
 
 
-	getMeas = (accToken) => {
+	getMeas = (test) => {
 					
 			var axios = require('axios');
 			var FormData = require('form-data');
