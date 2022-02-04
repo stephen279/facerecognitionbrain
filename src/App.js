@@ -204,6 +204,7 @@ var code = url.searchParams.get("code");
 									this.loadUser(user);
 									this.onRouteChange('home');
 									var access = this.getAccessToken(code);
+									console.log("access returned is"+access );
 									this.getMeas(access);
 									
 								}
@@ -259,7 +260,7 @@ var code = url.searchParams.get("code");
 							
 							console.log(JSON.stringify(response.data));
 							console.log(JSON.stringify(response.data));
-							return JSON.stringify(response.data);
+							return JSON.stringify(response.data.access_token);
 							var test = "hi";
 							//getMeas(code);
 							
