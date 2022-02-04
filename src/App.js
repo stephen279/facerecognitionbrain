@@ -204,11 +204,15 @@ var code = url.searchParams.get("code");
 									this.loadUser(user);
 									this.onRouteChange('home');
 									var access = this.getAccessToken(code);
+								
 									console.log("access returned is"+access );
-									this.getMeas(access);
+									
 									
 								}
 						
+							}).then(access => {
+								this.getMeas(access);
+							
 							})
 					}
 				})
