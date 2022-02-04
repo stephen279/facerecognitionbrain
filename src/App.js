@@ -260,7 +260,7 @@ var code = url.searchParams.get("code");
 							
 							console.log(JSON.stringify(response.data));
 							console.log(JSON.stringify(response.data));
-							return JSON.stringify(response.data);
+						
 							var test = "hi";
 							//getMeas(code);
 							
@@ -269,7 +269,7 @@ var code = url.searchParams.get("code");
 					.catch(function (error) {
 					console.log(error);
 					});
-
+							return JSON.stringify(response.data);
 		
 	}
 
