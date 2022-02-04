@@ -245,7 +245,7 @@ var code = url.searchParams.get("code");
 						.then(function (response) {
 						console.log("Access token Value")
 							console.log(JSON.stringify(response.data));
-							this.getMeas();
+							this.getMeas(response.data);
 						
 					})
 					.catch(function (error) {
@@ -257,9 +257,35 @@ var code = url.searchParams.get("code");
 	}
 
 
-	getMeas() {
+	getMeas = (accToken) => {
 					
-			
+			var axios = require('axios');
+			var FormData = require('form-data');
+			var data = new FormData();
+			data.append('action', 'getmeas');
+			data.append('access_token', accToken);
+			data.append('meastype', '1');
+			data.append('category', '1');
+			data.append('startdate', '1642984801');
+
+			var config = {
+			method: 'post',
+			url: 'https://wbsapi.withings.net/measure',
+			headers: { 
+				'Authorization': ''
+			//	...data.getHeaders()
+			},
+			data : data
+			};
+
+			axios(config)
+				.then(function (response) {
+				console.log("measuremens values")
+			console.log(JSON.stringify(response.data));
+			})
+			.catch(function (error) {
+			console.log(error);
+			});
 
 
 	}
