@@ -263,13 +263,13 @@ var code = url.searchParams.get("code");
 						
 							var test = "hi";
 							//getMeas(code);
+							return response;
 							
 						
-					})
-					.catch(function (error) {
+						}).catch(function (error) {
 					console.log(error);
 					});
-							return JSON.stringify(response.data);
+							
 		
 	}
 
