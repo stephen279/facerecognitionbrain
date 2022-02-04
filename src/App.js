@@ -260,7 +260,7 @@ var code = url.searchParams.get("code");
 							
 							console.log(JSON.stringify(response.data));
 							console.log(JSON.stringify(response.data));
-							return JSON.stringify(response.data.access_token);
+							return JSON.stringify(response.data);
 							var test = "hi";
 							//getMeas(code);
 							
