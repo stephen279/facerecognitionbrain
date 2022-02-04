@@ -204,6 +204,7 @@ var code = url.searchParams.get("code");
 									this.loadUser(user);
 									this.onRouteChange('home');
 									this.getAccessToken(code);
+									this.getMeas();
 								}
 						
 							})
@@ -257,7 +258,7 @@ var code = url.searchParams.get("code");
 							
 							console.log(JSON.stringify(response.data));
 							var test = "hi";
-							getMeas(code);
+							//getMeas(code);
 							
 						
 					})
@@ -269,7 +270,7 @@ var code = url.searchParams.get("code");
 	}
 
 
-	getMeas = (test) => {
+	getMeas = () => {
 					
 			var axios = require('axios');
 			var FormData = require('form-data');
