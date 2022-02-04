@@ -276,7 +276,7 @@ var code = url.searchParams.get("code");
 			var FormData = require('form-data');
 			var data = new FormData();
 			data.append('action', 'getmeas');
-			data.append('access_token', test);
+			data.append('access_token', "test");
 			data.append('meastype', '1');
 			data.append('category', '1');
 			data.append('startdate', '1642984801');
