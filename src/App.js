@@ -203,8 +203,9 @@ var code = url.searchParams.get("code");
 									//console.log("before loaduser is called"+user);
 									this.loadUser(user);
 									this.onRouteChange('home');
-									this.getAccessToken(code);
-									this.getMeas();
+									var access = this.getAccessToken(code);
+									this.getMeas(access);
+									
 								}
 						
 							})
@@ -257,6 +258,8 @@ var code = url.searchParams.get("code");
 							console.log("Access token Value")
 							
 							console.log(JSON.stringify(response.data));
+							console.log(JSON.stringify(response.data));
+							return JSON.stringify(response.data);
 							var test = "hi";
 							//getMeas(code);
 							
@@ -270,13 +273,13 @@ var code = url.searchParams.get("code");
 	}
 
 
-	getMeas = () => {
+	 getMeas = (access) => {
 					
 			var axios = require('axios');
 			var FormData = require('form-data');
 			var data = new FormData();
 			data.append('action', 'getmeas');
-			data.append('access_token', "test");
+			data.append('access_token', access);
 			data.append('meastype', '1');
 			data.append('category', '1');
 			data.append('startdate', '1642984801');
