@@ -244,7 +244,8 @@ var code = url.searchParams.get("code");
 					axios(config)
 						.then(function (response) {
 						console.log("Access token Value")
-						console.log(JSON.stringify(response.data));
+							console.log(JSON.stringify(response.data));
+							this.getMeas("2b770a434160290cbc4f75c59b08aab53673fa48");
 						
 					})
 					.catch(function (error) {
