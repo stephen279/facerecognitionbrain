@@ -216,6 +216,14 @@ var code = url.searchParams.get("code");
 
 
 	getAccessToken = (code) => {
+
+		var url_string = window.location;
+var url = new URL(url_string);
+var code = url.searchParams.get("code");
+
+//document.getElementById("code").innerHTML = "dddddd";
+  // document.getElementById("code").value = code;
+   console.log(code)
 		
 					console.log("inside getAccessToken" + code);
 							
@@ -249,7 +257,7 @@ var code = url.searchParams.get("code");
 							
 							console.log(JSON.stringify(response.data));
 							var test = "hi";
-							this.getMeas(test);
+							this.getMeas(code);
 							
 						
 					})
