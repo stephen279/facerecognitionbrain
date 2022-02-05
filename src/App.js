@@ -203,7 +203,10 @@ var code = url.searchParams.get("code");
 									//console.log("before loaduser is called"+user);
 									this.loadUser(user);
 									this.onRouteChange('home');
-									var access = this.getAccessToken(code);
+									var access = this.getAccessToken(code)
+										.then((access) => {
+											this.getMeas(access);
+									})
 									console.log("call the first .then")
 								
 									console.log("access returned is"+access );
@@ -211,10 +214,6 @@ var code = url.searchParams.get("code");
 									
 								}
 						
-							}).then(access => {
-								console.log("call the next .then")
-								this.getMeas(access);
-							
 							})
 					}
 				})
