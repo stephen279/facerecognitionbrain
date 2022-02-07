@@ -203,10 +203,8 @@ var code = url.searchParams.get("code");
 									//console.log("before loaduser is called"+user);
 									this.loadUser(user);
 									this.onRouteChange('home');
-									var access = this.getAccessToken(code)
-										.then((access) => {
-											this.getMeas(access);
-									})
+									var access = this.getAccessToken(code,this.getWithMeas,this.getWithFatMeas,this.getDiastolicMeas,this.getSystolicMeas);
+										
 									console.log("call the first .then")
 								
 									console.log("access returned is"+access );
@@ -223,7 +221,7 @@ var code = url.searchParams.get("code");
 	}
 
 
-	getAccessToken = (code) => {
+	getAccessToken = (code,getWithMeas,getWithFatMeas,getDiastolicMeas,getSystolicMeas) => {
 
 		var url_string = window.location;
 var url = new URL(url_string);
@@ -243,14 +241,14 @@ var code = url.searchParams.get("code");
 					data.append('client_id', 'fdc30a61126f1c849b3b5c59fb7a8d7200d745a5eb38c3f0c898d069a1c3adc4');
 					data.append('client_secret', '39343c01f5217dc236bec8d1e4277f4ed971252e7d760034b93c0c13916f0565');
 					data.append('code', code);
-					data.append('redirect_uri', 'http://onevitals.io');
+					data.append('redirect_uri', 'http://localhost:3000');
 					data.append('state', '1234zyx');
 
 					var config = {
 					method: 'post',
 					url: 'https://account.withings.com/oauth2/token',
 					headers: { 
-						'Cookie': 'ns_af=DhwiD832nkkfj2; next_workflow_login=oauth2_user; next_block_login=authorize2; current_path_login=%3Fresponse_type%3Dcode%26client_id%3Dfdc30a61126f1c849b3b5c59fb7a8d7200d745a5eb38c3f0c898d069a1c3adc4%26redirect_uri%3Dhttp://onevitals.io%26scope%3Duser.info%252Cuser.metrics%26state%3D1234zyx%26selecteduser%3D17539818%26b%3Dauthorize2; signin_authorize_state=71518a5675', 
+						'Cookie': 'ns_af=DhwiD832nkkfj2; next_workflow_login=oauth2_user; next_block_login=authorize2; current_path_login=%3Fresponse_type%3Dcode%26client_id%3Dfdc30a61126f1c849b3b5c59fb7a8d7200d745a5eb38c3f0c898d069a1c3adc4%26redirect_uri%3Dhttp://localhost:3000%26scope%3Duser.info%252Cuser.metrics%26state%3D1234zyx%26selecteduser%3D17539818%26b%3Dauthorize2; signin_authorize_state=71518a5675', 
 						
 							
 					},
@@ -264,11 +262,14 @@ var code = url.searchParams.get("code");
 							console.log("Access token Value")
 							
 							console.log(JSON.stringify(response.data));
-							console.log(JSON.stringify(response.data));
+						
 						
 							var test = "hi";
-							//getMeas(code);
-							return response;
+							getWithMeas(response.data);
+							getWithFatMeas(response.data);
+							getDiastolicMeas(response.data);
+							getSystolicMeas(response.data);
+							//return response;
 							
 						
 						}).catch(function (error) {
@@ -279,13 +280,15 @@ var code = url.searchParams.get("code");
 	}
 
 
-	 getMeas = (access) => {
+	getWithMeas = (access) => {
+		 
+		console.log("vakue passed into getMeas"+access.access_token);
 					
 			var axios = require('axios');
 			var FormData = require('form-data');
 			var data = new FormData();
 			data.append('action', 'getmeas');
-			data.append('access_token', access);
+			data.append('access_token', access.access_token);
 			data.append('meastype', '1');
 			data.append('category', '1');
 			data.append('startdate', '1642984801');
@@ -302,12 +305,124 @@ var code = url.searchParams.get("code");
 
 			axios(config)
 				.then(function (response) {
-				console.log("measuremens values")
-			console.log(JSON.stringify(response.data));
+				console.log(" measuremens values")
+					console.log(JSON.stringify(response.data));
+					 document.getElementById("hs_weight").value = response.data.body.measuregrps[0].measures[0].value
 			})
 			.catch(function (error) {
 			console.log(error);
 			});
+
+
+	}
+
+	getWithFatMeas = (access) => {
+
+		console.log("vakue passed into getMeas"+access.access_token);
+					
+			var axios = require('axios');
+			var FormData = require('form-data');
+			var data = new FormData();
+			data.append('action', 'getmeas');
+			data.append('access_token', access.access_token);
+			data.append('meastype', '6');
+			data.append('category', '1');
+			data.append('startdate', '1642984801');
+
+			var config = {
+			method: 'post',
+			url: 'https://wbsapi.withings.net/measure',
+			headers: { 
+				'Authorization': ''
+			//	...data.getHeaders()
+			},
+			data : data
+			};
+
+			axios(config)
+				.then(function (response) {
+				console.log("fat measuremens values")
+					console.log(JSON.stringify(response.data));
+					 document.getElementById("hs_fat").value = response.data.body.measuregrps[0].measures[0].value
+			})
+			.catch(function (error) {
+			console.log(error);
+			});
+		
+
+
+	}
+
+		getDiastolicMeas = (access) => {
+
+		console.log("vakue passed into getMeas"+access.access_token);
+					
+			var axios = require('axios');
+			var FormData = require('form-data');
+			var data = new FormData();
+			data.append('action', 'getmeas');
+			data.append('access_token', access.access_token);
+			data.append('meastype', '9');
+			data.append('category', '1');
+			data.append('startdate', '1642984801');
+
+			var config = {
+			method: 'post',
+			url: 'https://wbsapi.withings.net/measure',
+			headers: { 
+				'Authorization': ''
+			//	...data.getHeaders()
+			},
+			data : data
+			};
+
+			axios(config)
+				.then(function (response) {
+				console.log("dpb measuremens values")
+					console.log(JSON.stringify(response.data));
+					 document.getElementById("hs_dpb").value = response.data.body.measuregrps[0].measures[0].value
+			})
+			.catch(function (error) {
+			console.log(error);
+			});
+		
+
+
+		}
+	
+		getSystolicMeas = (access) => {
+
+		console.log("vakue passed into getMeas"+access.access_token);
+					
+			var axios = require('axios');
+			var FormData = require('form-data');
+			var data = new FormData();
+			data.append('action', 'getmeas');
+			data.append('access_token', access.access_token);
+			data.append('meastype', '10');
+			data.append('category', '1');
+			data.append('startdate', '1642984801');
+
+			var config = {
+			method: 'post',
+			url: 'https://wbsapi.withings.net/measure',
+			headers: { 
+				'Authorization': ''
+			//	...data.getHeaders()
+			},
+			data : data
+			};
+
+			axios(config)
+				.then(function (response) {
+				console.log("sbp measuremens values")
+					console.log(JSON.stringify(response.data));
+					 document.getElementById("hs_sbp").value = response.data.body.measuregrps[0].measures[0].value
+			})
+			.catch(function (error) {
+			console.log(error);
+			});
+		
 
 
 	}
@@ -468,9 +583,10 @@ var code = url.searchParams.get("code");
 			
 			method: 'GET',
 			url: 'https://priaid-symptom-checker-v1.p.rapidapi.com/diagnosis',
-			params: { gender: gender, year_of_birth: age, symptoms: '[' + symptoms + ',' + symptoms1 + ']', language: 'en-gb' },
+			params: { gender: gender, year_of_birth: age, symptoms: '[' + symptoms + ',' + symptoms1 + ',' + symptoms2 + ']', language: 'en-gb' },
 			headers: {
-				'x-rapidapi-key': 'KDAgUABLa0kdebkpsNP6se5XDK4f5e6GEhGh41EZ',
+				//'x-rapidapi-key': 'KDAgUABLa0kdebkpsNP6se5XDK4f5e6GEhGh41EZ',
+				'x-rapidapi-key': '3b5c37eca6msh16cc56dbeca52cfp1bdf10jsn63b2a383dcbd',
 				'x-rapidapi-host': 'priaid-symptom-checker-v1.p.rapidapi.com'
 			}
 
@@ -479,7 +595,7 @@ var code = url.searchParams.get("code");
 
 		axios.request(options).then(function (response) {
 			
-		
+			console.log(response.data);
 			console.log("inside axio request");
 			console.log(response.data[0]);
 			console.log(response.data[1]);
@@ -489,25 +605,23 @@ var code = url.searchParams.get("code");
 			let name = response.data[0].Issue.Name;
 			let accuracy = (Math.round(response.data[0].Issue.Accuracy * 100) / 100).toFixed(0);
 			let specialist = response.data[0].Specialisation[0].Name;
+			document.getElementById('symptoms_result').innerHTML = name;
+			document.getElementById('symptoms_confidence').innerHTML = accuracy;
+			document.getElementById('specialist').innerHTML = specialist;
+		//	document.getElementById('symptoms_expalin').innerHTML = specialist;
 			//let specialist = response.data[0].Issue.Name;
 			let name_1 = response.data[1].Issue.Name;
+			console.log("issue 2 Name" + name_1);
 			let accuracy_1 = (Math.round(response.data[1].Issue.Accuracy * 100) / 100).toFixed(0);
 			let specialist_1 = response.data[1].Specialisation[1].Name;
 			//let accuracy_1= response.data[1].Issue.Accuracy+ "%";
 
-			let geder = response.data[0].Issue.Gender;
-
-			console.log(response.data[0]);
-			//console.log(response.data[0].Issue.Name);
-			console.log(response.data[0].Specialisation.Name);
-
-			document.getElementById('symptoms_result').innerHTML = name;
-			document.getElementById('symptoms_confidence').innerHTML = accuracy;
-			document.getElementById('specialist').innerHTML = specialist;
-			document.getElementById('symptoms_expalin').innerHTML = specialist;
 			document.getElementById('symptoms_result_1').innerHTML = name_1;
 			document.getElementById('symptoms_confidence_1').innerHTML = accuracy_1;
 			document.getElementById('specialist_1').innerHTML = specialist_1;
+
+		
+			
 		
 		}).catch(function (error) {
 			console.error(error);
