@@ -247,7 +247,8 @@ var code = url.searchParams.get("code");
 					var config = {
 					method: 'post',
 					url: 'https://account.withings.com/oauth2/token',
-					headers: { 
+						headers: { 
+						'Content-Type':'application/x-www-form-urlencoded',
 						'Cookie': 'ns_af=DhwiD832nkkfj2; next_workflow_login=oauth2_user; next_block_login=authorize2; current_path_login=%3Fresponse_type%3Dcode%26client_id%3Dfdc30a61126f1c849b3b5c59fb7a8d7200d745a5eb38c3f0c898d069a1c3adc4%26redirect_uri%3Dhttp://onevitals.io%26scope%3Duser.info%252Cuser.metrics%26state%3D1234zyx%26selecteduser%3D17539818%26b%3Dauthorize2; signin_authorize_state=71518a5675', 
 						
 							
