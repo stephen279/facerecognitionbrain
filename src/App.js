@@ -241,14 +241,14 @@ var code = url.searchParams.get("code");
 					data.append('client_id', 'fdc30a61126f1c849b3b5c59fb7a8d7200d745a5eb38c3f0c898d069a1c3adc4');
 					data.append('client_secret', '39343c01f5217dc236bec8d1e4277f4ed971252e7d760034b93c0c13916f0565');
 					data.append('code', code);
-					data.append('redirect_uri', 'http://localhost:3000');
+					data.append('redirect_uri', 'http://onevitals.io');
 					data.append('state', '1234zyx');
 
 					var config = {
 					method: 'post',
 					url: 'https://account.withings.com/oauth2/token',
 					headers: { 
-						'Cookie': 'ns_af=DhwiD832nkkfj2; next_workflow_login=oauth2_user; next_block_login=authorize2; current_path_login=%3Fresponse_type%3Dcode%26client_id%3Dfdc30a61126f1c849b3b5c59fb7a8d7200d745a5eb38c3f0c898d069a1c3adc4%26redirect_uri%3Dhttp://localhost:3000%26scope%3Duser.info%252Cuser.metrics%26state%3D1234zyx%26selecteduser%3D17539818%26b%3Dauthorize2; signin_authorize_state=71518a5675', 
+						'Cookie': 'ns_af=DhwiD832nkkfj2; next_workflow_login=oauth2_user; next_block_login=authorize2; current_path_login=%3Fresponse_type%3Dcode%26client_id%3Dfdc30a61126f1c849b3b5c59fb7a8d7200d745a5eb38c3f0c898d069a1c3adc4%26redirect_uri%3Dhttp://onevitals.io%26scope%3Duser.info%252Cuser.metrics%26state%3D1234zyx%26selecteduser%3D17539818%26b%3Dauthorize2; signin_authorize_state=71518a5675', 
 						
 							
 					},
