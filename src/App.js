@@ -223,7 +223,7 @@ var code = url.searchParams.get("code");
 
 	getAccessToken = (code,getWithMeas,getWithFatMeas,getDiastolicMeas,getSystolicMeas) => {
 
-		var url_string = window.location;
+		/*var url_string = window.location;
 var url = new URL(url_string);
 var code = url.searchParams.get("code");
 
@@ -246,11 +246,12 @@ var code = url.searchParams.get("code");
 
 					var config = {
 					method: 'post',
-					url: 'https://account.withings.com/oauth2/token',
+					url: 'https://http-cors-proxy.p.rapidapi.com/https://account.withings.com/oauth2/token',
 						headers: { 
-						'Content-Type':'application/x-www-form-urlencoded',
+						  'Content-Type': 'application/json; charset=UTF-8',
 						'Cookie': 'ns_af=DhwiD832nkkfj2; next_workflow_login=oauth2_user; next_block_login=authorize2; current_path_login=%3Fresponse_type%3Dcode%26client_id%3Dfdc30a61126f1c849b3b5c59fb7a8d7200d745a5eb38c3f0c898d069a1c3adc4%26redirect_uri%3Dhttp://onevitals.io%26scope%3Duser.info%252Cuser.metrics%26state%3D1234zyx%26selecteduser%3D17539818%26b%3Dauthorize2; signin_authorize_state=71518a5675', 
-						
+						  'x-rapidapi-host': 'http-cors-proxy.p.rapidapi.com', 
+                'x-rapidapi-key': '3b5c37eca6msh16cc56dbeca52cfp1bdf10jsn63b2a383dcbd'
 							
 					},
 					data : data
@@ -275,7 +276,38 @@ var code = url.searchParams.get("code");
 						
 						}).catch(function (error) {
 					console.log(error);
-					});
+					});*/
+		
+		
+var axios = require("axios").default;
+
+var options = {
+  method: 'POST',
+  url: 'https://http-cors-proxy.p.rapidapi.com/https://wbsapi.withings.net/v2/oauth2',
+  headers: {
+    'content-type': 'application/json',
+    origin: 'example.com',
+    'x-requested-with': 'example.com',
+    'x-rapidapi-host': 'http-cors-proxy.p.rapidapi.com',
+    'x-rapidapi-key': '3b5c37eca6msh16cc56dbeca52cfp1bdf10jsn63b2a383dcbd'
+  },
+  data: {
+    action: 'requesttoken',
+    grant_type: 'authorization_code',
+    client_id: 'fdc30a61126f1c849b3b5c59fb7a8d7200d745a5eb38c3f0c898d069a1c3adc4',
+    client_secret: '39343c01f5217dc236bec8d1e4277f4ed971252e7d760034b93c0c13916f0565',
+    code: code,
+    redirect_uri: 'http://onevitals.io',
+    'Content-Type': 'application/json; charset=UTF-8',
+    state: '1234zyx'
+  }
+};
+
+axios.request(options).then(function (response) {
+	console.log(response.data);
+}).catch(function (error) {
+	console.error(error);
+});
 							
 		
 	}
