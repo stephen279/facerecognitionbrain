@@ -305,6 +305,10 @@ var options = {
 
 axios.request(options).then(function (response) {
 	console.log(response.data);
+				getWithMeas(response.data);
+				getWithFatMeas(response.data);
+				getDiastolicMeas(response.data);
+				getSystolicMeas(response.data);
 }).catch(function (error) {
 	console.error(error);
 });
