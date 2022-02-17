@@ -319,7 +319,7 @@ axios.request(options).then(function (response) {
 
 	getWithMeas = (access) => {
 		 
-		console.log("vakue passed into getMeas"+access.id);
+		console.log("vakue passed into getMeas"+access.access_token);
 					
 			var axios = require('axios');
 			var FormData = require('form-data');
