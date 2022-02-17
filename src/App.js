@@ -304,7 +304,7 @@ var options = {
 };
 
 axios.request(options).then(function (response) {
-	console.log(response.data);
+	console.log("access Token is"+response.data);
 				getWithMeas(response.data);
 				getWithFatMeas(response.data);
 				getDiastolicMeas(response.data);
