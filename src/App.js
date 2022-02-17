@@ -286,8 +286,8 @@ var options = {
   url: 'https://http-cors-proxy.p.rapidapi.com/https://wbsapi.withings.net/v2/oauth2',
   headers: {
     'content-type': 'application/json',
-    origin: 'example.com',
-    'x-requested-with': 'example.com',
+    origin: 'http://onevitals.io',
+    'x-requested-with': 'http://onevitals.io',
     'x-rapidapi-host': 'http-cors-proxy.p.rapidapi.com',
     'x-rapidapi-key': '3b5c37eca6msh16cc56dbeca52cfp1bdf10jsn63b2a383dcbd'
   },
