@@ -299,18 +299,18 @@ var options = {
     client_secret: '39343c01f5217dc236bec8d1e4277f4ed971252e7d760034b93c0c13916f0565',
     code: code,
     redirect_uri: 'http://onevitals.io',
-   
+    'Content-Type': 'application/json; charset=UTF-8',
     state: '1234zyx'
   }
 };
 
 		axios.request(options).then(function (response) {
 	
-	console.log("access Token is"+response.data.body.access_token);
-				getWithMeas(response.data.body.access_token);
-				getWithFatMeas(response.data.body.access_token);
-				getDiastolicMeas(response.data.body.access_token);
-				getSystolicMeas(response.data.body.access_token);
+	console.log("access Token is"+response.data.access_token);
+				getWithMeas(response.data);
+				getWithFatMeas(response.data);
+				getDiastolicMeas(response.data);
+				getSystolicMeas(response.data);
 }).catch(function (error) {
 	console.error(error);
 });
@@ -321,13 +321,13 @@ var options = {
 
 	getWithMeas = (access) => {
 		 
-		console.log("vakue passed into getMeas"+response.data.body.access_token);
+		console.log("vakue passed into getMeas"+access.access_token);
 					
 			var axios = require('axios');
 			var FormData = require('form-data');
 			var data = new FormData();
 			data.append('action', 'getmeas');
-			data.append('access_token', response.data.body.access_token);
+			data.append('access_token', access.access_token);
 			data.append('meastype', '1');
 			data.append('category', '1');
 			data.append('startdate', '1642984801');
