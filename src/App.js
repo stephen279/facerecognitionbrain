@@ -363,7 +363,7 @@ var options = {
 			var FormData = require('form-data');
 			var data = new FormData();
 			data.append('action', 'getmeas');
-			data.append('access_token', access.access_token);
+			data.append('access_token', access.body.access_token);
 			data.append('meastype', '6');
 			data.append('category', '1');
 			data.append('startdate', '1642984801');
@@ -400,7 +400,7 @@ var options = {
 			var FormData = require('form-data');
 			var data = new FormData();
 			data.append('action', 'getmeas');
-			data.append('access_token', access.access_token);
+			data.append('access_token', access.body.access_token);
 			data.append('meastype', '9');
 			data.append('category', '1');
 			data.append('startdate', '1642984801');
@@ -418,7 +418,7 @@ var options = {
 			axios(config)
 				.then(function (response) {
 				console.log("dpb measuremens values")
-					console.log(JSON.stringify(response.data));
+					console.log(JSON.stringify(access.body.access_token));
 					 document.getElementById("hs_dpb").value = response.data.body.measuregrps[0].measures[0].value
 			})
 			.catch(function (error) {
@@ -437,7 +437,7 @@ var options = {
 			var FormData = require('form-data');
 			var data = new FormData();
 			data.append('action', 'getmeas');
-			data.append('access_token', access.access_token);
+			data.append('access_token', access.body.access_token);
 			data.append('meastype', '10');
 			data.append('category', '1');
 			data.append('startdate', '1642984801');
