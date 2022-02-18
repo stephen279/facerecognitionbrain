@@ -299,7 +299,7 @@ var options = {
     client_secret: '39343c01f5217dc236bec8d1e4277f4ed971252e7d760034b93c0c13916f0565',
     code: code,
     redirect_uri: 'http://onevitals.io',
-    'Content-Type': 'application/json; charset=UTF-8',
+   
     state: '1234zyx'
   }
 };
