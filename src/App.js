@@ -288,7 +288,7 @@ var options = {
   headers: {
     'content-type': 'application/json',
     origin: 'onevitals.io',
-    'x-requested-with': 'onevitals.io',
+    'x-requested-with': 'http://onevitals.io',
     'x-rapidapi-host': 'http-cors-proxy.p.rapidapi.com',
     'x-rapidapi-key': '3b5c37eca6msh16cc56dbeca52cfp1bdf10jsn63b2a383dcbd'
   },
@@ -298,7 +298,7 @@ var options = {
     client_id: 'fdc30a61126f1c849b3b5c59fb7a8d7200d745a5eb38c3f0c898d069a1c3adc4',
     client_secret: '39343c01f5217dc236bec8d1e4277f4ed971252e7d760034b93c0c13916f0565',
     code: code,
-    redirect_uri: 'onevitals.io',
+    redirect_uri: 'http://onevitals.io',
     'Content-Type': 'application/json; charset=UTF-8',
     state: '1234zyx'
   }
