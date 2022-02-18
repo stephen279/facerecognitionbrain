@@ -66,7 +66,7 @@ var code = url.searchParams.get("code");
          
          <p classname='f3'>
             <h1 className="f3 lh-copy">{"please answer below Questions for your Health Score"}</h1>
-<p><a href="https://account.withings.com/oauth2_user/authorize2?response_type=code&client_id=fdc30a61126f1c849b3b5c59fb7a8d7200d745a5eb38c3f0c898d069a1c3adc4&redirect_uri=http%3A%2F%2Fonevitals.io&scope=user.info%2Cuser.metrics&state=1234zyx&selecteduser=17864507">Connect to Your Withing Account </a></p>
+<p><a href="https://account.withings.com/oauth2_user/authorize2?response_type=code&client_id=fdc30a61126f1c849b3b5c59fb7a8d7200d745a5eb38c3f0c898d069a1c3adc4&state=1234zyx&scope=user.info,user.metrics,user.activity&redirect_uri=http://onevitals.io&mode=demo">Connect to Your Withing Account </a></p>
             <div className='center'>
                
                <div className='form_trnsparent center pa4 br3 shadow-2'>
