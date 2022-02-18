@@ -310,7 +310,7 @@ var options = {
 				getWithMeas(response.data.body.access_token);
 				getWithFatMeas(response.data.body.access_token);
 				getDiastolicMeas(response.data.body.access_token);
-				getSystolicMeas(response.data.body.access_token;
+				getSystolicMeas(response.data.body.access_token);
 }).catch(function (error) {
 	console.error(error);
 });
