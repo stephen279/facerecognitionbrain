@@ -321,13 +321,13 @@ var options = {
 
 	getWithMeas = (access) => {
 		 
-		console.log("vakue passed into getMeas"+access.access_token);
+		console.log("vakue passed into getMeas"+response.data.body.access_token);
 					
 			var axios = require('axios');
 			var FormData = require('form-data');
 			var data = new FormData();
 			data.append('action', 'getmeas');
-			data.append('access_token', access.access_token);
+			data.append('access_token', response.data.body.access_token);
 			data.append('meastype', '1');
 			data.append('category', '1');
 			data.append('startdate', '1642984801');
