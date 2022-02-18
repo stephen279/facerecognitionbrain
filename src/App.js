@@ -221,7 +221,8 @@ var code = url.searchParams.get("code");
 	}
 
 
-	getAccessToken = (code,getWithMeas,getWithFatMeas,getDiastolicMeas,getSystolicMeas) => {
+	getAccessToken = (code, getWithMeas, getWithFatMeas, getDiastolicMeas, getSystolicMeas) => {
+		 console.log(code)
 
 		/*var url_string = window.location;
 var url = new URL(url_string);
