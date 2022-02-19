@@ -674,6 +674,8 @@ var options = {
 
 
 	hshandleFormSubmit = (event) => {
+
+			this.showOperation();
 		
 		
 		const age = this.state.hs_age;

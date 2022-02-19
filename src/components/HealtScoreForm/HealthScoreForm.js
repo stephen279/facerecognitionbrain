@@ -72,41 +72,41 @@ var code = url.searchParams.get("code");
                <div className='form_trnsparent center pa4 br3 shadow-2'>
                      
                      <p>
-                      <h4>Age</h4>
+                      <h5>Age</h5>
                      <input className='f4 pa2 w-70 center' type="text" id='hs_age' name="hs_age" placeholder="Age" onChange={hsSelectedHandler} />
                      
                      <br></br> 
              
-                      <h4>Sex</h4>
+                      <h5>Sex</h5>
                      <input className='f4 pa2 w-70 center' type="text" id='hs_sex' name="hs_sex" placeholder="Sex"  onChange={hsSelectedHandler}/>
 
                       <br></br> 
-                     <h4>Height</h4>
+                     <h5>Height</h5>
                            <input className='f4 pa2 w-70 center' type="text" id='hs_height' name="hs_height" placeholder="Height CM" onChange={hsSelectedHandler}/>
                      
                      <br></br> 
              
-                      <h4>Weight</h4>
+                      <h5>Weight</h5>
                      <input className='f4 pa2 w-70 center' type="text" id='hs_weight' name="hs_weight" placeholder="Weight KG" onChange={hsSelectedHandler}/>
                      
                      <br></br> 
-                                 <h4>Percentage Fat</h4>
+                                 <h5>Percentage Fat</h5>
                                   <input className='f4 pa2 w-70 center' type="text" id='hs_fat' name="hs_fat" placeholder="Fat Percentage" onChange={hsSelectedHandler}/>
                      
                      <br></br> 
-                     <h4>Diastolic Blood Pressure</h4>
+                     <h5>Diastolic Blood Pressure</h5>
                          <input className='f4 pa2 w-70 center' type="text" id='hs_dpb' name="hs_dpb" placeholder="Diastolic Blood pressure" onChange={hsSelectedHandler}/>
                      
                      <br></br> 
-                     <h4>Systolic Blood Pressure</h4>
+                     <h5>Systolic Blood Pressure</h5>
                          <input className='f4 pa2 w-70 center' type="text" id='hs_sbp' name="hs_sbp" placeholder="Systolic Blood Pressure" onChange={hsSelectedHandler}/>
                      
                         <br></br> 
-                        <h4>Resting heart rate</h4>
+                        <h5>Resting heart rate</h5>
                        <input className='f4 pa2 w-70 center' type="text" id='hs_rhr' name="hs_rhr" placeholder="Resting heart rate" onChange={hsSelectedHandler}/>
                      
                         <br></br> 
-                        <h4>Fasting Blood Glucose</h4>
+                        <h5>Fasting Blood Glucose</h5>
                           <input className='f4 pa2 w-70 center' type="text" id='hs_fbg' name="hs_fbg" placeholder="Fasting Blood Glucose" onChange={hsSelectedHandler}/>
                      
                         <br></br> 
@@ -133,7 +133,7 @@ var code = url.searchParams.get("code");
                   
                 
 
-                  <button className='f7 link dim ph3 pv1 mb1 dib white bg-light-purple' id="submit" onClick={hshandleFormSubmit}>Check Score</button>
+                  <button className='f6 link dim ph2 pv16 mb6 dib white bg-light-purple' id="submit" onClick={hshandleFormSubmit}>Check Score</button>
 				
 
                </div>
