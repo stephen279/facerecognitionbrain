@@ -1220,14 +1220,9 @@ connectBtn.addEventListener('click', function (e) {
 						
 						/>
 
-						{this.state.showMe ?
+						
 
-							<HealthScore />
-							
-							:
-							null
-
-						}
+						
 						{ this.state.showMe ?
 
 							<SkinRecognition />
@@ -1236,8 +1231,17 @@ connectBtn.addEventListener('click', function (e) {
 							null
 						}
 					
+						
+						{ this.state.showMe ?
 
-						<ScoreRecognition />
+							<ScoreRecognition />
+							
+							: 
+							null
+							
+						}
+
+						
 						
 
 
