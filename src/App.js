@@ -700,7 +700,7 @@ var config = {
   method: 'post',
   url: 'https://http-cors-proxy.p.rapidapi.com/https://models-nl.dacadoo.com/score/1.4.0',
   headers: { 
-    'X-dacadoo-Key': '4IdqSfKqBtQteTwBKW0tblxpN24mtgZKEJ7qWfMf', 
+    'X-dacadoo-Key': 'CEsRqXcySklmUNOgUb92OaiQ6CZN2LsZvtHvcLd6', 
     'Host': 'models-nl.dacadoo.com', 
     'Content-Type': 'application/json; charset=UTF-8', 
     'x-rapidapi-host': 'http-cors-proxy.p.rapidapi.com', 
