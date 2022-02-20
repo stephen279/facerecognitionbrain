@@ -825,7 +825,8 @@ axios(config)
 	
 
 		if (event.target.id == 'hs_age') {
-				
+			
+		
 			this.setState({ hs_age: event.target.value });
 			
 			
@@ -841,9 +842,14 @@ axios(config)
 
 			
 			
-		}else if (event.target.id == 'hs_weight') {
+		} else if (event.target.id == 'hs_weight') {
+			let hs_weight_str = event.target.value.toString();
+			
+			hs_weight_str = hs_weight_str.slice(0, -3);
+			hs_weight_str = parseInt(hs_weight_str);
+			console.log(hs_weight_str);
 				
-			this.setState({ hs_weight: event.target.value });
+			this.setState({ hs_weight: hs_weight_str });
 
 			
 			
