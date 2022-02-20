@@ -675,7 +675,7 @@ var options = {
 
 	hshandleFormSubmit = (event) => {
 
-			this.showOperation();
+			//this.showOperation();
 		
 		
 		const age = this.state.hs_age;
@@ -813,8 +813,11 @@ axios(config)
 	
 
 	fileSelectedHandler = (event) => {
+			console.log("selectedfile will be"+event.target.files[0]);
 		this.setState({
+
 			selectedFile: event.target.files[0]
+		//	console.log("selectedfile is" + selectedFile);
 		});
 	};
 
@@ -842,14 +845,10 @@ axios(config)
 
 			
 			
-		} else if (event.target.id == 'hs_weight') {
-			let hs_weight_str = event.target.value.toString();
+		}else if (event.target.id == 'hs_weight') {
 			
-			hs_weight_str = hs_weight_str.slice(0, -3);
-			hs_weight_str = parseInt(hs_weight_str);
-			console.log(hs_weight_str);
 				
-			this.setState({ hs_weight: hs_weight_str });
+			this.setState({ hs_weight: event.target.value });
 
 			
 			
@@ -912,19 +911,47 @@ axios(config)
 
 	fileUploadHandler = () => {
 		
- 	this.showOperation()
+	 //this.showOperation
+		console.log("inside file upload" + this.state.selectedFile);
 		const formData = new FormData();
 		formData.append('data', this.state.selectedFile, this.state.selectedFile.name);
 		//console.log("formData"+formData);
-		axios.post('https://www.nyckel.com/v0.9/functions/edx2ml1gbri4n34d/invoke', formData).then((res) => {
+		axios.post('https://www.nyckel.com/v1/functions/edx2ml1gbri4n34d/invoke', formData).then((res) => {
+			console.log(res);
+			console.log(res.data);
 			console.log(res.data.confidence);
-			console.log(res.data.name);
+			console.log(res.data.labelName);
 
 			let confidence_new = (Math.round(res.data.confidence * 100) / 100).toFixed(2) * 100 + "%";
 			// alert(res);
 			document.getElementById('result').innerHTML = res.data.name;
 			document.getElementById('confidence').innerHTML = confidence_new;
 		});
+
+	/*	var axios = require('axios');
+var FormData = require('form-data');
+var fs = require('fs');
+var data = new FormData();
+data.append('data', this.state.selectedFile, this.state.selectedFile.name);
+
+var config = {
+  method: 'post',
+  url: 'https://www.nyckel.com/v1/functions/edx2ml1gbri4n34d/invoke',
+  headers: { 
+  //  ...data.getHeaders()
+	  "Content-Type": "application/json"
+  },
+  data : data
+};
+
+axios(config)
+.then(function (response) {
+  console.log(JSON.stringify("response is"+response.data));
+})
+.catch(function (error) {
+  console.log(error);
+});*/
+
 		fetch('https://protected-gorge-67490.herokuapp.com/image', {
             method: 'put',
             headers: {'Content-Type': 'application/json'},
@@ -1231,13 +1258,12 @@ connectBtn.addEventListener('click', function (e) {
 						
 
 						
-						{ this.state.showMe ?
+					
 
 							<SkinRecognition />
 							
-							:
-							null
-						}
+			
+				
 					
 						
 						{ this.state.showMe ?
