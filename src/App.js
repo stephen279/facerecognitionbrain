@@ -917,9 +917,10 @@ axios(config)
 		formData.append('data', this.state.selectedFile, this.state.selectedFile.name);
 		//console.log("formData"+formData);
 		axios.post('https://www.nyckel.com/v1/functions/edx2ml1gbri4n34d/invoke', formData).then((res) => {
-			console.log(res);
-			console.log(res.data);
-			console.log(res.data.confidence);
+
+			console.log("res"+res);
+			console.log("res.data"+res.data);
+			console.log("res.data.confidence"+res.data.confidence);
 			console.log(res.data.labelName);
 
 			let confidence_new = (Math.round(res.data.confidence * 100) / 100).toFixed(2) * 100 + "%";
