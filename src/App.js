@@ -925,7 +925,7 @@ axios(config)
 
 			let confidence_new = (Math.round(res.data.confidence * 100) / 100).toFixed(2) * 100 + "%";
 			// alert(res);
-			document.getElementById('result').innerHTML = res.data.name;
+			document.getElementById('result').innerHTML = res.data.labelName;
 			document.getElementById('confidence').innerHTML = confidence_new;
 		});
 
