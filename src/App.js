@@ -675,7 +675,7 @@ var options = {
 
 	hshandleFormSubmit = (event) => {
 
-			//this.showOperation();
+			this.showOperation();
 		
 		
 		const age = this.state.hs_age;
@@ -911,7 +911,7 @@ axios(config)
 
 	fileUploadHandler = () => {
 		
-	 //this.showOperation
+	 this.showOperation
 		console.log("inside file upload" + this.state.selectedFile);
 		const formData = new FormData();
 		formData.append('data', this.state.selectedFile, this.state.selectedFile.name);
