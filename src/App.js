@@ -1259,13 +1259,15 @@ connectBtn.addEventListener('click', function (e) {
 						
 
 						
-					
+						{
+							this.state.showMe ?
 
 							<SkinRecognition />
-							
+								:
+								null 
 			
 				
-					
+						}
 						
 						{ this.state.showMe ?
 
