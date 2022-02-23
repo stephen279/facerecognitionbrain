@@ -383,7 +383,7 @@ var options = {
 				console.log("fat measuremens values")
 					console.log(JSON.stringify(response.data));
 
-		//	let callString = (response.data.body.measuregrps[0].measures[0].value);
+			let callString = response.data.body.measuregrps[0].measures[0].value;
 
 		//	let finalString = callString.slice(0, -3);
 			
