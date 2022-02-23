@@ -389,8 +389,8 @@ var options = {
 
 			let finalString = slicedNumber.slice(0, -3);
 			
-		//	console.log("finalString" + finalString);
-					document.getElementById("hs_fat").value = response.data.body.measuregrps[0].measures[0].value;
+			console.log("finalString" + finalString);
+					document.getElementById("hs_fat").value = finalString;
 			})
 			.catch(function (error) {
 			console.log(error);
