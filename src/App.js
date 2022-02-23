@@ -387,7 +387,7 @@ var options = {
 					
 					 slicedNumber = callString.toString();
 
-			let finalString = slicedNumber.slice(0, -3);
+		//	let finalString = slicedNumber.slice(0, -3);
 			
 		//	console.log("finalString" + finalString);
 					document.getElementById("hs_fat").value = response.data.body.measuregrps[0].measures[0].value;
