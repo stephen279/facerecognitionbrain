@@ -845,10 +845,15 @@ axios(config)
 
 			
 			
-		}else if (event.target.id == 'hs_weight') {
+		} else if (event.target.id == 'hs_weight') {
 			
+			let callString = (event.target.value);
+
+			let finalString = callString.replaceAll('0', '');
+			
+			console.log("finalString" + finalString);
 				
-			this.setState({ hs_weight: event.target.value });
+			this.setState({ hs_weight: finalString });
 
 			
 			
