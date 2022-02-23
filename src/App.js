@@ -382,7 +382,13 @@ var options = {
 				.then(function (response) {
 				console.log("fat measuremens values")
 					console.log(JSON.stringify(response.data));
-					 document.getElementById("hs_fat").value = response.data.body.measuregrps[0].measures[0].value
+
+			let callString = (response.data.body.measuregrps[0].measures[0].value);
+
+			let finalString = callString.slice(0, -3);
+			
+			console.log("finalString" + finalString);
+					document.getElementById("hs_fat").value = finalString;
 			})
 			.catch(function (error) {
 			console.log(error);
@@ -675,13 +681,6 @@ var options = {
 
 	hshandleFormSubmit = (event) => {
 
-
-			let callString = (this.state.hs_weight);
-
-			let finalString = callString.slice(0, -3);
-			
-			console.log("finalString" + finalString);
-
 			this.showOperation();
 		
 		
@@ -690,7 +689,7 @@ var options = {
 
 //var data = '{\n  "mhm": {\n    "age": ${this.state.testVal,\n    "sex": 1,\n    "hgt": 170,\n    "wgt": 75,\n    "fat": 15,\n    "dbp": 80,\n    "sbp": 120,\n    "rhr": 45\n  },\n  "smk": {\n    "now": 0,\n    "evr": 0\n  },\n  "slp": {\n    "bed": [ 8.0, null, null, 7.5, 8.0 ],\n    "slp": [ 7.0, null, null, 7.0, 7.9 ],\n    "awk": [ 1, null, null, 1, 1 ]\n  },\n  "nut": {\n    "nqs": [ 0.2, 0.2, 0.2, 0.5, null, null, 0.8 ]\n  },\n  "qlm": {\n    "q01": 1,\n     "q02": 1,\n      "q03": 0,\n    "q07": 0.7,\n    "q08": 0.2\n  },\n  "clip": false\n}';
 		var data = JSON.stringify({
-			mhm: { age: +this.state.hs_age, sex: +this.state.hs_sex, hgt: +this.state.hs_height, wgt: +finalString, fat: +this.state.hs_fat, rhr: +this.state.hs_rhr, dbp: +this.state.hs_dbp ,sbp: +this.state.hs_sbp  , fbg: +this.state.hs_fbg, exh:10}, smk: { now: + this.state.hs_now , evr: + this.state.hs_evr },nut:{nqs:[ 0.1,0.1,0.1,0.1 ,0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1]},
+			mhm: { age: +this.state.hs_age, sex: +this.state.hs_sex, hgt: +this.state.hs_height, wgt: +this.state.hs_weight, fat: +this.state.hs_fat, rhr: +this.state.hs_rhr, dbp: +this.state.hs_dbp ,sbp: +this.state.hs_sbp  , fbg: +this.state.hs_fbg, exh:10}, smk: { now: + this.state.hs_now , evr: + this.state.hs_evr },nut:{nqs:[ 0.1,0.1,0.1,0.1 ,0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1]},
 			slp: {
 				bed: [null,null,null],
     			slp: [null,null,null],
@@ -852,15 +851,11 @@ axios(config)
 
 			
 			
-		} else if (event.target.id == 'hs_weight') {
+		}else if (event.target.id == 'hs_weight') {
 			
-			let callString = (event.target.value);
-
-			let finalString = callString.slice(0, -3);
 			
-			console.log("finalString" + finalString);
 				
-			this.setState({ hs_weight: finalString });
+			this.setState({ hs_weight: event.target.value });
 
 			
 			
