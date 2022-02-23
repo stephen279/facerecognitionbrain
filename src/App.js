@@ -387,7 +387,7 @@ var options = {
 
 		//	let finalString = callString.slice(0, -3);
 			
-			console.log("finalString" + finalString);
+		//	console.log("finalString" + finalString);
 					document.getElementById("hs_fat").value = response.data.body.measuregrps[0].measures[0].value;
 			})
 			.catch(function (error) {
