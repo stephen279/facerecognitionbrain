@@ -919,14 +919,14 @@ axios(config)
 		axios.post('https://www.nyckel.com/v1/functions/edx2ml1gbri4n34d/invoke', formData).then((res) => {
 
 			console.log("res"+res);
-			console.log("res.data"+res.data);
+			console.log("res.data.name"+res.data.labelName);
 			console.log("res.data.confidence"+res.data.confidence);
 			console.log(res.data);
 
 			let confidence_new = (Math.round(res.data.confidence * 100) / 100).toFixed(2) * 100 + "%";
 			// alert(res);
-			document.getElementById('result').innerHTML = res.data;
-			document.getElementById('confidence').innerHTML = confidence_new;
+			document.getElementById('result').innerHTML = res.data.labelName;
+		document.getElementById('confidence').innerHTML = confidence_new;
 		});
 
 	/*	var axios = require('axios');
@@ -1248,6 +1248,11 @@ connectBtn.addEventListener('click', function (e) {
 							fileUploadHandler={this.fileUploadHandler}
 						/>
 
+						
+
+							<SkinRecognition />
+					
+
 
 						<HealthScoreForm loadUser={this.loadUser} onRouteChange={this.onRouteChange}
 						onInputChange={this.onInputChange} onHSButtonSubmit={this.onHSButtonSubmit} hsSelectedHandler={this.hsSelectedHandler}
@@ -1259,15 +1264,7 @@ connectBtn.addEventListener('click', function (e) {
 						
 
 						
-						{
-							this.state.showMe ?
-
-							<SkinRecognition />
-								:
-								null 
-			
-				
-						}
+					
 						
 						{ this.state.showMe ?
 
