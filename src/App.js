@@ -849,7 +849,7 @@ axios(config)
 			
 			let callString = (event.target.value);
 
-			let finalString = callString.replaceAll('0', '');
+			let finalString = callString.slice(0, -3);
 			
 			console.log("finalString" + finalString);
 				
