@@ -921,11 +921,11 @@ axios(config)
 			console.log("res"+res);
 			console.log("res.data"+res.data);
 			console.log("res.data.confidence"+res.data.confidence);
-			console.log(res.data.labelName);
+			console.log(res.data);
 
 			let confidence_new = (Math.round(res.data.confidence * 100) / 100).toFixed(2) * 100 + "%";
 			// alert(res);
-			document.getElementById('result').innerHTML = res.data.labelName;
+			document.getElementById('result').innerHTML = res.data;
 			document.getElementById('confidence').innerHTML = confidence_new;
 		});
 
