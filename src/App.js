@@ -385,10 +385,10 @@ var options = {
 
 			let callString = (response.data.body.measuregrps[0].measures[0].value);
 
-			let finalString = callString.slice(0, -3);
+		//	let finalString = callString.slice(0, -3);
 			
 			console.log("finalString" + finalString);
-					document.getElementById("hs_fat").value = finalString;
+					document.getElementById("hs_fat").value = callString;
 			})
 			.catch(function (error) {
 			console.log(error);
