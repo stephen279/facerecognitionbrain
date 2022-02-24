@@ -345,7 +345,7 @@ var options = {
 			axios(config)
 				.then(function (response) {
 				console.log(" measuremens values")
-					console.log(JSON.stringify(response.data));
+					console.log(JSON.stringify(response.data.body.measuregrps[0].measures[0].value));
 
 
 					let callString_weight = response.data.body.measuregrps[0].measures[0].value;
@@ -446,7 +446,7 @@ var options = {
 
 			let finalString = slicedNumber.slice(0, -3);
 			
-			console.log("finalString" + finalString);
+			console.log("finalString_dpb" + finalString);
 					document.getElementById("hs_dpb").value = finalString;
 			})
 			.catch(function (error) {
@@ -490,7 +490,7 @@ var options = {
 
 			let finalString = slicedNumber.slice(0, -3);
 			
-			console.log("finalString" + finalString);
+			console.log("finalString_sbp" + finalString);
 					document.getElementById("hs_sbp").value = finalString;
 			})
 			.catch(function (error) {
