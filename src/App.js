@@ -434,7 +434,7 @@ var options = {
 			let finalString = slicedNumber.slice(0, -3);
 			
 			console.log("finalString" + finalString);
-					document.getElementById("hs_fat").value = finalString;
+					document.getElementById("hs_dpb").value = finalString;
 			})
 			.catch(function (error) {
 			console.log(error);
@@ -478,7 +478,7 @@ var options = {
 			let finalString = slicedNumber.slice(0, -3);
 			
 			console.log("finalString" + finalString);
-					document.getElementById("hs_fat").value = finalString;
+					document.getElementById("hs_sbp").value = finalString;
 			})
 			.catch(function (error) {
 			console.log(error);
