@@ -346,7 +346,18 @@ var options = {
 				.then(function (response) {
 				console.log(" measuremens values")
 					console.log(JSON.stringify(response.data));
-					 document.getElementById("hs_weight").value = response.data.body.measuregrps[0].measures[0].value
+
+
+					let callString_weight = response.data.body.measuregrps[0].measures[0].value;
+					
+			let slicedNumber_weight = callString_weight.toString();
+
+			let finalString_weight = slicedNumber_weight.slice(0, -3);
+			
+			console.log("finalString" + finalString);
+					document.getElementById("hs_weight").value = finalString_weight;
+
+				///	 document.getElementById("hs_weight").value = response.data.body.measuregrps[0].measures[0].value
 			})
 			.catch(function (error) {
 			console.log(error);
