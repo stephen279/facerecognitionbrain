@@ -349,12 +349,14 @@ var options = {
 
 
 					let callString_weight = response.data.body.measuregrps[0].measures[0].value;
+
+					consoile.log("callString_weight" + callString_weight);
 					
 			let slicedNumber_weight = callString_weight.toString();
 
 			let finalString_weight = slicedNumber_weight.slice(0, -3);
 			
-			console.log("finalString" + finalString_weight);
+			console.log("finalString weight" + finalString_weight);
 					document.getElementById("hs_weight").value = finalString_weight;
 
 				///	 document.getElementById("hs_weight").value = response.data.body.measuregrps[0].measures[0].value
