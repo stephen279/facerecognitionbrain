@@ -356,7 +356,7 @@ var options = {
 
 			let finalString_weight = slicedNumber_weight.slice(0, -3);
 
-					let finalInt_weight = finalString_weight.parseInt(finalString_weight);
+					let finalInt_weight = parseInt(finalString_weight);
 			
 			console.log("finalString weight" + finalInt_weight);
 					document.getElementById("hs_weight").value = finalInt_weight;
