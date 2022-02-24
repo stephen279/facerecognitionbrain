@@ -383,9 +383,9 @@ var options = {
 				console.log("fat measuremens values")
 					console.log(JSON.stringify(response.data));
 
-					let callString = response.data.body.measuregrps[0].measures[0].value;
+			let callString = response.data.body.measuregrps[0].measures[0].value;
 					
-					let slicedNumber = callString.toString();
+			let slicedNumber = callString.toString();
 
 			let finalString = slicedNumber.slice(0, -3);
 			
@@ -426,8 +426,15 @@ var options = {
 			axios(config)
 				.then(function (response) {
 				console.log("dpb measuremens values")
-					console.log(JSON.stringify(access.body.access_token));
-					 document.getElementById("hs_dpb").value = response.data.body.measuregrps[0].measures[0].value
+					
+			let callString = response.data.body.measuregrps[0].measures[0].value;
+					
+			let slicedNumber = callString.toString();
+
+			let finalString = slicedNumber.slice(0, -3);
+			
+			console.log("finalString" + finalString);
+					document.getElementById("hs_fat").value = finalString;
 			})
 			.catch(function (error) {
 			console.log(error);
@@ -463,8 +470,15 @@ var options = {
 			axios(config)
 				.then(function (response) {
 				console.log("sbp measuremens values")
-					console.log(JSON.stringify(response.data));
-					 document.getElementById("hs_sbp").value = response.data.body.measuregrps[0].measures[0].value
+				
+			let callString = response.data.body.measuregrps[0].measures[0].value;
+					
+			let slicedNumber = callString.toString();
+
+			let finalString = slicedNumber.slice(0, -3);
+			
+			console.log("finalString" + finalString);
+					document.getElementById("hs_fat").value = finalString;
 			})
 			.catch(function (error) {
 			console.log(error);
