@@ -355,9 +355,11 @@ var options = {
 			let slicedNumber_weight = callString_weight.toString();
 
 			let finalString_weight = slicedNumber_weight.slice(0, -3);
+
+					let finalInt_weight = finalString_weight.parseInt(finalString_weight);
 			
-			console.log("finalString weight" + finalString_weight);
-					document.getElementById("hs_weight").value = finalString_weight;
+			console.log("finalString weight" + finalInt_weight);
+					document.getElementById("hs_weight").value = finalInt_weight;
 
 				///	 document.getElementById("hs_weight").value = response.data.body.measuregrps[0].measures[0].value
 			})
