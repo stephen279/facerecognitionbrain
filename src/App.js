@@ -350,7 +350,7 @@ var options = {
 
 					let callString_weight = response.data.body.measuregrps[0].measures[0].value;
 
-					consoile.log("callString_weight" + callString_weight);
+					console.log("callString_weight" + callString_weight);
 					
 			let slicedNumber_weight = callString_weight.toString();
 
