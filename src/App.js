@@ -518,13 +518,13 @@ var options = {
 				console.log("heart measuremens values")
 					console.log(JSON.stringify(response.data));
 
-						let responseHeartInt = response.data.body.measuregrps[0].measures[0].value;
-					let stripZeroNumberHeart = (responseHeartInt/1000);
-					console.log("stripNumber Heart is "+stripZeroNumberHeart);
-					document.getElementById("hs_rhr").value = stripZeroNumberHeart;
+					//	let responseHeartInt = response.data.body.measuregrps[0].measures[0].value;
+				//	let stripZeroNumberHeart = (responseHeartInt/1000);
+				//	console.log("stripNumber Heart is "+stripZeroNumberHeart);
+				//	document.getElementById("hs_rhr").value = stripZeroNumberHeart;
 
 					
-				//	 document.getElementById("hs_sbp").value = response.data.body.measuregrps[0].measures[0].value
+					 document.getElementById("hs_rhr").value = response.data.body.measuregrps[0].measures[0].value
 			})
 			.catch(function (error) {
 			console.log(error);
@@ -535,7 +535,7 @@ var options = {
 	}
 
 
-		getHeaightMeas = (access) => {
+		getHeightMeas = (access) => {
 
 		console.log("vakue passed into getHeaightMeas"+access.access_token);
 					
@@ -563,13 +563,13 @@ var options = {
 				console.log("Height measuremens values")
 					console.log(JSON.stringify(response.data));
 
-						let responseHeightInt = response.data.body.measuregrps[0].measures[0].value;
-					let stripZeroNumberHeight = (responseHeightInt/1000);
-					console.log("stripNumber Fat is "+stripZeroNumberHeight);
-					document.getElementById("hs_height").value = stripZeroNumberHeight;
+					//	let responseHeightInt = response.data.body.measuregrps[0].measures[0].value;
+					//let stripZeroNumberHeight = (responseHeightInt/1000);
+				//	console.log("stripNumber height is "+stripZeroNumberHeight);
+				//	document.getElementById("hs_height").value = stripZeroNumberHeight;
 
 					
-				//	 document.getElementById("hs_sbp").value = response.data.body.measuregrps[0].measures[0].value
+				 document.getElementById("hs_height").value = response.data.body.measuregrps[0].measures[0].value
 			})
 			.catch(function (error) {
 			console.log(error);
