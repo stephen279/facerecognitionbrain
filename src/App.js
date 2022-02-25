@@ -349,7 +349,7 @@ var options = {
 					let responseWeightInt = response.data.body.measuregrps[0].measures[0].value;
 					let stripZeroNumberWeight = (responseWeightInt/1000);
 					console.log("stripNumber weight is "+stripZeroNumberWeight);
-					 document.getElementById("hs_weight").value = response.data.body.measuregrps[0].measures[0].value
+					 document.getElementById("hs_weight").value = stripZeroNumberWeight
 			})
 			.catch(function (error) {
 			console.log(error);
@@ -385,7 +385,10 @@ var options = {
 				.then(function (response) {
 				console.log("fat measuremens values")
 					console.log(JSON.stringify(response.data));
-					 document.getElementById("hs_fat").value = response.data.body.measuregrps[0].measures[0].value
+					let responseFatInt = response.data.body.measuregrps[0].measures[0].value;
+					let stripZeroNumberFat = (responseFatInt/1000);
+					console.log("stripNumber Fat is "+stripZeroNumberFat);
+					 document.getElementById("hs_fat").value = stripZeroNumberFat
 			})
 			.catch(function (error) {
 			console.log(error);
