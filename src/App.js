@@ -345,23 +345,8 @@ var options = {
 			axios(config)
 				.then(function (response) {
 				console.log(" measuremens values")
-					console.log(JSON.stringify(response.data.body.measuregrps[0].measures[0].value));
-
-
-					let callString_weight = response.data.body.measuregrps[0].measures[0].value;
-
-					console.log("callString_weight" + callString_weight);
-					
-			let slicedNumber_weight = callString_weight.toString();
-
-			let finalString_weight = slicedNumber_weight.slice(0, -3);
-
-					let finalInt_weight = parseInt(finalString_weight);
-			
-			console.log("finalString weight" + finalInt_weight);
-					document.getElementById("hs_weight").value = finalInt_weight;
-
-				///	 document.getElementById("hs_weight").value = response.data.body.measuregrps[0].measures[0].value
+					console.log(JSON.stringify(response.data));
+					 document.getElementById("hs_weight").value = response.data.body.measuregrps[0].measures[0].value
 			})
 			.catch(function (error) {
 			console.log(error);
@@ -397,15 +382,7 @@ var options = {
 				.then(function (response) {
 				console.log("fat measuremens values")
 					console.log(JSON.stringify(response.data));
-
-			let callString = response.data.body.measuregrps[0].measures[0].value;
-					
-			let slicedNumber = callString.toString();
-
-			let finalString = slicedNumber.slice(0, -3);
-			
-			console.log("finalString" + finalString);
-					document.getElementById("hs_fat").value = finalString;
+					 document.getElementById("hs_fat").value = response.data.body.measuregrps[0].measures[0].value
 			})
 			.catch(function (error) {
 			console.log(error);
@@ -441,15 +418,8 @@ var options = {
 			axios(config)
 				.then(function (response) {
 				console.log("dpb measuremens values")
-					
-			let callString = response.data.body.measuregrps[0].measures[0].value;
-					
-			let slicedNumber = callString.toString();
-
-			let finalString = slicedNumber.slice(0, -3);
-			
-			console.log("finalString_dpb" + finalString);
-					document.getElementById("hs_dpb").value = finalString;
+					console.log(JSON.stringify(access.body.access_token));
+					 document.getElementById("hs_dpb").value = response.data.body.measuregrps[0].measures[0].value
 			})
 			.catch(function (error) {
 			console.log(error);
@@ -485,15 +455,8 @@ var options = {
 			axios(config)
 				.then(function (response) {
 				console.log("sbp measuremens values")
-				
-			let callString = response.data.body.measuregrps[0].measures[0].value;
-					
-			let slicedNumber = callString.toString();
-
-			let finalString = slicedNumber.slice(0, -3);
-			
-			console.log("finalString_sbp" + finalString);
-					document.getElementById("hs_sbp").value = finalString;
+					console.log(JSON.stringify(response.data));
+					 document.getElementById("hs_sbp").value = response.data.body.measuregrps[0].measures[0].value
 			})
 			.catch(function (error) {
 			console.log(error);
@@ -883,7 +846,6 @@ axios(config)
 			
 			
 		}else if (event.target.id == 'hs_weight') {
-			
 			
 				
 			this.setState({ hs_weight: event.target.value });
@@ -1286,10 +1248,15 @@ connectBtn.addEventListener('click', function (e) {
 							fileUploadHandler={this.fileUploadHandler}
 						/>
 
-						
+							{
+							this.state.showMe ?
 
 							<SkinRecognition />
-					
+								:
+								null 
+			
+				
+						}
 
 
 						<HealthScoreForm loadUser={this.loadUser} onRouteChange={this.onRouteChange}
