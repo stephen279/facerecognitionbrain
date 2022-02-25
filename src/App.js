@@ -425,7 +425,14 @@ var options = {
 				.then(function (response) {
 				console.log("dpb measuremens values")
 					console.log(JSON.stringify(access.body.access_token));
-					 document.getElementById("hs_dpb").value = response.data.body.measuregrps[0].measures[0].value
+
+					let responseDiaInt = response.data.body.measuregrps[0].measures[0].value;
+					let stripZeroNumberDia = (responseDiaInt/1000);
+					console.log("stripNumber Fat is "+stripZeroNumberDia);
+					 document.getElementById("hs_dpb").value = stripZeroNumberDia
+
+
+				//	 document.getElementById("hs_dpb").value = response.data.body.measuregrps[0].measures[0].value
 			})
 			.catch(function (error) {
 			console.log(error);
@@ -462,7 +469,14 @@ var options = {
 				.then(function (response) {
 				console.log("sbp measuremens values")
 					console.log(JSON.stringify(response.data));
-					 document.getElementById("hs_sbp").value = response.data.body.measuregrps[0].measures[0].value
+
+						let responseSysInt = response.data.body.measuregrps[0].measures[0].value;
+					let stripZeroNumberSys = (responseSysInt/1000);
+					console.log("stripNumber Fat is "+stripZeroNumberSys);
+					document.getElementById("hs_sbp").value = stripZeroNumberSys;
+
+					
+				//	 document.getElementById("hs_sbp").value = response.data.body.measuregrps[0].measures[0].value
 			})
 			.catch(function (error) {
 			console.log(error);
