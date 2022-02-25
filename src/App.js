@@ -518,13 +518,13 @@ var options = {
 				console.log("heart measuremens values")
 					console.log(JSON.stringify(response.data));
 
-					//	let responseHeartInt = response.data.body.measuregrps[0].measures[0].value;
-				//	let stripZeroNumberHeart = (responseHeartInt/1000);
-				//	console.log("stripNumber Heart is "+stripZeroNumberHeart);
-				//	document.getElementById("hs_rhr").value = stripZeroNumberHeart;
+						let responseHeartInt = response.data.body.measuregrps[0].measures[0].value;
+					let stripZeroNumberHeart = (responseHeartInt/1000);
+					console.log("stripNumber Heart is "+stripZeroNumberHeart);
+					document.getElementById("hs_rhr").value = stripZeroNumberHeart;
 
 					
-					 document.getElementById("hs_rhr").value = response.data.body.measuregrps[0].measures[0].value
+					// document.getElementById("hs_rhr").value = response.data.body.measuregrps[0].measures[0].value
 			})
 			.catch(function (error) {
 			console.log(error);
