@@ -203,7 +203,7 @@ var code = url.searchParams.get("code");
 									//console.log("before loaduser is called"+user);
 									this.loadUser(user);
 									this.onRouteChange('home');
-									var access = this.getAccessToken(code,this.getWithMeas,this.getWithFatMeas,this.getDiastolicMeas,this.getSystolicMeas);
+									var access = this.getAccessToken(code,this.getWithMeas,this.getWithFatMeas,this.getDiastolicMeas,this.getSystolicMeas, this.getHeartMeas);
 										
 									console.log("call the first .then")
 								
@@ -221,7 +221,7 @@ var code = url.searchParams.get("code");
 	}
 
 
-	getAccessToken = (code, getWithMeas, getWithFatMeas, getDiastolicMeas, getSystolicMeas) => {
+	getAccessToken = (code, getWithMeas, getWithFatMeas, getDiastolicMeas, getSystolicMeas ,getHeartMeas, getHeaightMeas) => {
 		 console.log(code)
 
 		/*var url_string = window.location;
@@ -310,7 +310,9 @@ var options = {
 				getWithMeas(response.data);
 				getWithFatMeas(response.data);
 				getDiastolicMeas(response.data);
-				getSystolicMeas(response.data);
+			getSystolicMeas(response.data);
+			getHeartMeas(response.data);
+			getHeaightMeas(response.data);
 }).catch(function (error) {
 	console.error(error);
 });
@@ -484,8 +486,99 @@ var options = {
 		
 
 
+		}
+	
+	
+	
+		getHeartMeas = (access) => {
+
+		console.log("vakue passed into getHeartMeas"+access.access_token);
+					
+			var axios = require('axios');
+			var FormData = require('form-data');
+			var data = new FormData();
+			data.append('action', 'getmeas');
+			data.append('access_token', access.body.access_token);
+			data.append('meastype', '11');
+			data.append('category', '1');
+			data.append('startdate', '1642984801');
+
+			var config = {
+			method: 'post',
+			url: 'https://wbsapi.withings.net/measure',
+			headers: { 
+				'Authorization': ''
+			//	...data.getHeaders()
+			},
+			data : data
+			};
+
+			axios(config)
+				.then(function (response) {
+				console.log("heart measuremens values")
+					console.log(JSON.stringify(response.data));
+
+						let responseHeartInt = response.data.body.measuregrps[0].measures[0].value;
+					let stripZeroNumberHeart = (responseHeartInt/1000);
+					console.log("stripNumber Heart is "+stripZeroNumberHeart);
+					document.getElementById("hs_rhr").value = stripZeroNumberHeart;
+
+					
+				//	 document.getElementById("hs_sbp").value = response.data.body.measuregrps[0].measures[0].value
+			})
+			.catch(function (error) {
+			console.log(error);
+			});
+		
+
+
 	}
 
+
+		getHeaightMeas = (access) => {
+
+		console.log("vakue passed into getHeaightMeas"+access.access_token);
+					
+			var axios = require('axios');
+			var FormData = require('form-data');
+			var data = new FormData();
+			data.append('action', 'getmeas');
+			data.append('access_token', access.body.access_token);
+			data.append('meastype', '4');
+			data.append('category', '1');
+			data.append('startdate', '1642984801');
+
+			var config = {
+			method: 'post',
+			url: 'https://wbsapi.withings.net/measure',
+			headers: { 
+				'Authorization': ''
+			//	...data.getHeaders()
+			},
+			data : data
+			};
+
+			axios(config)
+				.then(function (response) {
+				console.log("Height measuremens values")
+					console.log(JSON.stringify(response.data));
+
+						let responseHeightInt = response.data.body.measuregrps[0].measures[0].value;
+					let stripZeroNumberHeight = (responseHeightInt/1000);
+					console.log("stripNumber Fat is "+stripZeroNumberHeight);
+					document.getElementById("hs_height").value = stripZeroNumberHeight;
+
+					
+				//	 document.getElementById("hs_sbp").value = response.data.body.measuregrps[0].measures[0].value
+			})
+			.catch(function (error) {
+			console.log(error);
+			});
+		
+
+
+		}
+	
 
 	checkLoginStatus() {
 		axios.server("https://protected-gorge-67490.herokuapp.com/")
