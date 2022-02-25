@@ -1248,15 +1248,10 @@ connectBtn.addEventListener('click', function (e) {
 							fileUploadHandler={this.fileUploadHandler}
 						/>
 
-							{
-							this.state.showMe ?
+						
 
 							<SkinRecognition />
-								:
-								null 
-			
-				
-						}
+					
 
 
 						<HealthScoreForm loadUser={this.loadUser} onRouteChange={this.onRouteChange}
