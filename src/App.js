@@ -348,7 +348,7 @@ var options = {
 					console.log(JSON.stringify(response.data));
 					let responseWeightInt = response.data.body.measuregrps[0].measures[0].value;
 					let stripZeroNumberWeight = (responseWeightInt % 1000);
-					console.log(stripZeroNumberWeight);
+					console.log("stripNumber weight is "+stripZeroNumberWeight);
 					 document.getElementById("hs_weight").value = response.data.body.measuregrps[0].measures[0].value
 			})
 			.catch(function (error) {
