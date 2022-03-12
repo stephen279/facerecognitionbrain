@@ -1390,12 +1390,20 @@ connectBtn.addEventListener('click', function (e) {
 
 						
 						
+								
+						{ this.state.showMe ?
 
+								<FaceRecognition box={this.state.box} imageUrl={this.state.imageUrl} />
+							
+							: 
+							null
+							
+						}
 
 
 						
 
-						<FaceRecognition box={this.state.box} imageUrl={this.state.imageUrl} />
+						
 
 						
 
