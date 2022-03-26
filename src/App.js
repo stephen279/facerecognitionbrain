@@ -1362,10 +1362,16 @@ connectBtn.addEventListener('click', function (e) {
 						/>
 
 						
-
+						{ this.state.showMe ?
+						 
+						
+						
+						
 							<SkinRecognition />
+							:
+							null
 					
-
+						}
 
 						<HealthScoreForm loadUser={this.loadUser} onRouteChange={this.onRouteChange}
 						onInputChange={this.onInputChange} onHSButtonSubmit={this.onHSButtonSubmit} hsSelectedHandler={this.hsSelectedHandler}
