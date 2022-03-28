@@ -748,7 +748,7 @@ var options = {
 		axios.request(options).then(function (response) {
 			
 			console.log(response.data);
-			returnedArray = response.data;
+			let returnedArray = response.data;
 			if (returnedArray.length === 0) {
 				alert("No Diagnoses identified with your Entered Symptoms");
 			} 
