@@ -1,5 +1,6 @@
 import React from 'react';
 import './ScoreRecognition.css';
+import scoreimage from '/Users/stephenholland/Desktop/scoreimage.png'
 
 const ScoreRecognition = () => {
   return (
@@ -16,7 +17,7 @@ const ScoreRecognition = () => {
              
     </p><p class="f6 f5-ns lh-copy measure">/1000</p>
             
-          <img src={require('Images/scoreimage.png')} />     
+          <img src={scoreimage} alt="scoreImage" />     
 
        </div>
           
