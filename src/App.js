@@ -750,7 +750,7 @@ var options = {
 			console.log(response.data);
 			let returnedArray = response.data;
 			if (returnedArray.length === 0) {
-				alert("No Diagnoses identified with your Entered Symptoms");
+				alert("No Diagnoses identified with your Entered Symptoms.");
 			} 
 			console.log("inside axio request");
 			console.log(response.data[0]);
