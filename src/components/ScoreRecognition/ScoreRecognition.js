@@ -16,7 +16,7 @@ const ScoreRecognition = () => {
              
     </p><p class="f6 f5-ns lh-copy measure">/1000</p>
             
-          <img src={require('./images/scoreimage.png')} />     
+          <img src={require('./Images/scoreimage.png')} />     
 
        </div>
           
