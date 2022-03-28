@@ -748,6 +748,10 @@ var options = {
 		axios.request(options).then(function (response) {
 			
 			console.log(response.data);
+			returnedArray = response.data;
+			if (returnedArray.length === 0) {
+				alert("No Diagnoses identified with your Entered Symptoms");
+			} 
 			console.log("inside axio request");
 			console.log(response.data[0]);
 			console.log(response.data[1]);
