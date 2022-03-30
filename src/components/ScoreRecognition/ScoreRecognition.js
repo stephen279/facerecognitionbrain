@@ -1,6 +1,6 @@
 import React from 'react';
 import './ScoreRecognition.css';
-import scoreimage from '/Users/stephenholland/Desktop/scoreimage.png'
+import healthscore from './scoreimage.png'
 
 const ScoreRecognition = () => {
   return (
@@ -17,7 +17,9 @@ const ScoreRecognition = () => {
              
     </p><p class="f6 f5-ns lh-copy measure">/1000</p>
             
-          <img src={scoreimage} alt="scoreImage" />     
+     <div className="Tilt-inner pa3"> < img style = {{paddingTop: '5px'}}alt = 'logo' src={healthscore}/></div>
+            
+       
 
        </div>
           

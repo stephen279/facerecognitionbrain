@@ -1186,15 +1186,16 @@ let symptoms = [
 		
 						</select>
 
-				
+				{/**    
 						
 										<select id = "symptoms2" class="w-80 db h2 f4 bg-near-white ba b--sliver gray" onChange={handleSymptomsChange}  name="" onChange={onInputChange}  > 
-      <option value=""> Symptoms three </option>
-            {/* Mapping through each fruit object in our fruits array
+      <option value=""> Symptoms three Only </option>
+            Mapping through each fruit object in our fruits array
           and returning an option element with the appropriate attributes / values.
-         */}
+          
       {symptoms.map((symptom) => <option value={symptom.ID}>{symptom.Name}</option>)}
-    </select>
+              </select> 
+              */}
 				
 				
 
