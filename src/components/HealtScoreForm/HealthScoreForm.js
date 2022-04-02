@@ -78,7 +78,14 @@ var code = url.searchParams.get("code");
                      <br></br> 
              
                       <h5>Sex</h5>
-                     <input className='f4 pa2 w-70 center' type="text" id='hs_sex' name="hs_sex" placeholder="Sex"  onChange={hsSelectedHandler}/>
+ 
+
+<select className='f4 pa2 w-70 center' type="text" id='hs_sex' name="hs_sex" placeholder="Sex"  onChange={hsSelectedHandler}>
+  <option value="1">Male</option>
+  <option value="0" selected>Female</option>
+ 
+</select>
+
 
                       <br></br> 
                      <h5>Height</h5>
