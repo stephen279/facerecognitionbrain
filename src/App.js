@@ -350,9 +350,9 @@ var options = {
 					console.log(JSON.stringify(response.data));
 					let responseWeightInt = response.data.body.measuregrps[0].measures[0].value;
 					let stripZeroNumberWeight = (responseWeightInt / 1000);
-					//let realIntWeight = parseInt(stripZeroNumberWeight);
+					let realIntWeight = parseInt(stripZeroNumberWeight);
 					console.log("stripNumber weight is " + stripZeroNumberWeight);
-					alert(typeof stripZeroNumberWeight);
+					alert(typeof realIntWeight);
 					 document.getElementById("hs_weight").value = stripZeroNumberWeight
 			})
 			.catch(function (error) {
