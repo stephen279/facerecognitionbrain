@@ -355,7 +355,8 @@ var options = {
 					//console.log( (stripZeroNumberWeight).toFixed() );
 					console.log("stripNumber weight is " + stripZeroNumberWeight);
 					alert(typeof realIntWeight);
-					document.getElementById("hs_weight").value = stripZerresponseWeightIntoNumberWeight;
+					document.getElementById("hs_weight").value = responseWeightInt
+					;
 			})
 			.catch(function (error) {
 			console.log(error);
