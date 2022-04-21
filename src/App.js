@@ -395,7 +395,8 @@ var options = {
 					let responseFatInt = response.data.body.measuregrps[0].measures[0].value;
 					let stripZeroNumberFat = (responseFatInt/1000);
 					console.log("stripNumber Fat is "+stripZeroNumberFat);
-					 document.getElementById("hs_fat").value = stripZeroNumberFat
+					document.getElementById("hs_fat").value = stripZeroNumberFat
+					alert(typeof (stripZeroNumberFat));
 			})
 			.catch(function (error) {
 			console.log(error);
