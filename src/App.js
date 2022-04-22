@@ -359,12 +359,12 @@ var options = {
 				let intdata = parseInt(stripZeroNumberWeight);
 				console.log("stripNumber weight is " + intdata);
 				//alert(typeof realIntWeight);
-				alert(stringifydata);
+				//alert(stringifydata);
 				document.getElementById("hs_weight").value = mathWeight;
-				alert(document.getElementById("hs_weight").value);
+				//alert(document.getElementById("hs_weight").value);
 				let displayValue = (typeof document.getElementById("hs_weight").value);
 				let intdataofstring = parseInt(displayValue);
-				alert("int version" + intdataofstring);
+				//alert("int version" + intdataofstring);
 				//alert(displayValue);
 				//alert("int version" + intdataofstring);
 					
