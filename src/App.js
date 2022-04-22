@@ -344,23 +344,26 @@ var options = {
 			data : data
 			};
 
-			axios(config)
-				.then(function (response) {
+		axios(config)
+			.then(function (response) {
 				console.log(" measuremens values")
-					console.log(JSON.stringify(response.data));
-					//let stringifydata = JSON.stringify(response.data);
-					let responseWeightInt = response.data.body.measuregrps[0].measures[0].value;
-					let stringifydata = JSON.stringify(responseWeightInt);
-					let stripZeroNumberWeight = (stringifydata / 1000);
-					let mathWeight = Math.round(stripZeroNumberWeight);
+				console.log(JSON.stringify(response.data));
+				//let stringifydata = JSON.stringify(response.data);
+				let responseWeightInt = response.data.body.measuregrps[0].measures[0].value;
+				let stringifydata = JSON.stringify(responseWeightInt);
+				let stripZeroNumberWeight = (stringifydata / 1000);
+				let mathWeight = Math.round(stripZeroNumberWeight);
 				//	let realIntWeight = parseInt(stripZeroNumberWeight);
 					
-					//console.log( (stripZeroNumberWeight).toFixed() );
-					let intdata = parseInt(stripZeroNumberWeight);
-					console.log("stripNumber weight is " + intdata);
-					//alert(typeof realIntWeight);
-					alert( stringifydata);
-					document.getElementById("hs_weight").innerHTML = mathWeight;
+				//console.log( (stripZeroNumberWeight).toFixed() );
+				let intdata = parseInt(stripZeroNumberWeight);
+				console.log("stripNumber weight is " + intdata);
+				//alert(typeof realIntWeight);
+				alert(stringifydata);
+				document.getElementById("hs_weight").value = mathWeight;
+				alert(document.getElementById("hs_weight").value);
+				let displayValue = (typeof document.getElementById("hs_weight").value);
+				alert(displayValue);
 					;
 			})
 			.catch(function (error) {
