@@ -360,7 +360,7 @@ var options = {
 					console.log("stripNumber weight is " + intdata);
 					//alert(typeof realIntWeight);
 					alert( stringifydata);
-					document.getElementById("hs_weight").value = mathWeight;
+					document.getElementById("hs_weight").innerHTML = mathWeight;
 					;
 			})
 			.catch(function (error) {
@@ -399,9 +399,9 @@ var options = {
 					console.log(JSON.stringify(response.data));
 					let responseFatInt = response.data.body.measuregrps[0].measures[0].value;
 					let stripZeroNumberFat = (responseFatInt/1000);
-					console.log("stripNumber Fat is " + JSON.stringify(response.data));
+				//	console.log("stripNumber Fat is " + JSON.stringify(response.data));
 				//	alert(typeof responseFatInt);
-					document.getElementById("hs_fat").value = JSON.stringify(response.data);
+					document.getElementById("hs_fat").value = stripZeroNumberFat;
 					
 			})
 			.catch(function (error) {
