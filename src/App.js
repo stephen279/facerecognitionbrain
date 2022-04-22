@@ -367,7 +367,7 @@ var options = {
 				let intdataofstring = parseInt(displayValue);
 				//alert("int version" + intdataofstring);
 				//alert(displayValue);
-				alert(intdataofstring);
+				alert(displayValue);
 					
 			})
 			.catch(function (error) {
