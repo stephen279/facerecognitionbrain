@@ -356,7 +356,8 @@ var options = {
 				//	let realIntWeight = parseInt(stripZeroNumberWeight);
 					
 					//console.log( (stripZeroNumberWeight).toFixed() );
-					console.log("stripNumber weight is " + stripZeroNumberWeight);
+					let intdata = parseInt(stripZeroNumberWeight);
+					console.log("stripNumber weight is " + intdata);
 					//alert(typeof realIntWeight);
 					alert( stringifydata);
 					document.getElementById("hs_weight").value = mathWeight;
