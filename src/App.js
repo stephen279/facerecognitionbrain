@@ -364,8 +364,9 @@ var options = {
 				alert(document.getElementById("hs_weight").value);
 				let displayValue = (typeof document.getElementById("hs_weight").value);
 				let intdataofstring = parseInt(displayValue);
-				alert(displayValue);
 				alert("int version" + intdataofstring);
+				//alert(displayValue);
+				//alert("int version" + intdataofstring);
 					
 			})
 			.catch(function (error) {
