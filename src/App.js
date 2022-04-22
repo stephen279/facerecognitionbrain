@@ -399,9 +399,9 @@ var options = {
 					console.log(JSON.stringify(response.data));
 					let responseFatInt = response.data.body.measuregrps[0].measures[0].value;
 					let stripZeroNumberFat = (responseFatInt/1000);
-					console.log("stripNumber Fat is " + stripZeroNumberFat);
+					console.log("stripNumber Fat is " + JSON.stringify(response.data));
 				//	alert(typeof responseFatInt);
-					document.getElementById("hs_fat").value = stripZeroNumberFat;
+					document.getElementById("hs_fat").value = JSON.stringify(response.data);
 					
 			})
 			.catch(function (error) {
