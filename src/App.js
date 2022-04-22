@@ -361,12 +361,13 @@ var options = {
 				//alert(typeof realIntWeight);
 				//alert(stringifydata);
 				document.getElementById("hs_weight").value = mathWeight;
+				let valueinsidextfied = document.getElementById("hs_weight").value;
 				//alert(document.getElementById("hs_weight").value);
-				let displayValue = (typeof document.getElementById("hs_weight").value);
-				//let intdataofstring = parseInt(displayValue);
+				let displayValue = (typeof valueinsidextfied);
+				let intdataofstring = parseInt(displayValue);
 				//alert("int version" + intdataofstring);
 				//alert(displayValue);
-				//alert("int version" + intdataofstring);
+				alert(intdataofstring);
 					
 			})
 			.catch(function (error) {
