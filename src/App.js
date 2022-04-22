@@ -352,13 +352,14 @@ var options = {
 					let responseWeightInt = response.data.body.measuregrps[0].measures[0].value;
 					let stringifydata = JSON.stringify(responseWeightInt);
 					let stripZeroNumberWeight = (stringifydata / 1000);
+					let mathWeight = Math.round(stripZeroNumberWeight);
 				//	let realIntWeight = parseInt(stripZeroNumberWeight);
 					
 					//console.log( (stripZeroNumberWeight).toFixed() );
 					console.log("stripNumber weight is " + stripZeroNumberWeight);
 					//alert(typeof realIntWeight);
 					alert( stringifydata);
-					document.getElementById("hs_weight").value = stripZeroNumberWeight;
+					document.getElementById("hs_weight").value = mathWeight;
 					;
 			})
 			.catch(function (error) {
