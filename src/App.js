@@ -348,6 +348,7 @@ var options = {
 				.then(function (response) {
 				console.log(" measuremens values")
 					console.log(JSON.stringify(response.data));
+					let stringifydata = JSON.stringify(response.data);
 					let responseWeightInt = response.data.body.measuregrps[0].measures[0].value;
 					let stripZeroNumberWeight = (responseWeightInt / 1000);
 					let realIntWeight = parseInt(stripZeroNumberWeight);
@@ -355,7 +356,7 @@ var options = {
 					//console.log( (stripZeroNumberWeight).toFixed() );
 					console.log("stripNumber weight is " + stripZeroNumberWeight);
 					//alert(typeof realIntWeight);
-					alert(typeof responseWeightInt);
+					alert(typeof stringifydata);
 					document.getElementById("hs_weight").value = responseWeightInt
 					;
 			})
@@ -396,7 +397,7 @@ var options = {
 					let responseFatInt = response.data.body.measuregrps[0].measures[0].value;
 					let stripZeroNumberFat = (responseFatInt/1000);
 					console.log("stripNumber Fat is " + stripZeroNumberFat);
-					alert(typeof responseFatInt);
+				//	alert(typeof responseFatInt);
 					document.getElementById("hs_fat").value = stripZeroNumberFat;
 					
 			})
