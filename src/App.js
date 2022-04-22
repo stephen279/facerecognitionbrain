@@ -363,7 +363,7 @@ var options = {
 				document.getElementById("hs_weight").value = mathWeight;
 				//alert(document.getElementById("hs_weight").value);
 				let displayValue = (typeof document.getElementById("hs_weight").value);
-				let intdataofstring = parseInt(displayValue);
+				//let intdataofstring = parseInt(displayValue);
 				//alert("int version" + intdataofstring);
 				//alert(displayValue);
 				//alert("int version" + intdataofstring);
