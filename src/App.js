@@ -410,6 +410,9 @@ var options = {
 				//	alert(typeof responseFatInt);
 					document.getElementById("hs_fat").value = stripZeroNumberFat;
 					this.state.hs_fat = stripZeroNumberFat;
+					this.setState({
+						hs_fat: stripZeroNumberFat
+					})
 					
 			})
 			.catch(function (error) {
