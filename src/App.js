@@ -405,12 +405,13 @@ var options = {
 				console.log("fat measuremens values")
 					console.log(JSON.stringify(response.data));
 					let responseFatInt = response.data.body.measuregrps[0].measures[0].value;
-					let stripZeroNumberFat = (responseFatInt/1000);
+					let stripZeroNumberFat = (responseFatInt / 1000);
+					this.setState({ hs_fat: stripZeroNumberFat});
 				//	console.log("stripNumber Fat is " + JSON.stringify(response.data));
-				//	alert(typeof responseFatInt);
+					alert(this.state.hs_fat);
 					document.getElementById("hs_fat").value = stripZeroNumberFat;
-					this.state.hs_fat = stripZeroNumberFat;
-			this.setState({ hs_fat: document.getElementById("hs_fat").value });
+					
+			
 					
 			})
 			.catch(function (error) {
