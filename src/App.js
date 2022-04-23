@@ -360,9 +360,9 @@ var options = {
 				console.log("stripNumber weight is " + intdata);
 				//alert(typeof realIntWeight);
 				//alert(stringifydata);
-				document.getElementById("hs_weight").value = mathWeight;
+				document.getElementById("hs_weight").value = stripZeroNumberWeight;
 				let valueinsidextfied = document.getElementById("hs_weight").value;
-				//alert(document.getElementById("hs_weight").value);
+				alert(document.getElementById("hs_weight").value);
 				let displayValue = (typeof valueinsidextfied);
 				let intdataofstring = parseInt(displayValue);
 				//alert("int version" + intdataofstring);
@@ -409,6 +409,7 @@ var options = {
 				//	console.log("stripNumber Fat is " + JSON.stringify(response.data));
 				//	alert(typeof responseFatInt);
 					document.getElementById("hs_fat").value = stripZeroNumberFat;
+					this.state.hs_fat = stripZeroNumberFat;
 					
 			})
 			.catch(function (error) {
