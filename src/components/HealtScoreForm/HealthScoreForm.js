@@ -98,7 +98,7 @@ var code = url.searchParams.get("code");
                      
                      <br></br> 
                                  <h5>Percentage Fat</h5>
-                                  <input className='f4 pa2 w-70 center' type="text" id='hs_fat' name="hs_fat" placeholder="Fat Percentage" onChange={hsSelectedHandler}/>
+                                  <input className='f4 pa2 w-70 center' type="text" id='hs_fat' name="hs_fat" placeholder="Fat Percentage" onChange={hsSelectedHandler,onInputChange}/>
                      
                      <br></br> 
                      <h5>Diastolic Blood Pressure</h5>
