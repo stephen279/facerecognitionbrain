@@ -840,7 +840,9 @@ var options = {
 			
 
 		let hs_fat_new = document.getElementById("hs_fat").value;
-		this.setState.hs_fat = hs_fat_new;
+		this.setState({
+			hs_fat:  hs_fat_new
+		})
 
 		alert(this.state.hs_fat);
 		
