@@ -406,7 +406,7 @@ var options = {
 					console.log(JSON.stringify(response.data));
 					let responseFatInt = response.data.body.measuregrps[0].measures[0].value;
 					let stripZeroNumberFat = (responseFatInt / 1000);
-					this.setState({ hs_fat: stripZeroNumberFat});
+					this.setState({ hs_fat: '55'});
 				//	console.log("stripNumber Fat is " + JSON.stringify(response.data));
 					//alert(this.state.hs_fat);
 					console.log("new hs_fat i"+this.state.hs_fat);
