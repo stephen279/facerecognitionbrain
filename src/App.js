@@ -406,9 +406,12 @@ var options = {
 					console.log(JSON.stringify(response.data));
 					let responseFatInt = response.data.body.measuregrps[0].measures[0].value;
 					let stripZeroNumberFat = (responseFatInt / 1000);
+					this.setState({
+						hs_fat: stripZeroNumberFat
+					})
 					
 				//	console.log("stripNumber Fat is " + JSON.stringify(response.data));
-					//alert(this.state.hs_fat);
+					alert("hi");
 				//	console.log("new hs_fat i"+this.state.hs_fat);
 					document.getElementById("hs_fat").value = stripZeroNumberFat;
 					
@@ -452,7 +455,8 @@ var options = {
 					console.log(JSON.stringify(access.body.access_token));
 
 					let responseDiaInt = response.data.body.measuregrps[0].measures[0].value;
-					let stripZeroNumberDia = (responseDiaInt/1000);
+					let stripZeroNumberDia = (responseDiaInt / 1000);
+					
 					console.log("stripNumber Fat is "+stripZeroNumberDia);
 					 document.getElementById("hs_dpb").value = stripZeroNumberDia
 
@@ -820,12 +824,14 @@ var options = {
 		
 			
 
-		let hs_fat_new = document.getElementById("hs_fat").value;
+		//let hs_fat_new = document.getElementById("hs_fat").value;
+		//alert(hs_fat_new);
+		/*
 		this.setState({
 			hs_fat:  hs_fat_new
 		})
 
-		alert(this.state.hs_fat);
+		alert(this.state.hs_fat);*/
 		
 		
 		
