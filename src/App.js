@@ -409,7 +409,7 @@ var options = {
 					this.setState({ hs_fat: '55'});
 				//	console.log("stripNumber Fat is " + JSON.stringify(response.data));
 					//alert(this.state.hs_fat);
-					console.log("new hs_fat i"+this.state.hs_fat);
+				//	console.log("new hs_fat i"+this.state.hs_fat);
 					document.getElementById("hs_fat").value = stripZeroNumberFat;
 					
 			
