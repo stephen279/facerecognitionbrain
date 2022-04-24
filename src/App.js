@@ -704,7 +704,7 @@ var options = {
 				
 			this.setState({ hs_fat: event.target.value });
 
-			alert(changer);
+			alert("changer");
 			
 			
 		} else if (event.target.id == 'hs_weight') {
