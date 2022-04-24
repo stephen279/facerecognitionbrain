@@ -698,11 +698,11 @@ var options = {
 	};
 
 
-	onInputChange1 = (event) => {
+	onInputChange1 = () => {
 
-		if (event.target.id == 'hs_fat') {
+		if (target.id == 'hs_fat') {
 				
-			this.setState({ hs_fat: event.target.value });
+			this.setState({ hs_fat: target.value });
 
 			alert("changer");
 			
