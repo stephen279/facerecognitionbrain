@@ -698,25 +698,6 @@ var options = {
 	};
 
 
-	onInputChange1 = () => {
-
-		if (target.id == 'hs_fat') {
-				
-			this.setState({ hs_fat: target.value });
-
-			alert("changer");
-			
-			
-		} else if (event.target.id == 'hs_weight') {
-				
-			//this.setState({ symptoms1: event.target.value });
-			
-			
-		}
-
-
-
-	};
 
 
 
