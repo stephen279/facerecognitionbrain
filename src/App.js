@@ -362,12 +362,12 @@ var options = {
 				//alert(stringifydata);
 				document.getElementById("hs_weight").value = stripZeroNumberWeight;
 				let valueinsidextfied = document.getElementById("hs_weight").value;
-				alert(document.getElementById("hs_weight").value);
+			//	alert(document.getElementById("hs_weight").value);
 				let displayValue = (typeof valueinsidextfied);
 				let intdataofstring = parseInt(displayValue);
 				//alert("int version" + intdataofstring);
 				//alert(displayValue);
-				alert(displayValue);
+			//	alert(displayValue);
 					
 			})
 			.catch(function (error) {
@@ -408,7 +408,8 @@ var options = {
 					let stripZeroNumberFat = (responseFatInt / 1000);
 					this.setState({ hs_fat: stripZeroNumberFat});
 				//	console.log("stripNumber Fat is " + JSON.stringify(response.data));
-					alert(this.state.hs_fat);
+					//alert(this.state.hs_fat);
+					console.log("new hs_fat i"+this.state.hs_fat);
 					document.getElementById("hs_fat").value = stripZeroNumberFat;
 					
 			
