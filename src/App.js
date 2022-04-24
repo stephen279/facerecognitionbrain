@@ -691,7 +691,14 @@ var options = {
 			
 		}
 
-		onInputChange1 = (event) => {
+
+		
+		
+
+	};
+
+
+	onInputChange1 = (event) => {
 
 		if (event.target.id == 'hs_fat') {
 				
@@ -700,19 +707,14 @@ var options = {
 			alert(changer);
 			
 			
-		} else if (event.target.id == 'symptoms1') {
+		} else if (event.target.id == 'hs_weight') {
 				
 			//this.setState({ symptoms1: event.target.value });
 			
 			
-		} 
+		}
 
 
-
-	
-
-		
-		
 
 	};
 
