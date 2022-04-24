@@ -691,6 +691,23 @@ var options = {
 			
 		}
 
+		onInputChange1 = (event) => {
+
+		if (event.target.id == 'hs_fat') {
+				
+			this.setState({ hs_fat: event.target.value });
+
+			alert(changer);
+			
+			
+		} else if (event.target.id == 'symptoms1') {
+				
+			//this.setState({ symptoms1: event.target.value });
+			
+			
+		} 
+
+
 
 	
 
@@ -1401,7 +1418,7 @@ connectBtn.addEventListener('click', function (e) {
 						}
 
 						<HealthScoreForm loadUser={this.loadUser} onRouteChange={this.onRouteChange}
-						onInputChange={this.onInputChange} onHSButtonSubmit={this.onHSButtonSubmit} hsSelectedHandler={this.hsSelectedHandler}
+						onInputChange1={this.onInputChange} onHSButtonSubmit={this.onHSButtonSubmit} hsSelectedHandler={this.hsSelectedHandler}
 							hshandleFormSubmit={this.hshandleFormSubmit}	
 								
 						
