@@ -835,6 +835,13 @@ var options = {
 	hshandleFormSubmit = (event) => {
 
 			this.showOperation();
+
+		
+			
+
+		let hs_fat_new = document.getElementById("hs_fat").value;
+		this.setState.hs_fat = hs_fat_new;
+		
 		
 		
 		const age = this.state.hs_age;
