@@ -826,7 +826,7 @@ var options = {
 
 		
 		
-    this.setState({hs_fat:  hs_fat_new}, () => {
+    this.setState({hs_fat:  '55'}, () => {
         this.props.callback(this.state.hs_fat)
     })
 
