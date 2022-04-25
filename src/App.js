@@ -158,6 +158,7 @@ class App extends Component {
 
 	//check for session on refresh
 	componentDidMount() {
+		alert(this.state.hs_fat);
 
 //following code is for captering the code inside the url for withing		
 var url_string = window.location;
@@ -408,7 +409,7 @@ var options = {
 					let stripZeroNumberFat = (responseFatInt / 1000);
 
 					
-						document.getElementById("hs_fat").value = stripZeroNumberFat;
+					document.getElementById("hs_fat").value = stripZeroNumberFat;
 					this.setState({ hs_fat: stripZeroNumberFat });
 
 					
