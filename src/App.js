@@ -837,7 +837,7 @@ var options = {
 			hs_fat:  hs_fat_new
 		})
 
-		alert(this.state.hs_fat);
+		alert(document.getElementById("hs_fat").value);
 		
 		
 		
