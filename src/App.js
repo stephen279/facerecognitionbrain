@@ -830,12 +830,12 @@ var options = {
   
 
 
-		//let hs_fat_new = document.getElementById("hs_fat").value;
+		let hs_fat_new = document.getElementById("hs_fat").value;
 		//alert(hs_fat_new);
-		/*
+		
 		this.setState({
 			hs_fat:  hs_fat_new
-		})*/
+		})
 
 		alert(this.state.hs_fat);
 		
