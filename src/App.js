@@ -1354,8 +1354,8 @@ connectBtn.addEventListener('click', function (e) {
 				{/*<input type="file" onChange={this.fileSelectedHandler} />
      <button onClick={this.fileUploadHandler} >Check </button>  */}
 				
-		
-{alert("state = "+this.hs_fat)}
+	
+
 				<Particles className="particles" params={particlesOptions} />
 
 				{this.state.route === 'home' ? (
