@@ -825,11 +825,11 @@ var options = {
 			this.showOperation();
 
 		
-			handleButtonClicked = event => {
+		
     this.setState({hs_fat:  hs_fat_new}, () => {
         this.props.callback(this.state.hs_fat)
     })
-}
+
 
 		//let hs_fat_new = document.getElementById("hs_fat").value;
 		//alert(hs_fat_new);
