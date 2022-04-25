@@ -425,7 +425,9 @@ var options = {
 			})
 			.catch(function (error) {
 			console.log(error);
-			});
+			}).then().catch()
+				
+				;
 		
 
 
