@@ -410,7 +410,9 @@ var options = {
 					//await promisedSetStateFat({ hs_fat: stripZeroNumberFat  });
 					
 					//this.setState({ hs_fat: stripZeroNumberFat });
-
+					  this.setState({hs_fat: stripZeroNumberFat}, () => {
+        					this.props.callback(this.state.hs_fat)
+   					 })
 					
 					
 				//	console.log("stripNumber Fat is " + JSON.stringify(response.data));
