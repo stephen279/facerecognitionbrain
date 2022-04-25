@@ -408,7 +408,7 @@ var options = {
 					let stripZeroNumberFat = (responseFatInt / 1000);
 
 					
-					
+						document.getElementById("hs_fat").value = stripZeroNumberFat;
 					this.setState({ hs_fat: stripZeroNumberFat });
 
 					
@@ -826,9 +826,7 @@ var options = {
 
 		
 		
-    this.setState({hs_fat:  '55'}, () => {
-        this.props.callback(this.state.hs_fat)
-    })
+  
 
 
 		//let hs_fat_new = document.getElementById("hs_fat").value;
@@ -1357,7 +1355,7 @@ connectBtn.addEventListener('click', function (e) {
      <button onClick={this.fileUploadHandler} >Check </button>  */}
 				
 		
-
+{alert("state = "+this.hs_fat)}
 				<Particles className="particles" params={particlesOptions} />
 
 				{this.state.route === 'home' ? (
