@@ -407,10 +407,10 @@ var options = {
 					let responseFatInt = response.data.body.measuregrps[0].measures[0].value;
 					let stripZeroNumberFat = (responseFatInt / 1000);
 
-					//await promisedSetStateFat({ hs_fat: stripZeroNumberFat  });
-					
-					//this.setState({ hs_fat: stripZeroNumberFat });
 				
+					
+					this.setState({ hs_fat: stripZeroNumberFat });
+
 					
 					
 				//	console.log("stripNumber Fat is " + JSON.stringify(response.data));
@@ -420,21 +420,16 @@ var options = {
 					
 			
 					
-			})
+			})	.then( promisedSetStateFat({ hs_fat: stripZeroNumberFat  }))
 			.catch(function (error) {
 			console.log(error);
-			}).then(	  this.setState({hs_fat: stripZeroNumberFat}, () => {
-						  this.props.callback(this.state.hs_fat)
-						  alert(this.state.hs_fat);
-   					 })).catch()
-				
-				;
+			});
 		
 
 
 	}
 
-	//promisedSetStateFat = (newState) => new Promise(resolve => this.setState(newState, resolve));
+	promisedSetState = (newState) => new Promise(resolve => this.setState(newState, resolve));
 
 		getDiastolicMeas = (access) => {
 
