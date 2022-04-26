@@ -594,13 +594,13 @@ var options = {
 				console.log("Height measuremens values")
 					console.log(JSON.stringify(response.data));
 
-					//	let responseHeightInt = response.data.body.measuregrps[0].measures[0].value;
-					//let stripZeroNumberHeight = (responseHeightInt/1000);
-				//	console.log("stripNumber height is "+stripZeroNumberHeight);
-				//	document.getElementById("hs_height").value = stripZeroNumberHeight;
+						let responseHeightInt = response.data.body.measuregrps[0].measures[0].value;
+					let stripZeroNumberHeight = (responseHeightInt/1000);
+					console.log("stripNumber height is "+stripZeroNumberHeight);
+					document.getElementById("hs_height").value = stripZeroNumberHeight;
 
 					
-				 document.getElementById("hs_height").value = response.data.body.measuregrps[0].measures[0].value
+				// document.getElementById("hs_height").value = response.data.body.measuregrps[0].measures[0].value
 			})
 			.catch(function (error) {
 			console.log(error);
@@ -846,7 +846,7 @@ var options = {
 
 //var data = '{\n  "mhm": {\n    "age": ${this.state.testVal,\n    "sex": 1,\n    "hgt": 170,\n    "wgt": 75,\n    "fat": 15,\n    "dbp": 80,\n    "sbp": 120,\n    "rhr": 45\n  },\n  "smk": {\n    "now": 0,\n    "evr": 0\n  },\n  "slp": {\n    "bed": [ 8.0, null, null, 7.5, 8.0 ],\n    "slp": [ 7.0, null, null, 7.0, 7.9 ],\n    "awk": [ 1, null, null, 1, 1 ]\n  },\n  "nut": {\n    "nqs": [ 0.2, 0.2, 0.2, 0.5, null, null, 0.8 ]\n  },\n  "qlm": {\n    "q01": 1,\n     "q02": 1,\n      "q03": 0,\n    "q07": 0.7,\n    "q08": 0.2\n  },\n  "clip": false\n}';
 		var data = JSON.stringify({
-			mhm: { age: +this.state.hs_age, sex: +this.state.hs_sex, hgt: +this.state.hs_height, wgt: +document.getElementById("hs_weight").value, fat: +document.getElementById("hs_fat").value, rhr: +document.getElementById("hs_rhr").value, dbp: +document.getElementById("hs_dpb").value ,sbp: +document.getElementById("hs_sbp").value  , fbg: +this.state.hs_fbg, exh:10}, smk: { now: + this.state.hs_now , evr: + this.state.hs_evr },nut:{nqs:[ 0.1,0.1,0.1,0.1 ,0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1]},
+			mhm: { age: +this.state.hs_age, sex: +this.state.hs_sex, hgt: +document.getElementById("hs_height").value, wgt: +document.getElementById("hs_weight").value, fat: +document.getElementById("hs_fat").value, rhr: +document.getElementById("hs_rhr").value, dbp: +document.getElementById("hs_dpb").value ,sbp: +document.getElementById("hs_sbp").value  , fbg: +this.state.hs_fbg, exh:10}, smk: { now: + this.state.hs_now , evr: + this.state.hs_evr },nut:{nqs:[ 0.1,0.1,0.1,0.1 ,0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1]},
 			slp: {
 				bed: [null,null,null],
     			slp: [null,null,null],
