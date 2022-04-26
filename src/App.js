@@ -158,7 +158,7 @@ class App extends Component {
 
 	//check for session on refresh
 	componentDidMount() {
-		alert(this.state.hs_fat);
+	
 
 //following code is for captering the code inside the url for withing		
 var url_string = window.location;
@@ -416,7 +416,7 @@ var options = {
 					
 					
 				//	console.log("stripNumber Fat is " + JSON.stringify(response.data));
-					alert("hi");
+				//	alert("hi");
 					console.log("new hs_fat i"+this.state.hs_fat);
 					document.getElementById("hs_fat").value = stripZeroNumberFat;
 					
