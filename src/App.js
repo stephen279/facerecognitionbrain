@@ -313,7 +313,7 @@ var options = {
 				getDiastolicMeas(response.data);
 			getSystolicMeas(response.data);
 			getHeartMeas(response.data);
-			getHeaightMeas(response.data);
+			getHeightMeas(response.data);
 			getHeightMeas(response.data);
 }).catch(function (error) {
 	console.error(error);
