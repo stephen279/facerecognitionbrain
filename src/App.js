@@ -204,7 +204,7 @@ var code = url.searchParams.get("code");
 									//console.log("before loaduser is called"+user);
 									this.loadUser(user);
 									this.onRouteChange('home');
-									var access = this.getAccessToken(code,this.getWithMeas,this.getWithFatMeas,this.getDiastolicMeas,this.getSystolicMeas, this.getHeartMeas);
+									var access = this.getAccessToken(code,this.getWithMeas,this.getHeightMeas,this.getWithFatMeas,this.getDiastolicMeas,this.getSystolicMeas, this.getHeartMeas);
 										
 									console.log("call the first .then")
 								
@@ -222,7 +222,7 @@ var code = url.searchParams.get("code");
 	}
 
 
-	getAccessToken = (code, getWithMeas, getWithFatMeas, getDiastolicMeas, getSystolicMeas ,getHeartMeas, getHeaightMeas) => {
+	getAccessToken = (code, getWithMeas, getWithFatMeas, getDiastolicMeas, getSystolicMeas ,getHeartMeas, getHeightMeas) => {
 		 console.log(code)
 
 		/*var url_string = window.location;
@@ -314,6 +314,7 @@ var options = {
 			getSystolicMeas(response.data);
 			getHeartMeas(response.data);
 			getHeaightMeas(response.data);
+			getHeightMeas(response.data);
 }).catch(function (error) {
 	console.error(error);
 });
