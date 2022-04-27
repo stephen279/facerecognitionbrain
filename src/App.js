@@ -598,7 +598,7 @@ var options = {
 						let responseHeightInt = response.data.body.measuregrps[0].measures[0].value;
 					let stripZeroNumberHeight = (responseHeightInt/1000);
 					console.log("stripNumber height is "+stripZeroNumberHeight);
-					document.getElementById("hs_height").value = stripZeroNumberHeight;
+					document.getElementById("hs_height").value = responseHeightInt;
 
 					
 				// document.getElementById("hs_height").value = response.data.body.measuregrps[0].measures[0].value
@@ -879,12 +879,14 @@ var config = {
 axios(config)
 .then(function (response) {
 	console.log(JSON.stringify(response.data));
-	let scr_result = response.data.components.bdy;
+	//let scr_result = response.data.components.bdy;
+	let scr_result = response.data.scr;
 		document.getElementById('score_result').innerHTML =  scr_result;
 
 })
 .catch(function (error) {
-  console.log(error);
+	console.log(error);
+	alert("Problem with request please check Input parameters");
 });
 		/*
 
