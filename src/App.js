@@ -596,9 +596,9 @@ var options = {
 					console.log(JSON.stringify(response.data));
 
 						let responseHeightInt = response.data.body.measuregrps[0].measures[0].value;
-					let stripZeroNumberHeight = (responseHeightInt/1000);
+					let stripZeroNumberHeight = (responseHeightInt/10);
 					console.log("stripNumber height is "+stripZeroNumberHeight);
-					document.getElementById("hs_height").value = responseHeightInt;
+					document.getElementById("hs_height").value = stripZeroNumberHeight;
 
 					
 				// document.getElementById("hs_height").value = response.data.body.measuregrps[0].measures[0].value
