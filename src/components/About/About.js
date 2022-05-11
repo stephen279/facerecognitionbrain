@@ -174,7 +174,7 @@ class About extends React.Component {
         <div className="w3-row-padding w3- w3-padding-64 w3-container">
           <div className="w3-content">
             <div className="w3-third w3-center ">
-              <i className="fa fa fa-heartbeat w3-padding-64 w3-text-purple w3-margin-right" />
+              <i className="fa fa fa-superpowers w3-padding-64 w3-text-purple w3-margin-right" />
             </div>
             <div className="w3-twothird">
               <h1>HealthScore</h1>
