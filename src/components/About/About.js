@@ -169,7 +169,25 @@ class About extends React.Component {
         </div>
         <div className="w3-container w3-black w3-center w3-opacity w3-padding-64">
           <h1 className="w3-margin w3-xlarge">Health tip of the day: Excercise for 15 minites a day helps overall mental health</h1>
+         </div>
+         {/* third Grid */}
+        <div className="w3-row-padding w3- w3-padding-64 w3-container">
+          <div className="w3-content">
+            <div className="w3-third w3-center ">
+              <i className="fa fa-user-circle-o  w3-padding-64 w3-text-purple w3-margin-right" />
+            </div>
+            <div className="w3-twothird">
+              <h1>Skin Disease</h1>
+              <h5 className="w3-padding-32">Get a healthscore from your Vital signs.</h5>
+              <p className="w3-text-grey">By Inputing your vital signs you can easily get a overall healthscore of your health.</p>
+            </div>
+          </div>
         </div>
+        <div className="w3-container w3-black w3-center w3-opacity w3-padding-64">
+          <h1 className="w3-margin w3-xlarge">Health tip of the day: Excercise for 15 minites a day helps overall mental health</h1>
+         </div>
+         
+
         {/* Footer */}
         <footer className="w3-container w3-padding-64 w3-center w3-opacity">  
           <div className="w3-xlarge w3-padding-32">
