@@ -177,9 +177,9 @@ class About extends React.Component {
               <i className="fa fa-user-circle-o  w3-padding-64 w3-text-purple w3-margin-right" />
             </div>
             <div className="w3-twothird">
-              <h1>Skin Disease</h1>
+              <h1>HealthScore</h1>
               <h5 className="w3-padding-32">Get a healthscore from your Vital signs.</h5>
-              <p className="w3-text-grey">By Inputing your vital signs you can easily get a overall healthscore of your health.</p>
+              <p className="w3-text-grey">By Inputing your vital signs you can easily get a overall healthscore of your health. Powered by dacadoo.</p>
             </div>
           </div>
         </div>
