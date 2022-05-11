@@ -167,14 +167,12 @@ class About extends React.Component {
             </div>
           </div>
         </div>
-        <div className="w3-container w3-black w3-center w3-opacity w3-padding-64">
-          <h1 className="w3-margin w3-xlarge">Health tip of the day: Excercise for 15 minites a day helps overall mental health</h1>
-         </div>
+    
          {/* third Grid */}
         <div className="w3-row-padding w3- w3-padding-64 w3-container">
           <div className="w3-content">
             <div className="w3-third w3-center ">
-              <i className="fa fa fa-superpowers w3-padding-64 w3-text-purple w3-margin-right" />
+              <i className="fa fa fa-superpowers-o w3-padding-64 w3-text-purple w3-margin-right" />
             </div>
             <div className="w3-twothird">
               <h1>HealthScore</h1>
@@ -184,6 +182,10 @@ class About extends React.Component {
           </div>
         </div>
         <div className="w3-container w3-black w3-center w3-opacity w3-padding-64">
+          <h1 className="w3-margin w3-xlarge">Health tip of the day: Excercise for 15 minites a day helps overall mental health</h1>
+         </div>
+
+             <div className="w3-container w3-black w3-center w3-opacity w3-padding-64">
           <h1 className="w3-margin w3-xlarge">Health tip of the day: Excercise for 15 minites a day helps overall mental health</h1>
          </div>
          
