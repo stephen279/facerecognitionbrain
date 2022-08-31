@@ -1076,6 +1076,8 @@ axios(config)
 
 
 	fileUploadHandler = () => {
+
+		this.showOperation();
 		
 	// this.showOperation
 		console.log("inside file upload" + this.state.selectedFile);
