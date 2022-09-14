@@ -1196,7 +1196,7 @@ axios(config)
 
 
 		if (this.checkSession() || route == 'registers') {
-			this.setState({ isSignedIn: true })
+			//this.setState({ isSignedIn: true })
 		
 			this.setState({ route: route });
 		} else {
