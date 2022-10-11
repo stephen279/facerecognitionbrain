@@ -770,7 +770,7 @@ var options = {
 			params: { gender: gender, year_of_birth: age, symptoms: '[' + symptoms + ',' + symptoms1 + ',' + symptoms2 + ']', language: 'en-gb' },
 			headers: {
 				//'x-rapidapi-key': 'KDAgUABLa0kdebkpsNP6se5XDK4f5e6GEhGh41EZ',
-				'x-rapidapi-key': '3b5c37eca6msh16cc56dbeca52cfp1bdf10jsn63b2a383dcbd',
+				'x-rapidapi-key': '3384ad4738mshbbb72e2436758a2p1878c5jsn715a353a6b05',
 				'x-rapidapi-host': 'priaid-symptom-checker-v1.p.rapidapi.com'
 			}
 
